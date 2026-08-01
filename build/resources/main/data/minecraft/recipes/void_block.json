@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "create:brass_ingot"
+    },
+    "*": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#*#",
+    " # "
+  ],
+  "result": {
+    "item": "create_void:void_block"
+  },
+  "show_notification": false
+}

@@ -72,7 +72,9 @@ public class WateringCategory extends CreateRecipeCategory<WateringRecipe> {
                 })
                 .toList();
 
+        // 传入所需流体，让 Spout 动画渲染水箱内流体和向下流动的流体柱
         spout.withTarget(targets)
+                .withFluids(recipe.getRequiredFluid().getMatchingFluidStacks())
                 .draw(gfx, getBackground().getWidth() / 2 - 13, 22);
     }
 }

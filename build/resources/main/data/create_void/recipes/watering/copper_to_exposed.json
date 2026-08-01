@@ -5,6 +5,6 @@
     {"fluid": "minecraft:water", "amount": 250}
   ],
   "results": [
-    {"item": "minecraft:exposed_copper"}
+    {"item": "minecraft:exposed_copper", "count": 1}
   ]
 }

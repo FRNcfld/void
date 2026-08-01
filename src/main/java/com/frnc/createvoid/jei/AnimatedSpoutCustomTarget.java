@@ -1,12 +1,17 @@
 package com.frnc.createvoid.jei;
 
+import com.mojang.blaze3d.platform.Lighting;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.Tesselator;
+import com.mojang.math.Axis;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllPartialModels;
 import com.simibubi.create.compat.jei.category.animations.AnimatedKinetics;
 import net.createmod.catnip.animation.AnimationTickHolder;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
+import net.createmod.catnip.gui.UIRenderHelper;
+import net.createmod.catnip.platform.ForgeCatnipServices;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fluids.FluidStack;
@@ -17,7 +22,10 @@ import java.util.List;
  * 3D Spout 动画渲染（用于 JEI 配方显示）。
  * <p>
  * 包含 Spout 三个可动部件（顶部/中间/底部）的上下振荡动画、
- * 以及目标方块的 3D 渲染。流体已在 JEI 流体槽中显示。
+ * 目标方块的 3D 渲染，以及流体特效（Spout 水箱内的流体 + 向下流动的流体柱）。
+ * </p>
+ * <p>
+ * 参照 Create 官方 {@code AnimatedSpout} 的流体渲染实现。
  * </p>
  */
 public class AnimatedSpoutCustomTarget extends AnimatedKinetics {
@@ -73,6 +81,39 @@ public class AnimatedSpoutCustomTarget extends AnimatedKinetics {
                     .atLocal(0, 2, 0)
                     .scale(scale)
                     .render(gfx);
+        }
+
+        // 6. 流体特效：Spout 水箱内流体 + 向下流动的流体柱（随振荡动画伸缩）
+        if (!fluids.isEmpty()) {
+            FluidStack fluid = fluids.get(0);
+            MultiBufferSource.BufferSource bufferSource =
+                    MultiBufferSource.immediate(Tesselator.getInstance().getBuilder());
+
+            // 6a. Spout 水箱内的流体
+            pose.pushPose();
+            UIRenderHelper.flipForGuiRender(pose);
+            pose.scale(16f, 16f, 16f);
+            float from = 0.1875f;
+            float to = 1.0625f;
+            ForgeCatnipServices.FLUID_RENDERER.renderFluidBox(
+                    fluid, from, from, from, to, to, to,
+                    gfx.bufferSource(), pose, 15728880, false, true);
+            pose.popPose();
+
+            // 6b. 向下流动的流体柱（宽度随振荡动画变化，模拟喷射/滴落）
+            float fall = 0.0078125f * anim;
+            pose.translate(scale / 2f, scale * 1.5f, scale / 2f);
+            UIRenderHelper.flipForGuiRender(pose);
+            pose.scale(16f, 16f, 16f);
+            pose.translate(-0.5f, 0f, -0.5f);
+            float half = fall / 2f;
+            ForgeCatnipServices.FLUID_RENDERER.renderFluidBox(
+                    fluid, 0.5f - half, 0f, 0.5f - half,
+                    0.5f + half, 2f, 0.5f + half,
+                    gfx.bufferSource(), pose, 15728880, false, true);
+
+            bufferSource.endBatch();
+            Lighting.setupFor3DItems();
         }
 
         pose.popPose();

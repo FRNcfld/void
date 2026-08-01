@@ -1,0 +1,10 @@
+{
+  "type": "create_void:watering",
+  "ingredients": [
+    {"item": "create:copper_casing"},
+    {"fluid": "create_void:kelp_gel", "amount": 250}
+  ],
+  "results": [
+    {"item": "create_void:copper_machine", "count": 1}
+  ]
+}

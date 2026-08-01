@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Specification-Title: create_void
+Specification-Vendor: FRNc
+Specification-Version: 1
+Implementation-Title: void
+Implementation-Version: 1.0.0-1.20.1
+Implementation-Vendor: FRNc
+Implementation-Timestamp: 2026-08-02T04:57:57+0800
+MixinConfigs: mixins.create_void.json
+

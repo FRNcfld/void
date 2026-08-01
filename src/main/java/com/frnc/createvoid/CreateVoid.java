@@ -4,7 +4,9 @@ import com.frnc.createvoid.block.ModBlocks;
 import com.frnc.createvoid.fluid.ModFluids;
 import com.frnc.createvoid.item.ModCreativeModeTabs;
 import com.frnc.createvoid.item.ModItems;
+import com.frnc.createvoid.sound.ModSounds;
 import com.frnc.createvoid.wateringrecipes.RecipeTypes;
+import com.frnc.createvoid.wateringrecipes.WateringBehaviour;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
@@ -48,6 +50,7 @@ public class CreateVoid
         ModBlocks.register(modEventBus);
         ModFluids.FLUIDS.register(modEventBus);
         ModFluids.FLUID_TYPES.register(modEventBus);
+        ModSounds.SOUND_EVENTS.register(modEventBus);
         RecipeTypes.register(modEventBus);
 
 
@@ -63,6 +66,9 @@ public class CreateVoid
     {
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
+
+        // 通过 Create 官方注册表注册浇水行为（铜块 → WateringBehaviour.INSTANCE）
+        WateringBehaviour.registerBlockBehaviours();
 
         if (Config.logDirtBlock)
             LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));

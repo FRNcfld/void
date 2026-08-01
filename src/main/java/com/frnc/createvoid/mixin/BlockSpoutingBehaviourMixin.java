@@ -10,20 +10,20 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /**
- * 注入到 Create 的 {@link BlockSpoutingBehaviour#get(Level, BlockPos)} 方法头部。
+ * 兜底注入：在 Create 的 {@link BlockSpoutingBehaviour#get(Level, BlockPos)} 头部
+ * 动态检查浇水配方。
  * <p>
- * 在 Create 查询方块喷淋行为之前，先检查是否有浇水配方匹配该方块。
- * 如果匹配，直接返回 {@link WateringBehaviour#INSTANCE}，从而触发浇水逻辑。
- * </p>
- * <p>
- * 这是整个浇水系统的入口点：没有此 Mixin，Spout 不会知道某个方块有浇水配方。
+ * 主要路径是 {@link WateringBehaviour#registerBlockBehavioursFromRecipes} 将配方输入
+ * 方块注册进官方 {@code BY_BLOCK} 注册表；此 Mixin 仅作为额外兜底，覆盖注册表之外
+ * 的、运行期才出现的配方输入方块。
  * </p>
  */
 @Mixin(value = BlockSpoutingBehaviour.class, remap = false)
 public interface BlockSpoutingBehaviourMixin {
 
     @Inject(
-            method = "get(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)" +
+            method = "get(Lnet/minecraft/world/level/Level;" +
+                     "Lnet/minecraft/core/BlockPos;)" +
                      "Lcom/simibubi/create/api/behaviour/spouting/BlockSpoutingBehaviour;",
             at = @At("HEAD"),
             cancellable = true,
@@ -31,7 +31,7 @@ public interface BlockSpoutingBehaviourMixin {
     )
     private static void createVoid$beforeGet(Level level, BlockPos pos,
                                               CallbackInfoReturnable<BlockSpoutingBehaviour> cir) {
-        if (WateringBehaviour.hasRecipe(level, level.getBlockState(pos))) {
+        if (WateringBehaviour.getRecipe(level, level.getBlockState(pos))) {
             cir.setReturnValue(WateringBehaviour.INSTANCE);
         }
     }

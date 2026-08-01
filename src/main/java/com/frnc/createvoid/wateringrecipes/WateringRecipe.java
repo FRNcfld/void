@@ -4,12 +4,10 @@ import com.simibubi.create.content.processing.recipe.ProcessingRecipe;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
 import com.simibubi.create.foundation.fluid.FluidIngredient;
 import net.minecraft.world.Container;
-//import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-//import net.minecraftforge.fluids.FluidStack;
 
 /**
  * 浇水配方：流体 + 方块 → 替换方块。
@@ -63,27 +61,15 @@ public class WateringRecipe extends ProcessingRecipe<Container> {
     // ==================== Recipe 接口实现 ====================
 
     /**
-     * 配方匹配（容器模式，供 JEI/REI 等配方查看器使用）。
-     * 实际游戏中浇水配方通过 {@link WateringBehaviour} 匹配方块而非容器。
+     * 配方匹配始终返回 true。
+     * <p>
+     * 实际的方块+流体匹配在 {@link WateringBehaviour#fillBlock} 中完成，
+     * 此处的 matches() 仅用于配方查看器（JEI/REI）的容器模式展示。
+     * </p>
      */
     @Override
     public boolean matches(Container container, Level level) {
-        if (getIngredients().isEmpty()) return false;
-        return container.getContainerSize() > 0
-                && getIngredients().get(0).test(container.getItem(0));
-    }
-
-    // ==================== 辅助方法 ====================
-
-    /**
-     * 获取配方所需的流体原料（第一个，也是唯一的一个）。
-     *
-     * @return 流体原料；如果配方没有定义则返回 {@link FluidIngredient#EMPTY}
-     */
-    public FluidIngredient getRequiredFluid() {
-        if (getFluidIngredients().isEmpty())
-            return FluidIngredient.EMPTY;
-        return getFluidIngredients().get(0);
+        return true;
     }
 
     /**
@@ -97,6 +83,20 @@ public class WateringRecipe extends ProcessingRecipe<Container> {
         if (getIngredients().isEmpty()) return false;
         Ingredient ingredient = getIngredients().get(0);
         return ingredient.test(state.getBlock().asItem().getDefaultInstance());
+    }
+
+    // ==================== 辅助方法 ====================
+
+    /**
+     * 获取配方所需的流体原料（第一个，也是唯一的一个）。
+     *
+     * @return 流体原料
+     * @throws IllegalStateException 如果配方没有定义流体原料
+     */
+    public FluidIngredient getRequiredFluid() {
+        if (getFluidIngredients().isEmpty())
+            throw new IllegalStateException("Watering Recipe: has no fluid ingredient!");
+        return getFluidIngredients().get(0);
     }
 
     // ==================== 序列化 ====================

@@ -4,6 +4,8 @@
   "item.create_void.iron_mechanism": "铁构件",
   "item.create_void.incomplete_brass_machine": "未完成的黄铜机械",
   "item.create_void.kelp_gel_bucket": "海带胶桶",
+  "item.create_void.la_vaguette": "轻涟",
+  "item.create_void.la_vaguette.desc": "音乐唱片 — 轻涟",
 
   "block.create_void.andesite_machine": "安山机械",
   "block.create_void.copper_machine": "铜机械",

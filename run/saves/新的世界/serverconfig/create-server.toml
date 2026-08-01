@@ -10,7 +10,7 @@
 	tickrateSyncTimer = 20
 
 #.
-#Packmakers' control panel for internal wateringrecipes compat
+#Packmakers' control panel for internal recipe compat
 [recipes]
 	#.
 	#.
@@ -52,7 +52,7 @@
 	#Allow the standard in-world Refined Radiance recipes.
 	enableRefinedRadianceRecipe = true
 	#.
-	#Allow the standard in-world Shadow Steel wateringrecipes.
+	#Allow the standard in-world Shadow Steel recipe.
 	enableShadowSteelRecipe = true
 
 #.
@@ -133,7 +133,7 @@
 		#Range: > 64
 		fanRotationArgmax = 256
 		#.
-		#Game ticks required for a Fan-based processing wateringrecipes to take effect.
+		#Game ticks required for a Fan-based processing recipe to take effect.
 		#Range: > 0
 		fanProcessingTime = 150
 

@@ -1,9 +1,11 @@
 package com.frnc.createvoid.datagen;
 
 import com.frnc.createvoid.CreateVoid;
+import com.frnc.createvoid.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -18,6 +20,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-
+        this.tag(ItemTags.MUSIC_DISCS).add(ModItems.LA_VAGUELETTE.get());
     }
 }

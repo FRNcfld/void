@@ -4,6 +4,8 @@
   "item.create_void.iron_mechanism": "iron_mechanism",
   "item.create_void.incomplete_brass_machine": "incomplete_brass_machine",
   "item.create_void.kelp_gel_bucket": "Kelp Gel Bucket",
+  "item.create_void.la_vaguette": "La Vaguelette",
+  "item.create_void.la_vaguette.desc": "Disc — La Vaguelette",
 
   "block.create_void.andesite_machine": "andesite_machine",
   "block.create_void.copper_machine": "copper_machine",
