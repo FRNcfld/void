@@ -8,11 +8,11 @@ logoFile = "assets/create_void/Logo.png"
 
 modId="create_void"
 
-version="1.20.1"
+version="1.20.1-1.0.0"
 
-displayName="菌染末日"
+displayName="虚空科技"
 
-description='''菌染末日魔改mod'''
+description='''体验优化向mod'''
 
 [[dependencies.create_void]]
     modId="forge"
