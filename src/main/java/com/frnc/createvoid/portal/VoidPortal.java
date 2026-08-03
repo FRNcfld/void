@@ -1,5 +1,6 @@
 package com.frnc.createvoid.portal;
 
+import com.frnc.createvoid.block.custom.VoxelShapes;
 import com.frnc.createvoid.world.dimension.ModDimension;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -30,8 +31,8 @@ import java.util.List;
 
 public class VoidPortal extends Block {
 
-    // 匹配模型：16x3x16像素的扁平薄板
-    private static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 3.0, 16.0);
+    // 匹配模型：16x3x16像素的扁平薄板（定义于 block/custom/VoxelShapes）
+    private static final VoxelShape SHAPE = VoxelShapes.VOID_BLOCK;
 
     // 冷却时间（单位：游戏刻，20刻 = 1秒）
     private static final int COOLDOWN_TICKS = 60;

@@ -1,6 +1,10 @@
 package com.frnc.createvoid.block;
 
 import com.frnc.createvoid.CreateVoid;
+import com.frnc.createvoid.block.custom.AndesiteMachineBlock;
+import com.frnc.createvoid.block.custom.BrassMachineBlock;
+import com.frnc.createvoid.block.custom.CopperMachineBlock;
+import com.frnc.createvoid.block.custom.RedstoneMachineBlock;
 import com.frnc.createvoid.fluid.ModFluids;
 import com.frnc.createvoid.item.ModItems;
 import com.frnc.createvoid.portal.VoidPortal;
@@ -23,28 +27,28 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, CreateVoid.MOD_ID);
 
     public static final RegistryObject<Block> ANDESITE_MACHINE =
-            registerBlock("andesite_machine", () -> new Block(BlockBehaviour.Properties.of()
+            registerBlock("andesite_machine", () -> new AndesiteMachineBlock(BlockBehaviour.Properties.of()
                     .sound(SoundType.STONE)
                     .requiresCorrectToolForDrops()
                     .noOcclusion()
                     .strength(0.5f, 3.0f)));
 
     public static final RegistryObject<Block> COPPER_MACHINE =
-            registerBlock("copper_machine", () -> new Block(BlockBehaviour.Properties.of()
+            registerBlock("copper_machine", () -> new CopperMachineBlock(BlockBehaviour.Properties.of()
                     .sound(SoundType.STONE)
                     .requiresCorrectToolForDrops()
                     .noOcclusion()
                     .strength(0.5f, 3.0f)));
 
     public static final RegistryObject<Block> BRASS_MACHINE =
-            registerBlock("brass_machine", () -> new Block(BlockBehaviour.Properties.of()
+            registerBlock("brass_machine", () -> new BrassMachineBlock(BlockBehaviour.Properties.of()
                     .sound(SoundType.STONE)
                     .requiresCorrectToolForDrops()
                     .noOcclusion()
                     .strength(0.5f, 3.0f)));
 
     public static final RegistryObject<Block> REDSTONE_MACHINE =
-            registerBlock("redstone_machine", () -> new Block(BlockBehaviour.Properties.of()
+            registerBlock("redstone_machine", () -> new RedstoneMachineBlock(BlockBehaviour.Properties.of()
                     .sound(SoundType.STONE)
                     .requiresCorrectToolForDrops()
                     .noOcclusion()

@@ -20,12 +20,12 @@
 			"from": [0, 0, 0],
 			"to": [16, 6, 16],
 			"faces": {
-				"north": {"uv": [2, 0, 4, 2], "texture": "#1"},
-				"east": {"uv": [0, 0, 2, 1], "texture": "#1"},
-				"south": {"uv": [2, 0, 4, 2], "texture": "#1"},
-				"west": {"uv": [0, 0, 2, 1], "texture": "#1"},
+				"north": {"uv": [2, 0, 4, 2], "texture": "#1", "cullface": "north"},
+				"east": {"uv": [0, 0, 2, 1], "texture": "#1", "cullface": "east"},
+				"south": {"uv": [2, 0, 4, 2], "texture": "#1", "cullface": "south"},
+				"west": {"uv": [0, 0, 2, 1], "texture": "#1", "cullface": "west"},
 				"up": {"uv": [6, 0, 8, 2], "texture": "#1"},
-				"down": {"uv": [0, 6, 2, 8], "texture": "#1"}
+				"down": {"uv": [0, 6, 2, 8], "texture": "#1", "cullface": "down"}
 			}
 		},
 		{
@@ -240,6 +240,19 @@
 				"up": {"uv": [11, 2, 15, 2.5], "texture": "#3"},
 				"down": {"uv": [11, 2, 15, 2.5], "texture": "#3"}
 			}
+		},
+		{
+			"from": [0, 0, 0],
+			"to": [2, 2, 2],
+			"color": 9,
+			"faces": {
+				"north": {"uv": [0, 0, 2, 2], "texture": "#missing"},
+				"east": {"uv": [0, 0, 2, 2], "texture": "#missing"},
+				"south": {"uv": [0, 0, 2, 2], "texture": "#missing"},
+				"west": {"uv": [0, 0, 2, 2], "texture": "#missing"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#missing"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#missing"}
+			}
 		}
 	],
 	"display": {
@@ -262,7 +275,6 @@
 			"scale": [0.25, 0.25, 0.25]
 		},
 		"gui": {
-			"rotation": [0, 60, 0],
 			"translation": [0.5, 0, 0],
 			"scale": [0.8, 0.8, 0.8]
 		},
@@ -273,32 +285,41 @@
 		}
 	},
 	"groups": [
-		0,
-		1,
 		{
-			"name": "group",
-			"origin": [1, 0, 0],
+			"name": "VoxelShapes",
+			"origin": [0, 0, 0],
 			"scope": 0,
 			"color": 0,
-			"children": [2, 3, 4]
-		},
-		{
-			"name": "group",
-			"origin": [1, 0, 0],
-			"scope": 0,
-			"color": 0,
-			"children": [5, 6, 7]
-		},
-		8,
-		9,
-		10,
-		11,
-		12,
-		13,
-		14,
-		15,
-		16,
-		17,
-		18
+			"children": [
+				0,
+				1,
+				{
+					"name": "group",
+					"origin": [1, 0, 0],
+					"scope": 0,
+					"color": 0,
+					"children": [2, 3, 4]
+				},
+				{
+					"name": "group",
+					"origin": [1, 0, 0],
+					"scope": 0,
+					"color": 0,
+					"children": [5, 6, 7]
+				},
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19
+			]
+		}
 	]
 }
