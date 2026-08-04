@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "create_void:la_vaguette"
+    "create_void:la_vaguette",
+    "create_void:cry_for_me"
   ]
 }

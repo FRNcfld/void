@@ -15,7 +15,7 @@ public class ModSounds {
 
     public static final RegistryObject<SoundEvent> LA_VAGUELETTE = registerSoundEvent("la_vaguette");
 
-    //public static final RegistryObject<SoundEvent> SW = registerSoundEvent("sw");
+    public static final RegistryObject<SoundEvent> CRY_FOR_ME = registerSoundEvent("cry_for_me");
 
     private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
         ResourceLocation id = ResourceLocation.fromNamespaceAndPath(CreateVoid.MOD_ID, name);

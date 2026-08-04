@@ -18,6 +18,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> IRON_MECHANISM =
             ITEMS.register("iron_mechanism", ()->new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> INCOMPLETE_BRASS_MACHINE =
             ITEMS.register("incomplete_brass_machine", ()->new Item(new Item.Properties()));
 
@@ -29,6 +30,10 @@ public class ModItems {
     public static final RegistryObject<Item> LA_VAGUELETTE =
             ITEMS.register("la_vaguette",
                     () -> new RecordItem(15, ModSounds.LA_VAGUELETTE, new Item.Properties().stacksTo(1), 149 * 20));
+
+    public static final RegistryObject<Item> CRY_FOR_ME =
+            ITEMS.register("cry_for_me",
+                    () -> new RecordItem(15, ModSounds.CRY_FOR_ME, new Item.Properties().stacksTo(1), 302 * 20));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

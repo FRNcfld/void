@@ -3,8 +3,8 @@ Specification-Title: create_void
 Specification-Vendor: FRNc
 Specification-Version: 1
 Implementation-Title: void
-Implementation-Version: 1.0.0-1.20.1
+Implementation-Version: 1.0.1-1.20.1
 Implementation-Vendor: FRNc
-Implementation-Timestamp: 2026-08-04T01:59:53+0800
+Implementation-Timestamp: 2026-08-05T01:33:12+0800
 MixinConfigs: mixins.create_void.json
 
