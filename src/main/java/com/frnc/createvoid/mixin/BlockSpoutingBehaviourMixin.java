@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  * </p>
  */
 @Mixin(value = BlockSpoutingBehaviour.class, remap = false)
-public interface BlockSpoutingBehaviourMixin {
+public abstract class BlockSpoutingBehaviourMixin {
 
     @Inject(
             method = "get(Lnet/minecraft/world/level/Level;" +
@@ -29,8 +29,8 @@ public interface BlockSpoutingBehaviourMixin {
             cancellable = true,
             remap = false
     )
-    private static void createVoid$beforeGet(Level level, BlockPos pos,
-                                              CallbackInfoReturnable<BlockSpoutingBehaviour> cir) {
+    public static void createVoid$beforeGet(Level level, BlockPos pos,
+                                            CallbackInfoReturnable<BlockSpoutingBehaviour> cir) {
         if (WateringBehaviour.getRecipe(level, level.getBlockState(pos))) {
             cir.setReturnValue(WateringBehaviour.INSTANCE);
         }

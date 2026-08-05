@@ -6,9 +6,13 @@
   "refmap": "create_void.refmap.json",
   "plugin": "com.frnc.createvoid.mixin.MixinPlugin",
   "mixins": [
-    "BlockSpoutingBehaviourMixin",
     "FluidManipulationBehaviourMixin"
   ],
-  "client": [],
+  "client": [
+    "OpenCreateMenuButtonHandlerMixin",
+    "ScreenInvoker",
+    "TitleScreenMixin",
+    "BrandingControlMixin"
+  ],
   "server": []
 }
