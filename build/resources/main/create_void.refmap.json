@@ -1,0 +1,24 @@
+{
+    "mappings": {
+        "com/frnc/createvoid/mixin/TitleScreenMixin": {
+            "init": "Lnet/minecraft/client/gui/screens/TitleScreen;m_7856_()V"
+        },
+        "com/frnc/createvoid/mixin/ScreenInvoker": {
+            "width": "f_96543_:I",
+            "height": "f_96544_:I",
+            "addRenderableWidget": "Lnet/minecraft/client/gui/screens/Screen;m_142416_(Lnet/minecraft/client/gui/components/events/GuiEventListener;)Lnet/minecraft/client/gui/components/events/GuiEventListener;"
+        }
+    },
+    "data": {
+        "searge": {
+            "com/frnc/createvoid/mixin/TitleScreenMixin": {
+                "init": "Lnet/minecraft/client/gui/screens/TitleScreen;m_7856_()V"
+            },
+            "com/frnc/createvoid/mixin/ScreenInvoker": {
+                "width": "f_96543_:I",
+                "height": "f_96544_:I",
+                "addRenderableWidget": "Lnet/minecraft/client/gui/screens/Screen;m_142416_(Lnet/minecraft/client/gui/components/events/GuiEventListener;)Lnet/minecraft/client/gui/components/events/GuiEventListener;"
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+Java Launcher: E:\Java\jdk17\bin\java.exe
+Arguments: '--task, SRG_TO_MCP, --input, C:\Users\26423\.gradle\caches\modules-2\files-2.1\com.simibubi.create\create-1.20.1\6.0.8-289\25f4470ff5914550297f149765a2352c6ad96186\create-1.20.1-6.0.8-289-slim.jar, --output, C:\Users\26423\.gradle\caches\forge_gradle\deobf_dependencies\com\simibubi\create\create-1.20.1\6.0.8-289_mapped_parchment_2023.09.03-1.20.1\create-1.20.1-6.0.8-289_mapped_parchment_2023.09.03-1.20.1-slim.jar, --mcp, C:\Users\26423\.gradle\caches\forge_gradle\maven_downloader\net\minecraft\mappings_parchment\2023.09.03-1.20.1\mappings_parchment-2023.09.03-1.20.1.zip, --strip-signatures'
+Classpath:
+ - C:\Users\26423\.gradle\caches\forge_gradle\maven_downloader\net\minecraftforge\installertools\1.4.4\installertools-1.4.4-fatjar.jar
+Working directory: E:\GitHub Desktop\repository\void\build\_RenameSrg2Mcp_-363268792
+Main class: net.minecraftforge.installertools.ConsoleTool
+====================================
+Task: SRG_TO_MCP
+Input:  C:\Users\26423\.gradle\caches\modules-2\files-2.1\com.simibubi.create\create-1.20.1\6.0.8-289\25f4470ff5914550297f149765a2352c6ad96186\create-1.20.1-6.0.8-289-slim.jar
+Output: C:\Users\26423\.gradle\caches\forge_gradle\deobf_dependencies\com\simibubi\create\create-1.20.1\6.0.8-289_mapped_parchment_2023.09.03-1.20.1\create-1.20.1-6.0.8-289_mapped_parchment_2023.09.03-1.20.1-slim.jar
+MCP:    C:\Users\26423\.gradle\caches\forge_gradle\maven_downloader\net\minecraft\mappings_parchment\2023.09.03-1.20.1\mappings_parchment-2023.09.03-1.20.1.zip
+Loading MCP Data

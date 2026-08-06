@@ -1,0 +1,113 @@
+﻿Compiled from "MappingProvider.java"
+public abstract class org.spongepowered.tools.obfuscation.mapping.common.MappingProvider implements org.spongepowered.tools.obfuscation.mapping.IMappingProvider {
+  protected final javax.annotation.processing.Messager messager;
+
+  protected final javax.annotation.processing.Filer filer;
+
+  protected final com.google.common.collect.BiMap<java.lang.String, java.lang.String> packageMap;
+
+  protected final com.google.common.collect.BiMap<java.lang.String, java.lang.String> classMap;
+
+  protected final com.google.common.collect.BiMap<org.spongepowered.asm.obfuscation.mapping.common.MappingField, org.spongepowered.asm.obfuscation.mapping.common.MappingField> fieldMap;
+
+  protected final com.google.common.collect.BiMap<org.spongepowered.asm.obfuscation.mapping.common.MappingMethod, org.spongepowered.asm.obfuscation.mapping.common.MappingMethod> methodMap;
+
+  public org.spongepowered.tools.obfuscation.mapping.common.MappingProvider(javax.annotation.processing.Messager, javax.annotation.processing.Filer);
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: invokestatic  #2                  // Method com/google/common/collect/HashBiMap.create:()Lcom/google/common/collect/HashBiMap;
+       8: putfield      #3                  // Field packageMap:Lcom/google/common/collect/BiMap;
+      11: aload_0
+      12: invokestatic  #2                  // Method com/google/common/collect/HashBiMap.create:()Lcom/google/common/collect/HashBiMap;
+      15: putfield      #4                  // Field classMap:Lcom/google/common/collect/BiMap;
+      18: aload_0
+      19: invokestatic  #2                  // Method com/google/common/collect/HashBiMap.create:()Lcom/google/common/collect/HashBiMap;
+      22: putfield      #5                  // Field fieldMap:Lcom/google/common/collect/BiMap;
+      25: aload_0
+      26: invokestatic  #2                  // Method com/google/common/collect/HashBiMap.create:()Lcom/google/common/collect/HashBiMap;
+      29: putfield      #6                  // Field methodMap:Lcom/google/common/collect/BiMap;
+      32: aload_0
+      33: aload_1
+      34: putfield      #7                  // Field messager:Ljavax/annotation/processing/Messager;
+      37: aload_0
+      38: aload_2
+      39: putfield      #8                  // Field filer:Ljavax/annotation/processing/Filer;
+      42: return
+
+  public void clear();
+    Code:
+       0: aload_0
+       1: getfield      #3                  // Field packageMap:Lcom/google/common/collect/BiMap;
+       4: invokeinterface #9,  1            // InterfaceMethod com/google/common/collect/BiMap.clear:()V
+       9: aload_0
+      10: getfield      #4                  // Field classMap:Lcom/google/common/collect/BiMap;
+      13: invokeinterface #9,  1            // InterfaceMethod com/google/common/collect/BiMap.clear:()V
+      18: aload_0
+      19: getfield      #5                  // Field fieldMap:Lcom/google/common/collect/BiMap;
+      22: invokeinterface #9,  1            // InterfaceMethod com/google/common/collect/BiMap.clear:()V
+      27: aload_0
+      28: getfield      #6                  // Field methodMap:Lcom/google/common/collect/BiMap;
+      31: invokeinterface #9,  1            // InterfaceMethod com/google/common/collect/BiMap.clear:()V
+      36: return
+
+  public boolean isEmpty();
+    Code:
+       0: aload_0
+       1: getfield      #3                  // Field packageMap:Lcom/google/common/collect/BiMap;
+       4: invokeinterface #10,  1           // InterfaceMethod com/google/common/collect/BiMap.isEmpty:()Z
+       9: ifeq          52
+      12: aload_0
+      13: getfield      #4                  // Field classMap:Lcom/google/common/collect/BiMap;
+      16: invokeinterface #10,  1           // InterfaceMethod com/google/common/collect/BiMap.isEmpty:()Z
+      21: ifeq          52
+      24: aload_0
+      25: getfield      #5                  // Field fieldMap:Lcom/google/common/collect/BiMap;
+      28: invokeinterface #10,  1           // InterfaceMethod com/google/common/collect/BiMap.isEmpty:()Z
+      33: ifeq          52
+      36: aload_0
+      37: getfield      #6                  // Field methodMap:Lcom/google/common/collect/BiMap;
+      40: invokeinterface #10,  1           // InterfaceMethod com/google/common/collect/BiMap.isEmpty:()Z
+      45: ifeq          52
+      48: iconst_1
+      49: goto          53
+      52: iconst_0
+      53: ireturn
+
+  public org.spongepowered.asm.obfuscation.mapping.common.MappingMethod getMethodMapping(org.spongepowered.asm.obfuscation.mapping.common.MappingMethod);
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field methodMap:Lcom/google/common/collect/BiMap;
+       4: aload_1
+       5: invokeinterface #11,  2           // InterfaceMethod com/google/common/collect/BiMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      10: checkcast     #12                 // class org/spongepowered/asm/obfuscation/mapping/common/MappingMethod
+      13: areturn
+
+  public org.spongepowered.asm.obfuscation.mapping.common.MappingField getFieldMapping(org.spongepowered.asm.obfuscation.mapping.common.MappingField);
+    Code:
+       0: aload_0
+       1: getfield      #5                  // Field fieldMap:Lcom/google/common/collect/BiMap;
+       4: aload_1
+       5: invokeinterface #11,  2           // InterfaceMethod com/google/common/collect/BiMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      10: checkcast     #13                 // class org/spongepowered/asm/obfuscation/mapping/common/MappingField
+      13: areturn
+
+  public java.lang.String getClassMapping(java.lang.String);
+    Code:
+       0: aload_0
+       1: getfield      #4                  // Field classMap:Lcom/google/common/collect/BiMap;
+       4: aload_1
+       5: invokeinterface #11,  2           // InterfaceMethod com/google/common/collect/BiMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      10: checkcast     #14                 // class java/lang/String
+      13: areturn
+
+  public java.lang.String getPackageMapping(java.lang.String);
+    Code:
+       0: aload_0
+       1: getfield      #3                  // Field packageMap:Lcom/google/common/collect/BiMap;
+       4: aload_1
+       5: invokeinterface #11,  2           // InterfaceMethod com/google/common/collect/BiMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      10: checkcast     #14                 // class java/lang/String
+      13: areturn
+}

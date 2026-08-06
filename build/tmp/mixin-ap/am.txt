@@ -1,0 +1,93 @@
+﻿Compiled from "AnnotatedMixinElementHandlerAccessor.java"
+class org.spongepowered.tools.obfuscation.AnnotatedMixinElementHandlerAccessor extends org.spongepowered.tools.obfuscation.AnnotatedMixinElementHandler {
+  public org.spongepowered.tools.obfuscation.AnnotatedMixinElementHandlerAccessor(org.spongepowered.tools.obfuscation.interfaces.IMixinAnnotationProcessor, org.spongepowered.tools.obfuscation.AnnotatedMixin);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokespecial #1                  // Method org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler."<init>":(Lorg/spongepowered/tools/obfuscation/interfaces/IMixinAnnotationProcessor;Lorg/spongepowered/tools/obfuscation/AnnotatedMixin;)V
+       6: return
+
+  public void registerAccessor(org.spongepowered.tools.obfuscation.AnnotatedMixinElementHandlerAccessor$AnnotatedElementAccessor);
+    Code:
+       0: aload_1
+       1: invokevirtual #2                  // Method org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandlerAccessor$AnnotatedElementAccessor.getAccessorType:()Lorg/spongepowered/asm/mixin/gen/AccessorInfo$AccessorType;
+       4: ifnonnull     21
+       7: aload_1
+       8: aload_0
+       9: getfield      #3                  // Field ap:Lorg/spongepowered/tools/obfuscation/interfaces/IMixinAnnotationProcessor;
+      12: getstatic     #4                  // Field org/spongepowered/tools/obfuscation/interfaces/IMessagerEx$MessageType.ACCESSOR_TYPE_UNSUPPORTED:Lorg/spongepowered/tools/obfuscation/interfaces/IMessagerEx$MessageType;
+      15: ldc           #5                  // String Unsupported accessor type
+      17: invokevirtual #6                  // Method org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandlerAccessor$AnnotatedElementAccessor.printMessage:(Lorg/spongepowered/tools/obfuscation/interfaces/IMessagerEx;Lorg/spongepowered/tools/obfuscation/interfaces/IMessagerEx$MessageType;Ljava/lang/CharSequence;)V
+      20: return
+      21: aload_0
+      22: aload_1
+      23: invokespecial #7                  // Method getAccessorTargetName:(Lorg/spongepowered/tools/obfuscation/AnnotatedMixinElementHandlerAccessor$AnnotatedElementAccessor;)Ljava/lang/String;
+      26: astore_2
+      27: aload_2
+      28: ifnonnull     45
+      31: aload_1
+      32: aload_0
+      33: getfield      #3                  // Field ap:Lorg/spongepowered/tools/obfuscation/interfaces/IMixinAnnotationProcessor;
+      36: getstatic     #8                  // Field org/spongepowered/tools/obfuscation/interfaces/IMessagerEx$MessageType.ACCESSOR_NAME_UNRESOLVED:Lorg/spongepowered/tools/obfuscation/interfaces/IMessagerEx$MessageType;
+      39: ldc           #9                  // String Cannot inflect accessor target name
+      41: invokevirtual #6                  // Method org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandlerAccessor$AnnotatedElementAccessor.printMessage:(Lorg/spongepowered/tools/obfuscation/interfaces/IMessagerEx;Lorg/spongepowered/tools/obfuscation/interfaces/IMessagerEx$MessageType;Ljava/lang/CharSequence;)V
+      44: return
+      45: aload_1
+      46: aload_2
+      47: invokevirtual #10                 // Method org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandlerAccessor$AnnotatedElementAccessor.setTargetName:(Ljava/lang/String;)V
+      50: aload_0
+      51: getfield      #11                 // Field mixin:Lorg/spongepowered/tools/obfuscation/AnnotatedMixin;
+      54: invokevirtual #12                 // Method org/spongepowered/tools/obfuscation/AnnotatedMixin.getTargets:()Ljava/util/List;
+      57: invokeinterface #13,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      62: astore_3
+      63: aload_3
+      64: invokeinterface #14,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+      69: ifeq          169
+      72: aload_3
+      73: invokeinterface #15,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      78: checkcast     #16                 // class org/spongepowered/tools/obfuscation/mirror/TypeHandle
+      81: astore        4
+      83: aload_1
+      84: aload         4
+      86: invokevirtual #17                 // Method org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandlerAccessor$AnnotatedElementAccessor.attach:(Lorg/spongepowered/tools/obfuscation/mirror/TypeHandle;)V
+      89: goto          113
+      92: astore        5
+      94: aload_1
+      95: aload_0
+      96: getfield      #3                  // Field ap:Lorg/spongepowered/tools/obfuscation/interfaces/IMixinAnnotationProcessor;
+      99: getstatic     #19                 // Field org/spongepowered/tools/obfuscation/interfaces/IMessagerEx$MessageType.ACCESSOR_ATTACH_ERROR:Lorg/spongepowered/tools/obfuscation/interfaces/IMessagerEx$MessageType;
+     102: aload         5
+     104: invokevirtual #20                 // Method java/lang/Exception.getMessage:()Ljava/lang/String;
+     107: invokevirtual #6                  // Method org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandlerAccessor$AnnotatedElementAccessor.printMessage:(Lorg/spongepowered/tools/obfuscation/interfaces/IMessagerEx;Lorg/spongepowered/tools/obfuscation/interfaces/IMessagerEx$MessageType;Ljava/lang/CharSequence;)V
+     110: goto          63
+     113: aload_1
+     114: invokevirtual #2                  // Method org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandlerAccessor$AnnotatedElementAccessor.getAccessorType:()Lorg/spongepowered/asm/mixin/gen/AccessorInfo$AccessorType;
+     117: getstatic     #21                 // Field org/spongepowered/asm/mixin/gen/AccessorInfo$AccessorType.OBJECT_FACTORY:Lorg/spongepowered/asm/mixin/gen/AccessorInfo$AccessorType;
+     120: if_acmpne     136
+     123: aload_0
+     124: aload_1
+     125: checkcast     #22                 // class org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandlerAccessor$AnnotatedElementInvoker
+     128: aload         4
+     130: invokespecial #23                 // Method registerFactoryForTarget:(Lorg/spongepowered/tools/obfuscation/AnnotatedMixinElementHandlerAccessor$AnnotatedElementInvoker;Lorg/spongepowered/tools/obfuscation/mirror/TypeHandle;)V
+     133: goto          166
+     136: aload_1
+     137: invokevirtual #2                  // Method org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandlerAccessor$AnnotatedElementAccessor.getAccessorType:()Lorg/spongepowered/asm/mixin/gen/AccessorInfo$AccessorType;
+     140: getstatic     #24                 // Field org/spongepowered/asm/mixin/gen/AccessorInfo$AccessorType.METHOD_PROXY:Lorg/spongepowered/asm/mixin/gen/AccessorInfo$AccessorType;
+     143: if_acmpne     159
+     146: aload_0
+     147: aload_1
+     148: checkcast     #22                 // class org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandlerAccessor$AnnotatedElementInvoker
+     151: aload         4
+     153: invokespecial #25                 // Method registerInvokerForTarget:(Lorg/spongepowered/tools/obfuscation/AnnotatedMixinElementHandlerAccessor$AnnotatedElementInvoker;Lorg/spongepowered/tools/obfuscation/mirror/TypeHandle;)V
+     156: goto          166
+     159: aload_0
+     160: aload_1
+     161: aload         4
+     163: invokespecial #26                 // Method registerAccessorForTarget:(Lorg/spongepowered/tools/obfuscation/AnnotatedMixinElementHandlerAccessor$AnnotatedElementAccessor;Lorg/spongepowered/tools/obfuscation/mirror/TypeHandle;)V
+     166: goto          63
+     169: return
+    Exception table:
+       from    to  target type
+          83    89    92   Class java/lang/Exception
+}

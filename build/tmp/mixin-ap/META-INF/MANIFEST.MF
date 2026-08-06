@@ -1,0 +1,2211 @@
+Manifest-Version: 1.0
+Implementation-Title: stagingJar
+Premain-Class: org.spongepowered.tools.agent.MixinAgent
+Implementation-Version: 0.8.5+Jenkins-b310.git-155314e6e91465dad727e62
+ 1a569906a410cd6f4
+Built-By: Jenkins
+Agent-Class: org.spongepowered.tools.agent.MixinAgent
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true
+Created-By: 25.281-b09 (Oracle Corporation)
+Implementation-Vendor: https://www.spongepowered.org
+
+Name: org/spongepowered/asm/mixin/transformer/MixinInfo$SubType$Standa
+ rd.class
+SHA-256-Digest: rfT1k9mrL7OXQ2u+rsyhNH7bw5qyBuO9Yzg6p8bdbJ8=
+
+Name: org/spongepowered/asm/mixin/transformer/ActivityStack.class
+SHA-256-Digest: 7ZkmtQ/nIIpUf6S6ws8zs9p7BgUh1UJL5hg4rV8vWxY=
+
+Name: org/spongepowered/asm/mixin/transformer/meta/MixinInner.class
+SHA-256-Digest: vZLy4+ztJG8+V9MJw8kcR0KGvXr2+M1MHj/6Cr5AiOA=
+
+Name: org/spongepowered/asm/mixin/injection/code/ISliceContext.class
+SHA-256-Digest: 0/4K5p1T3ql1ABQKFRMzra1zRb8N03VjaGlMWHrrY/s=
+
+Name: org/spongepowered/asm/util/Locals$SyntheticLocalVariableNode.cla
+ ss
+SHA-256-Digest: HoN4N0SCielTGrZ0zLS+oDfua5RcQfcAP/eD06oZ2CQ=
+
+Name: org/spongepowered/asm/service/modlauncher/MixinServiceModLaunche
+ r.class
+SHA-256-Digest: SFU5HjvcK2N/fT4uhW/k/F3nrlK2KJ/o71fZTKyjhm0=
+
+Name: org/spongepowered/asm/mixin/injection/callback/LocalCapture.clas
+ s
+SHA-256-Digest: zzYhTls23M92LrVza1rniTl/ZF3WS5JBPyz76xg2Nfk=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/TargetSelector$D
+ ynamicSelectorEntry.class
+SHA-256-Digest: 8tAgUvNstpPNRxJAEmy7qCv9Qhnyj7UWUnLBJevQkMA=
+
+Name: org/spongepowered/asm/mixin/transformer/meta/MixinRenamed.class
+SHA-256-Digest: jowalbOdsjeUccu76TROhu3AftptMo2h3UUUHNCTTo4=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/dynamic/DynamicS
+ electorDesc.class
+SHA-256-Digest: ey+cWbEOhvCzJCXmkZmsZguIftHTvcCXuypeJr0pQOE=
+
+Name: org/spongepowered/asm/service/ITransformerProvider.class
+SHA-256-Digest: cNQxycKLT3UNATK4mx5U00ZvResPrsf16M0u8JbBr3Q=
+
+Name: org/spongepowered/asm/launch/platform/MixinPlatformAgentMinecraf
+ tForge.class
+SHA-256-Digest: dFm0AHN1o6b0VD7HwvFqV75fbJybIgMisXSwl0qOsWs=
+
+Name: org/spongepowered/asm/mixin/transformer/ClassInfo$TypeLookup.cla
+ ss
+SHA-256-Digest: oHPHKxR6TBmAkPRifQQAV7JQj86s+ULJnuSzayusmNw=
+
+Name: org/spongepowered/asm/mixin/refmap/RemappingReferenceMapper.clas
+ s
+SHA-256-Digest: lvNJ05fMaQO8T355KzT3rLKD6MFYjAkyk+LIn5CK+F4=
+
+Name: org/spongepowered/asm/mixin/transformer/ext/IDecompiler.class
+SHA-256-Digest: kd/vxkzZI2nmBuic3Whu9LuGHyQPdUlQZDsjL8m6Cyo=
+
+Name: org/spongepowered/asm/lib/MethodVisitor.class
+SHA-256-Digest: a/JPNMVHglCXX9qJlA5NmeamImWzqg5UyidGTlgJFJo=
+
+Name: org/spongepowered/asm/mixin/injection/struct/InjectorGroupInfo$M
+ ap.class
+SHA-256-Digest: gehhSdbELkc8CQKDjEffPGTApoJz4k47ITbAKucmpTw=
+
+Name: org/spongepowered/tools/agent/MixinAgent.class
+SHA-256-Digest: z0/0pU+0uw4TMkVOS3JGj0iGssXCdS5/qpXfTMTHCu8=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/util/InsnFinder$Ana
+ lyzerState.class
+SHA-256-Digest: 6FLv5V2+4re0t1WzQgAvjAjteOL5Dd9YR2IFePbf20w=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$CompatibilityLevel$
+ 2.class
+SHA-256-Digest: ZE44prIG1+1GRQZm+J6afuVNgIJu5c7Y/P5X3nr+la0=
+
+Name: org/spongepowered/asm/mixin/extensibility/IMixinInfo.class
+SHA-256-Digest: AwVJt08fVz1MKDyzBWlLyW5OsppLaoPkwVTu81bTpbU=
+
+Name: org/spongepowered/asm/mixin/injection/callback/CallbackInjector.
+ class
+SHA-256-Digest: TSc5XuLTYcIPdQAMs6kQtghUGkFdqgBJ9KSZY1pXLxM=
+
+Name: org/spongepowered/asm/mixin/injection/struct/InvalidMemberDescri
+ ptorException.class
+SHA-256-Digest: WAlpLPiQNzpRm8d3Pf28pLAIf1H7WS2T8NAExPI+wA0=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinInfo$MixinClassNode
+ .class
+SHA-256-Digest: 7zIeIC/2RiZLsysg0avfuA0vItjss4K3IyTmTk8b9As=
+
+Name: org/spongepowered/asm/mixin/transformer/throwables/MixinTargetAl
+ readyLoadedException.class
+SHA-256-Digest: yBBtzcL6VQTcK9oDh5/HsweFq4noNdF0ZGhkJM0v0yc=
+
+Name: org/spongepowered/asm/util/PrettyPrinter$HorizontalRule.class
+SHA-256-Digest: Ptc7Ly50B+kVHb14/0YXELju8pGAxT/Ft33yaKDsoww=
+
+Name: org/spongepowered/asm/mixin/Pseudo.class
+SHA-256-Digest: VxLvmzMHCt2AP1hRIeHLqAtR5equvVvvXQZwe0bmCzA=
+
+Name: org/spongepowered/asm/util/PrettyPrinter$CentredText.class
+SHA-256-Digest: 8f4MPCYJDfqW5P8tZeFC1PzGd5FRpdwwax68FdU9ono=
+
+Name: org/spongepowered/tools/obfuscation/mirror/TypeHandleASM.class
+SHA-256-Digest: PTW39zz1+2aG4ga5QW/6kitkSU7WJDFFnCwJdBoPE4o=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinApplicatorInterface
+ .class
+SHA-256-Digest: tLX7ADKIr+AltAVXORuiiRIyiQpAUkcfo0dNDsNobFM=
+
+Name: org/spongepowered/asm/mixin/injection/modify/BeforeLoadLocal.cla
+ ss
+SHA-256-Digest: 97Y7MVi9t0aemSidLklNLURN7RrKJ8sdH11sWPY2tt4=
+
+Name: org/spongepowered/asm/lib/AnnotationVisitor.class
+SHA-256-Digest: 1+CuJfLWiUBSkRbn7dest1p8y8rRuCKs4SLrYy6o4Us=
+
+Name: META-INF/services/javax.annotation.processing.Processor
+SHA-256-Digest: jsm8mJYEwFvJHB5qbD9J41h5zFTbbBx4LdWcDVyr1s4=
+
+Name: org/spongepowered/asm/logging/ILogger.class
+SHA-256-Digest: 15GecJ+F2Txwq2oBa2g3WFG9iaJwX6/SiC1eyhvilYg=
+
+Name: org/spongepowered/asm/service/MixinServiceAbstract.class
+SHA-256-Digest: jFxO2Psqeb2xT9n1rO0Ov5q6pDLGQVn9diYep2pmjMc=
+
+Name: org/spongepowered/tools/obfuscation/ReferenceManager.class
+SHA-256-Digest: 5gGfq8OFu5bLsprSrljwXNkzsFqnkXsurVPyxZCc048=
+
+Name: org/spongepowered/asm/util/Bytecode$Visibility.class
+SHA-256-Digest: AIXQLztd/qroe/j1a0txPzIsdJIJlrkBK8OX/vE4+j4=
+
+Name: org/spongepowered/asm/util/ClassSignature$TokenHandle.class
+SHA-256-Digest: N/tmiDZpvM1o7llwFxYPe3aJ9mrOQkr4eDRGrbLc2NI=
+
+Name: org/spongepowered/tools/obfuscation/mirror/TypeHandleSimulated.c
+ lass
+SHA-256-Digest: 437MfsHkNU6OqcmK6PuhxviN3wkjRZsV/LU5WNaDpHY=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinPreProcessorInterfa
+ ce.class
+SHA-256-Digest: oXKtaSFq01lQXXukcQWufmZ/r/aLCPFLjypm6KlTY/k=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/IOptionProvider.c
+ lass
+SHA-256-Digest: XZfElrU/Aj9i3DlZrFT3SeGNKABo5IpV83Pjn8fUTCg=
+
+Name: org/spongepowered/asm/mixin/injection/code/MethodSlice$InsnListS
+ lice.class
+SHA-256-Digest: FJWiIAp551fA0ooKrlbjKWkg21utvZqjC+s0DQ4JpYc=
+
+Name: org/spongepowered/asm/launch/platform/MixinPlatformManager.class
+SHA-256-Digest: IlR7zMgq108S5meYGQk4/i/QYM4HETPbkGXjf73zqXU=
+
+Name: org/spongepowered/asm/lib/tree/ClassNode.class
+SHA-256-Digest: 2b0hpWO4Fns6gQcQVl97wDz220styglqg27Ba+eUO0w=
+
+Name: org/spongepowered/asm/mixin/transformer/Config.class
+SHA-256-Digest: kXoS6VInEcZnW7VHTDAItiIkXHxEWe/stLDFHFZtcSw=
+
+Name: org/spongepowered/tools/obfuscation/mapping/mcp/MappingProviderS
+ rg$1.class
+SHA-256-Digest: yNeYF1Uuvybjpw+sOLf23W7oFNd59Uz6y7dQOXyAtqs=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinInfo$Reloaded.class
+SHA-256-Digest: o9n9OZBoPMcyso4frtTt71T7H2ofsRyYLEBphEWfAnM=
+
+Name: org/spongepowered/asm/mixin/transformer/throwables/MixinPreProce
+ ssorException.class
+SHA-256-Digest: d+M9edfaEBfXPGuiIrzhb4OJGiIwkDFop9tXsq4NQUQ=
+
+Name: org/spongepowered/asm/bridge/RemapperAdapterFML.class
+SHA-256-Digest: 9HLTM6sxA3yHwBaFiKv9dIoMNrUm35iakxIeb1YagmA=
+
+Name: org/spongepowered/tools/obfuscation/mapping/mcp/MappingWriterSrg
+ .class
+SHA-256-Digest: kWG52G/i/qflMmyPaYOqkmIrnCm7JSLGJ9S3cQCdWIA=
+
+Name: org/spongepowered/asm/util/PrettyPrinter.class
+SHA-256-Digest: IuuTykUwO4f4kSm6CArwgGgeFpxkkDYo0F5SyDNnRgQ=
+
+Name: org/spongepowered/asm/util/ObfuscationUtil$IClassRemapper.class
+SHA-256-Digest: 4I2KH0DsVnQTanf0lLp405ikJ9dbvw7z5IsDZn9k8lg=
+
+Name: org/spongepowered/asm/mixin/transformer/ClassInfo$Member.class
+SHA-256-Digest: FG8PUt9OzDqVpAZuwvWMHXuFYeBiiP8wKXXX3MyfaNY=
+
+Name: module-info.class
+SHA-256-Digest: 2Hf8F0FULQ0Xmk1VGa0Vy6kmFSElVigg18N8KGozla0=
+
+Name: org/spongepowered/asm/logging/Level.class
+SHA-256-Digest: CJ+jEyyGnVRp5p7EHDYKvNbmVQgpYGPk4LrjwcnsLpk=
+
+Name: org/spongepowered/asm/mixin/injection/InjectionPoint$Union.class
+SHA-256-Digest: YA6gmbUUKsWyXSLRFgVdAzX3+8FNdYbySmLFdWD93jk=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/IMixinAnnotationP
+ rocessor$CompilerEnvironment$2.class
+SHA-256-Digest: AJW27fcmzE/lf2ESVFgow+u5CbB8kyTxb2w2oiB67Zc=
+
+Name: META-INF/services/org.spongepowered.tools.obfuscation.service.IO
+ bfuscationService
+SHA-256-Digest: Oz+JdDTIBXidWumw3oCvECEJoHRqYv5d1EKjEPk76FE=
+
+Name: org/spongepowered/asm/mixin/gen/AccessorInfo$AccessorType$1.clas
+ s
+SHA-256-Digest: BNFDte5F+ItjpkanJYkFOy8VMlbm8ZlL5Us6I5LyXOw=
+
+Name: org/spongepowered/tools/obfuscation/ObfuscationType.class
+SHA-256-Digest: Np+2kZCEgqJCKOt1avz4kTY7ExmryN9R+3GeuSe+ZcU=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/dynamic/Descript
+ orResolver$ResolverObserverBasic.class
+SHA-256-Digest: SJaO4FqLRa3T6ni6Fk0lA13j8dmBJxrBYd/c2Mg7M3o=
+
+Name: org/spongepowered/asm/mixin/gen/Invoker.class
+SHA-256-Digest: 0k9diLhtTz5wCWRHWCElbUzfu3XugxY9rj5Ttm8e918=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/util/InsnFinder.cla
+ ss
+SHA-256-Digest: 5qdBwBl8l0cc7XQcExe3TLU2MsbhBdJf6UQ57BsNdD8=
+
+Name: org/spongepowered/asm/mixin/injection/struct/InjectionInfo$Handl
+ erPrefix.class
+SHA-256-Digest: 9V6PzPzpjWQPmH3vA64LPpnqzlWnLXcT91Gkqck48Sc=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/RedirectInjector$Re
+ directedFieldData.class
+SHA-256-Digest: GcjI8yckpc048lsxFGBItHO2/5Dgk8rBk5DeGxaziRw=
+
+Name: org/spongepowered/asm/mixin/injection/points/BeforeStringInvoke.
+ class
+SHA-256-Digest: Ghax4I2C3GRTa8YcugmQWYNqW6ACQAFWxfuqPjvpH5o=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/IMessagerEx$Messa
+ geType.class
+SHA-256-Digest: 1w0A3PlPyjWfOfSThK4/CKHgESMrGQwjYNM6AW5FQt4=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ElementNode$Elem
+ entNodeIterable.class
+SHA-256-Digest: 6LNRljnmPBmN2+y9HUjaA4IrdS5EMN23pNq0/V2C4X0=
+
+Name: org/spongepowered/asm/util/ClassSignature$SignatureParser$SuperC
+ lassElement.class
+SHA-256-Digest: ++5A8qU7N5NppWYZZyLlxkKI03ImM4avFSQli09bEAg=
+
+Name: org/spongepowered/asm/util/throwables/ConstraintViolationExcepti
+ on.class
+SHA-256-Digest: FoIKCS9UOLqN6RMZciuYb2ICEx6zWcIEBbuALV9/tAA=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$1.class
+SHA-256-Digest: MH4bMDMEvz8U6aZy5hcj/cX0Rz4D893EOQRR/lxYg6M=
+
+Name: org/spongepowered/asm/service/IMixinService.class
+SHA-256-Digest: BifU0YTHTS1T6Xm+4bjIgvM1POqfUObhJy1lZSTV1gU=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$CompatibilityLevel$
+ 12.class
+SHA-256-Digest: 2nfkCz8CU9mvkr4pSPnYetA8xLnZpJOUfHJ7XtQmzLc=
+
+Name: org/spongepowered/asm/mixin/transformer/debug/RuntimeDecompiler$
+ 1.class
+SHA-256-Digest: JG0Qrea5Cr/wh1B4kCT4o9MayVtjPxCQ2yInnzou7AQ=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$CompatibilityLevel$
+ 7.class
+SHA-256-Digest: 0o/uWPxSw7H/H32EnkQiMpmyoq1cERk+bDklUumbfg8=
+
+Name: org/spongepowered/asm/mixin/transformer/ext/ITargetClassContext.
+ class
+SHA-256-Digest: Yzu/t4nTvARdiQJo9ASX+D0BPtIApzoI3VZNRlZ1GzA=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinInfo$State.class
+SHA-256-Digest: CowsezR1W+a9Xxu7H3ujD42Mz/pvPaHDCtmBpIzCTYA=
+
+Name: org/spongepowered/asm/mixin/injection/points/BeforeConstant.clas
+ s
+SHA-256-Digest: X+wg3aqEvkU1a53MWTdTbCZbxpycdI1Tqky2rSSocmg=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinProcessor$ErrorPhas
+ e.class
+SHA-256-Digest: pG98fPWR85iB4LL58gvYPeV8TPAVYVS2xS3MIYjgIVU=
+
+Name: org/spongepowered/asm/mixin/extensibility/IMixinErrorHandler.cla
+ ss
+SHA-256-Digest: 3OaytvyRCmX+dLteJm72i6i9+5By4CbH/SAoj5DbgFM=
+
+Name: org/spongepowered/asm/mixin/extensibility/IEnvironmentTokenProvi
+ der.class
+SHA-256-Digest: MQrFg+QK5llEnzKpwYKXwnSGXGQoJbWDVBE3iefgUds=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/dynamic/Descript
+ orResolver$Descriptor.class
+SHA-256-Digest: 351k9c2zKjOGF094pPawBy7QzpySBGZGh4Qjq2AKsWs=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ElementNode$Elem
+ entNodeField.class
+SHA-256-Digest: A33UCAC1ezgFBecJUCsfKu6h0FY6R20Jj8X9tdOH2Q0=
+
+Name: org/spongepowered/tools/obfuscation/mirror/TypeUtils$Equivalency
+ .class
+SHA-256-Digest: kB3vYkky4ejzr32WmELAL1hhcyCR4z6cTb/HZqFWDkQ=
+
+Name: org/spongepowered/tools/obfuscation/Mappings$UniqueMappings.clas
+ s
+SHA-256-Digest: /s17qYMQka2zWR9N8BFrai21YIvHgSueLuV1Jhhp9q0=
+
+Name: org/spongepowered/asm/mixin/transformer/TargetClassContext.class
+SHA-256-Digest: ygOjDyoEaMzP8ijii/NoJUB3jV1do8taBtYYKW6PIU4=
+
+Name: org/spongepowered/asm/service/IGlobalPropertyService.class
+SHA-256-Digest: QNOLNm0UEBvaw7uI5kUq8TPGtXkdH00C1XT57P0OvOA=
+
+Name: org/spongepowered/tools/obfuscation/ext/SpecialPackages.class
+SHA-256-Digest: KxYsOACLT8c+TMCscJlJ+uLZoAaT1Ts6KXic53y3Dlg=
+
+Name: org/spongepowered/asm/mixin/injection/throwables/InvalidSliceExc
+ eption.class
+SHA-256-Digest: CeM+BC3HZNytyxj1AIqsSzFMTWuX6szMw0qQGJtiKFY=
+
+Name: org/spongepowered/asm/service/IMixinServiceBootstrap.class
+SHA-256-Digest: XUV9A6+7epSye4OROKXwdzT4qREN/z9sHFXvwDKOXV8=
+
+Name: org/spongepowered/asm/mixin/injection/code/MethodSlices.class
+SHA-256-Digest: PrtZ2bsQRk0AzuOV1C7Zi0ht/ku98P9AIazSzR7JoME=
+
+Name: org/spongepowered/asm/mixin/injection/modify/ModifyVariableInjec
+ tor$LocalVariableInjectionPoint.class
+SHA-256-Digest: Hd335NrgkwDV7guza7rIgOcJQ6gVxByw7wAy0e07IUo=
+
+Name: org/spongepowered/asm/mixin/injection/struct/ModifyVariableInjec
+ tionInfo.class
+SHA-256-Digest: yXbl7Gq5I9AIBGLKlb+1yUwvd+yBXOyG9lpTbOty/yc=
+
+Name: org/spongepowered/asm/mixin/injection/code/Injector$InjectorData
+ .class
+SHA-256-Digest: Ac7bFDu/BIHoB7zHI7Tor4+wdSbKJmzpbmA18BBBvSI=
+
+Name: org/spongepowered/tools/obfuscation/mapping/IMappingProvider.cla
+ ss
+SHA-256-Digest: Eef4JuWBUas+1ugGyRFyynoY+QNzz8R25mS/anBiJi8=
+
+Name: org/spongepowered/asm/mixin/transformer/throwables/ReEntrantTran
+ sformerError.class
+SHA-256-Digest: pxilhzBuvY2pONfwRC0vy2MNcvtBnD2gZK8rw35gLzY=
+
+Name: org/spongepowered/asm/service/modlauncher/MixinServiceModLaunche
+ rBootstrap.class
+SHA-256-Digest: c/hYFqqqXcVWaoMdwdORaL5pmC9XAcS6KF55IUxTpjY=
+
+Name: org/spongepowered/asm/mixin/injection/Redirect.class
+SHA-256-Digest: kf+Gxcz/4CpK2w7L3t6vzuwEiguTEM+Ruemp31oWHr8=
+
+Name: org/spongepowered/tools/obfuscation/mcp/ObfuscationEnvironmentMC
+ P.class
+SHA-256-Digest: 76kFMSgnJyfo1qz63VTEwqFzq839jOK2JfodKR1Zx/o=
+
+Name: org/spongepowered/asm/mixin/transformer/DefaultExtensions.class
+SHA-256-Digest: ck71exBOrkz5S/vt++3vukgDTm+MAEapmZYxGV/5PJo=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ITargetSelector.
+ class
+SHA-256-Digest: K5SYplxQcl/QnQIUDDjbId+Z0ozXxp2Ht7KgXRZK+P8=
+
+Name: org/spongepowered/asm/mixin/injection/InjectionPoint$Intersectio
+ n.class
+SHA-256-Digest: VPVaQ7Dix/TjGfqWxJC/NewNXuM/QMLAMQM2sW+jYGg=
+
+Name: org/spongepowered/asm/launch/MixinTransformationService.class
+SHA-256-Digest: YCOl07Hm4jXJ0lFlSlkhYMcSF/j8gxdDFFGNYMVVKew=
+
+Name: org/spongepowered/asm/mixin/injection/InjectionPoint.class
+SHA-256-Digest: gNqmr77NCCORCSmvg9TRVaoQ54gR1LWtvEPAqENjpzY=
+
+Name: org/spongepowered/asm/launch/Phases.class
+SHA-256-Digest: wq2/SKs1bxtxoopFXbNKuCxuwk8Zc59ub19y7cFpJoE=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinCoprocessor$Process
+ Result.class
+SHA-256-Digest: DkPHd6bHI7S3C99SZ9NLQBcJ2Y4Ye7ovb7C2wd9FzYI=
+
+Name: org/spongepowered/asm/mixin/injection/struct/InjectionInfo.class
+SHA-256-Digest: HeUheR7fvyuPB8ntFmElg/wF4XJ1KAjg4wyF8n/0+aU=
+
+Name: org/spongepowered/asm/mixin/EnvironmentStateTweaker.class
+SHA-256-Digest: TUM/iGx9USq0BfRaWfogp5JH/oTm9qwZmknM2jLAKNk=
+
+Name: org/spongepowered/asm/service/mojang/MixinServiceLaunchWrapper.c
+ lass
+SHA-256-Digest: vCuFaGqbTfFHAvo9zX1Gru412ifqbbXyhoHLqExk+q8=
+
+Name: org/spongepowered/asm/mixin/gen/AccessorInfo$AccessorType$4.clas
+ s
+SHA-256-Digest: HduDd9GrdmHvLfVs657Osv/Fc1zRwnutSAExS++OPLI=
+
+Name: org/spongepowered/asm/mixin/injection/points/BeforeFieldAccess.c
+ lass
+SHA-256-Digest: 5ktxnytrwOoOhET0LzmUqVVNe8MXpRp+kHSofW3h5cQ=
+
+Name: org/spongepowered/asm/launch/platform/container/IContainerHandle
+ .class
+SHA-256-Digest: eKojjJ6dkwyrjRdBPPvTerMlFUSjBadmkCrdpxa8WRw=
+
+Name: org/spongepowered/asm/mixin/injection/struct/Target$Extension.cl
+ ass
+SHA-256-Digest: WXQ6QF2vH8gGInLekPr976PnNyKNTUpG13sxjLq6yso=
+
+Name: org/spongepowered/asm/mixin/transformer/ext/IClassGenerator.clas
+ s
+SHA-256-Digest: K2Ya3qZ6l7TIFXNvzWo+Mlw0kiM2gqkfWXleeIb6lWA=
+
+Name: org/spongepowered/tools/agent/MixinAgentClassLoader.class
+SHA-256-Digest: /eroUvElkpnzPGplGXUQWNXP89P+xNPVH49Zte9YfDw=
+
+Name: org/spongepowered/asm/service/modlauncher/MixinTransformationHan
+ dler.class
+SHA-256-Digest: 19+l+UE//J4SknWQJI3/KDmItK1RODrlvKJ+3uBAwmc=
+
+Name: org/spongepowered/asm/mixin/injection/points/AfterInvoke.class
+SHA-256-Digest: zU6T8TxlpOpYED7QLBortAdCrXeNCmf/txYKIPllUdw=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$CompatibilityLevel$
+ 10.class
+SHA-256-Digest: V6DemUb0f9x8NFawqGvB9EkRckxOBi8O7ceYV6Su91Q=
+
+Name: org/spongepowered/asm/util/ClassSignature$SignatureRemapper.clas
+ s
+SHA-256-Digest: djlGu+Ut0BWjrj5pkH8W6d7TdS/eXnTkj9gyIDeRAL4=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$Phase.class
+SHA-256-Digest: nTQm7zIr/qoPGclfg/fU+YR5lCgo6uAZmv4WNvffd50=
+
+Name: org/spongepowered/tools/obfuscation/mapping/IMappingConsumer$Map
+ pingSet.class
+SHA-256-Digest: Yg6/Op7pkXo1X6BJqxeyDFq0898Bz+ePhj6QPINZ7gA=
+
+Name: org/spongepowered/asm/mixin/gen/AccessorInfo$1.class
+SHA-256-Digest: RgZLrav21q9bHHqZ077wXmgFQr/J+OaNAgoZVF7WXog=
+
+Name: org/spongepowered/asm/mixin/transformer/ClassInfo$Member$Type.cl
+ ass
+SHA-256-Digest: LqXntl5iKCsjpT+V5AsKUlagBsbmYEg20wSNQITSDU8=
+
+Name: org/spongepowered/tools/obfuscation/ObfuscationDataProvider.clas
+ s
+SHA-256-Digest: z4NoSg5a37SUrBDKWB75nMwKwRqT2DLwAY+MfksKjI8=
+
+Name: org/spongepowered/asm/mixin/injection/ModifyArg.class
+SHA-256-Digest: AE6Y628i4jl5SgE7zV8d/W5toIYj3fxfRqdYnYYumh8=
+
+Name: org/spongepowered/asm/mixin/injection/struct/TargetNotSupportedE
+ xception.class
+SHA-256-Digest: GL0OzVrRs3h4BaRW6dLgued+dJf/+PD9rAyhap0w58o=
+
+Name: org/spongepowered/asm/mixin/transformer/meta/MixinMerged.class
+SHA-256-Digest: R4tzAdcpdYo4Hb53ZLXW85H37NmKEm/AkQyhPG6rIf0=
+
+Name: org/spongepowered/asm/mixin/injection/InjectionPoint$Shift.class
+SHA-256-Digest: beUBe5PYe05progybzsZhXr600PG2jgdxT5JfkifL3M=
+
+Name: org/spongepowered/asm/bridge/RemapperAdapter.class
+SHA-256-Digest: QJnP6HTwJxxziWp9ep5iWrwzoyG/5aoDcGVKr0fPD20=
+
+Name: org/spongepowered/asm/mixin/injection/modify/LocalVariableDiscri
+ minator$Context$Local.class
+SHA-256-Digest: Vz3b+iL0VHpN/qg2chheBZrWiK78TgUBqfFiYcLBMkE=
+
+Name: org/spongepowered/asm/launch/MixinLaunchPluginLegacy.class
+SHA-256-Digest: 7r4gtSFIMzXan9zmt6UqRlgdZyf6ogfVw+QVVbrcmS4=
+
+Name: org/spongepowered/tools/obfuscation/mapping/fg3/MappingMethodLaz
+ y.class
+SHA-256-Digest: UfsBU5h47Lws16Kg4wqQBrWfsCuzNsext2m0YswEhZk=
+
+Name: org/spongepowered/tools/obfuscation/mcp/ObfuscationServiceMCP.cl
+ ass
+SHA-256-Digest: 01lesiauyKpQom4jkiFsxHwErugzNUN9iWxnqf+H7IY=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ $AliasedElementName.class
+SHA-256-Digest: BZJC6ty0RdMEwjK8a8PrEcBlCNzhtCLcFUJTFI3Pkms=
+
+Name: org/spongepowered/tools/obfuscation/mirror/TypeUtils$1.class
+SHA-256-Digest: nyj+Nj5xBEWcy0usYGY09JxNc3bpUrXZgipzApVSq0o=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinTransformer$Factory
+ .class
+SHA-256-Digest: B9mde0CS/wMiwR4FFHVhRJlNyryfTqsWEpcgw3f57DU=
+
+Name: org/spongepowered/asm/util/Counter.class
+SHA-256-Digest: +xA6KhXLL4K6cm/DUh6HSRa0syFqn9BzHZmA6cxhPck=
+
+Name: org/spongepowered/asm/logging/LoggerAdapterDefault.class
+SHA-256-Digest: ARd1nTT+Gz5TvB2eLehj8DOWifCNJXtwkuR+JB1skg4=
+
+Name: org/spongepowered/asm/service/MixinService.class
+SHA-256-Digest: 0POdibRnFbnAw8ufMeIuTHQDuSPxRShNaoHxceshXzY=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/ModifyArgInjector.c
+ lass
+SHA-256-Digest: F/9MmOaBuB0prnzybhefBMd/BldZdHmcd5gkuLWXtFw=
+
+Name: org/spongepowered/asm/mixin/injection/callback/CancellationExcep
+ tion.class
+SHA-256-Digest: LCHz3wH+V/0ziU9FKV4v/dOCTiXgTA9mGbU8TYcU3lg=
+
+Name: org/spongepowered/asm/mixin/struct/MemberRef.class
+SHA-256-Digest: KqTODhnHUtXkQuxfq3jN4aQbADnLl7Q1EEN5zI9D06I=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ITargetSelectorD
+ ynamic$SelectorId.class
+SHA-256-Digest: 4ts8soIvxtovosCe0IIXHiHjutQEk18OYJg2zsP5KkM=
+
+Name: org/spongepowered/asm/mixin/Shadow.class
+SHA-256-Digest: HpEtbKKAnPn4d5+EJlZWqqZ5o0i84sXlkrPUOjoftBs=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ISelectorContext
+ .class
+SHA-256-Digest: DiPxIhddSkQ5o0n08qhSFnmhgD4O9jUAJiL+Q5Gr5wg=
+
+Name: org/spongepowered/asm/mixin/injection/code/Injector$TargetNode.c
+ lass
+SHA-256-Digest: xDWBnPYEyqKQIgj4GugFnVQZLBSl9EOfbTvCZf8n//8=
+
+Name: org/spongepowered/asm/mixin/injection/Slice.class
+SHA-256-Digest: jDlta7kPK7+duuGifj8LLJHNMSkLVLquITXcRkve0p8=
+
+Name: org/spongepowered/asm/util/Bytecode.class
+SHA-256-Digest: Thd40DJ3/WK95fzi1lkyki+MtxCSag7LlDk/On0t+0c=
+
+Name: org/spongepowered/asm/mixin/transformer/InnerClassGenerator$Inne
+ rClassAdapter.class
+SHA-256-Digest: 1wr1V7sWh1KIQC10WRQ7X/ARIZ2wMd5RJYZ8AzH+Pt8=
+
+Name: org/spongepowered/tools/obfuscation/mirror/FieldHandle.class
+SHA-256-Digest: OaE6bPmP9oM0czy1SfrHm+/642wHORYY1KJzCKou5P8=
+
+Name: org/spongepowered/asm/logging/LoggerAdapterConsole.class
+SHA-256-Digest: Hho+/kzhallqNJIpRvrb5OcYRkg4jmILKFXMA9PGXog=
+
+Name: org/spongepowered/asm/util/ClassSignature$SignatureParser$Formal
+ ParamElement.class
+SHA-256-Digest: gYD0Y+S1fOO+HDQyh2dbkMU6cN2W1URNGKng6vvH5/4=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ $AnnotatedElementExecutable$1.class
+SHA-256-Digest: 4g4nHfOnNCBwDV0MbVfHWjuR9ZjHAYVcdhszzMSgD7U=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinProcessor$ErrorPhas
+ e$1.class
+SHA-256-Digest: oTndPEjrmeqS6CFFdzP/zJPRNI0wcmeqMF19l7j+aQI=
+
+Name: org/spongepowered/asm/util/throwables/LVTGeneratorError.class
+SHA-256-Digest: CgO1k6iv9WJc4+Q+Kkua8sTfT+a1X3Ubh7f+cJlhz3A=
+
+Name: org/spongepowered/asm/service/IClassBytecodeProvider.class
+SHA-256-Digest: aUdrm96xdN88MZz11LhGlrTeuJ8ZouXcIOtwdvTYkLI=
+
+Name: org/spongepowered/asm/mixin/injection/modify/AfterStoreLocal.cla
+ ss
+SHA-256-Digest: 6/RN4Wv0FT2E5xY8gxCXNlZpCrMRNUkfJu4bVkr7ruo=
+
+Name: org/spongepowered/asm/mixin/injection/struct/MemberInfo.class
+SHA-256-Digest: EIDx8Q1g50+obygKbJ60v3vvnoEOEOWPPLcopnu/YtY=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$CompatibilityLevel$
+ 4.class
+SHA-256-Digest: SIQsJmcGYG1pCNy21jmL5FG/Q2vfGvGcp5q93SO9zys=
+
+Name: org/spongepowered/asm/util/IConsumer.class
+SHA-256-Digest: 8XDnBI/cMFOQ0Xj4oaxxs1AcJ3ios02SWrlV/Gl/Zo4=
+
+Name: org/spongepowered/asm/mixin/injection/struct/MemberInfo$1.class
+SHA-256-Digest: rqSE2zf0sqzJRsNC/7uB9tr/xlrN48+IQZeTpMf8lP8=
+
+Name: org/spongepowered/asm/util/ClassSignature$SignatureParser$BoundE
+ lement.class
+SHA-256-Digest: AMZjXRSBb9tUxFgxxvNrReECNjiuDP7M1M9+oAeITs8=
+
+Name: org/spongepowered/tools/obfuscation/struct/Message.class
+SHA-256-Digest: JvuSJWi8nor4Ofr7Cu3lrIJ8L0XcDvu3RDSAQqaKMhQ=
+
+Name: org/spongepowered/asm/mixin/injection/points/BeforeFinalReturn.c
+ lass
+SHA-256-Digest: i9HNmpp7YT6qxZbpapiG3kIHDPsDbRJQsdgj3/OOmBc=
+
+Name: org/spongepowered/asm/service/IMixinInternal.class
+SHA-256-Digest: Cr84dkbvNj2Gub4kVnXWYeCBp40fJTs3M/Q16k7tqws=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/util/InsnFinder$Pop
+ Analyzer$PopFrame.class
+SHA-256-Digest: eW/jjNvhEJTpa8lMScnjAUA258X6u3RoRswuDqQwGEQ=
+
+Name: org/spongepowered/asm/util/logging/MessageRouter$1.class
+SHA-256-Digest: Xvk5h2MRE5iPrc4c+wyeXPkz8unZTKmyyJ+LQs2sVT0=
+
+Name: org/spongepowered/asm/mixin/injection/points/BeforeInvoke$Search
+ Type.class
+SHA-256-Digest: D2AxqqVvZOrS6Y/eRWMGtjiGsJ7X7SwNCNOLUDYEYWc=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/TargetSelector$R
+ esult.class
+SHA-256-Digest: NBwNI0WNitH7jpGIKvfOXIsByhnkJuqr/SqpcbBROjc=
+
+Name: org/spongepowered/asm/obfuscation/mapping/IMapping.class
+SHA-256-Digest: zQEr9TXV64gHvWYaZOzaKnj0bc6T8hjBTHUzCkidH8U=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ Injector$AnnotatedElementInjectionPoint.class
+SHA-256-Digest: VSZqaRBQyF4RP5TTzvbZc9ES3zriNYYZ1Vn1PHzIogY=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ElementNode$Elem
+ entNodeFieldInsn.class
+SHA-256-Digest: 9M9OeoloGGCAto7GLqZQBterRd2aUirl9zEtKQclAXs=
+
+Name: org/spongepowered/asm/mixin/injection/struct/InjectionNodes.clas
+ s
+SHA-256-Digest: CCH0ypEYllJa6nTDa17gzU0ulxK5RhaYKKNsK2WIq+0=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$CompatibilityLevel$
+ 5.class
+SHA-256-Digest: a0zzuWRWpCWYiEqt/1T9qg/FSUTDY+akmMrFQlI/BXI=
+
+Name: org/spongepowered/asm/mixin/Unique.class
+SHA-256-Digest: D1R9fuc7zIFWILlIhTNdQX8l7xN1j/YCnrmKkf7sHUU=
+
+Name: org/spongepowered/asm/util/ClassSignature$SignatureParser.class
+SHA-256-Digest: D5tRq7FFaG8dF8A2ASiXL1cUDOyFRTvvWxOOvZB0/Ag=
+
+Name: org/spongepowered/asm/util/ReEntranceLock.class
+SHA-256-Digest: 1WRUAKDm+GMOxS1vBPPWUvz8t34LQ4msdYq3ZQ3pVHw=
+
+Name: org/spongepowered/asm/mixin/Debug.class
+SHA-256-Digest: r8tgBFouDWlWwUv8zA3Q9/BFc4t2WC0Lej6RwOdlHeM=
+
+Name: META-INF/services/org.spongepowered.asm.service.IMixinServiceBoo
+ tstrap
+SHA-256-Digest: dzIarsSpyTW0JZx5KtWQn5Mbn/ySnbUGk0Tr7QvfR+s=
+
+Name: org/spongepowered/asm/util/Locals$Settings.class
+SHA-256-Digest: Rokxz9EwoiQTX9p0dhoOrjQlE57tlE1kve/BN75Ag9c=
+
+Name: org/spongepowered/asm/mixin/transformer/ClassInfo$Field.class
+SHA-256-Digest: yaAPqIfDFSATDkH9o1+tR31sMmobWtFKLHvH+uYzncc=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinProcessor$ErrorPhas
+ e$2.class
+SHA-256-Digest: LWT3R4+A6Z+PK2Y7Dx9OoX18vx+J5/OX6Yge6JQLudo=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/RedirectInjector$Co
+ nstructorRedirectData.class
+SHA-256-Digest: 9MiAomumsdRK8fJ9e7vjqkmPNm28U+vAVziWuFVx8Ls=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinInfo$SubType.class
+SHA-256-Digest: 3BBabbqkEn57d56Gq70rQNHNIm/wXBSCWrkHlHP1z3k=
+
+Name: org/spongepowered/tools/obfuscation/mapping/IMappingConsumer.cla
+ ss
+SHA-256-Digest: J6KwB0vg9xOc+hO8HDzVu/CVSj1Krd4OVSL+jmm8B8I=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinInfo$MixinMethodNod
+ e.class
+SHA-256-Digest: SVFk3xXB+RZt1kgQ3Tta1oeQ+4ZzfEdbfFQqnpnEoLk=
+
+Name: org/spongepowered/asm/util/PrettyPrinter$Table.class
+SHA-256-Digest: r+X9djtcKpSheqFEPfFrZQEDXinAarQb3aHk6Qdihtk=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinProcessor.class
+SHA-256-Digest: w1T2LTBpGr8ThhmFPs5sjyQiUDhKt3AT+rNqPCtrQnw=
+
+Name: org/spongepowered/asm/service/ServiceNotAvailableError.class
+SHA-256-Digest: uZeZR/6GeYsNzH8ABglx6Jj4u6pD4I1QHJfrBP2ybnI=
+
+Name: org/spongepowered/asm/mixin/injection/InjectionPoint$RestrictTar
+ getLevel.class
+SHA-256-Digest: DK3Un6GBn9rGQ/0z5blI5Equ2EPwj6x362Zh8LfhnKg=
+
+Name: org/spongepowered/asm/mixin/transformer/ext/extensions/Extension
+ CheckClass$ValidationFailedException.class
+SHA-256-Digest: LsoeV0AsDg9pbOEEvdbJT8pB7K3x8UxBtMWOZW+jC5M=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinApplicatorStandard$
+ ApplicatorPass.class
+SHA-256-Digest: ynGy5ZNYvsUMroWOWy/MKkc/tJ/Hwv+G5sJ0taL9Bs4=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinPreProcessorAccesso
+ r.class
+SHA-256-Digest: 9M82ni79C7kgtN0/G+RJVIf2XQ4sjC2ads3r+xo+s+8=
+
+Name: org/spongepowered/asm/mixin/injection/struct/InjectionPointAnnot
+ ationContext.class
+SHA-256-Digest: 1T5EtnAuF4+uSkeseTHmAcY2fBd+LZJ5IDRyx+Y2e/s=
+
+Name: org/spongepowered/asm/service/IPropertyKey.class
+SHA-256-Digest: LFplBeG39NxRoia+nbW2KT/HHeO4SthvmGJNsj/4TH8=
+
+Name: org/spongepowered/asm/service/ITreeClassTransformer.class
+SHA-256-Digest: MXYkdtLahG9GOV3fHKOBNSRyI9N65r7+1XMo+79BlCk=
+
+Name: org/spongepowered/asm/transformers/MixinClassWriter.class
+SHA-256-Digest: 6aes3n4ZxyM4xler14g2X8rgo7I9hold6+1Qwsp42Q4=
+
+Name: org/spongepowered/asm/util/throwables/InvalidConstraintException
+ .class
+SHA-256-Digest: pXyK4bK5onegNddNFinK7zDyR/gJPAouKhsAR+UNsGs=
+
+Name: LICENSE.txt
+SHA-256-Digest: GWnaNaTsnST4IoD+aT1lbYkK1hqLR3FE6BhNCWlGOwg=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/IMixinAnnotationP
+ rocessor$1.class
+SHA-256-Digest: ou3ZhreGUPdrnzJxqgMh/9GTUKAM7QGU6HlsZEpdA6I=
+
+Name: org/spongepowered/asm/mixin/injection/callback/CallbackInfo.clas
+ s
+SHA-256-Digest: xowP1uXbWJeucuKYNMDPZexPtB5QuQlV9L3C4qPKT9Y=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/IObfuscationManag
+ er.class
+SHA-256-Digest: b5YtUNV61r08Y5liwuRO5mxCcQLAlF2ur7xMgwRyJqs=
+
+Name: org/spongepowered/asm/util/ClassSignature$SignatureParser$TypeAr
+ gElement.class
+SHA-256-Digest: kOaWCpD2wyWn+sTW1026G7T70As+4y4aap23X7Tk6hU=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ElementNode.clas
+ s
+SHA-256-Digest: w562yU6NuHSPRiCzVeZbB/EYTrp5Fadcf2HjGFi7Z7k=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/throwables/Selec
+ torConstraintException.class
+SHA-256-Digest: CH9uTurIpwpZ/7h/sIO9ekR/dI/U+76a6PaEO8msJvo=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ElementNode$Elem
+ entNodeInvokeDynamicInsn.class
+SHA-256-Digest: Pz8PJ5SeUHXWwLcVNO/PfwPEF5dWZscRCdauSyX5Hz8=
+
+Name: org/spongepowered/asm/mixin/injection/Surrogate.class
+SHA-256-Digest: dIq0Y7icpS3qZg+RO6+mKr6+LhJZXpjBUZez8bpW0CM=
+
+Name: org/spongepowered/asm/mixin/injection/struct/InjectionNodes$Inje
+ ctionNode.class
+SHA-256-Digest: 0l/0ruRDGDTXjaTJd3+bXwLYfdhC8aCBfk844AW8XGI=
+
+Name: org/spongepowered/asm/mixin/throwables/ClassAlreadyLoadedExcepti
+ on.class
+SHA-256-Digest: 0Ps/Mv4F7M5outA3DDpxDIAWlzzaiAyO1s/xcmTq3yI=
+
+Name: org/spongepowered/asm/util/Quantifier.class
+SHA-256-Digest: jMwYaNM631/CcI0eoaGunkq8QNGivZQRUwzLi7P6vgk=
+
+Name: org/spongepowered/asm/mixin/injection/struct/CallbackInjectionIn
+ fo.class
+SHA-256-Digest: S+rGnFnvhTxLdyvYvOGDJEktv3BUkJIYQv+ZTYb4HLk=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinCoprocessorSyntheti
+ cInner.class
+SHA-256-Digest: Uq3plnogXdSmqzgjwjeyB49YadKMmkAaa7CTlVYvda0=
+
+Name: org/spongepowered/asm/mixin/injection/code/InjectorTarget.class
+SHA-256-Digest: Wnd9aD+79Hyb4bfQ54IBkbkHLGmWL7Ov2g/PM2RbWZo=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/MemberMatcher.cl
+ ass
+SHA-256-Digest: FrqFZYz/rklXljaRjvL63OflZseGjyc6Pl5jz/9qEV8=
+
+Name: org/spongepowered/asm/launch/platform/MainAttributes.class
+SHA-256-Digest: 2+yPEoc2VmwbenmAvONry8iBKnTpL6bj4sEucquYIhg=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$CompatibilityLevel$
+ 6.class
+SHA-256-Digest: LofwpOcoM3xUY2lX8+cqbZS/P93qPw4dnHSkDwctxK0=
+
+Name: org/spongepowered/asm/util/Annotations$Handle.class
+SHA-256-Digest: n8GZmbjmFIsMPXAFlBRpTXAzuAqVISJib9LXQ74zh1c=
+
+Name: org/spongepowered/asm/mixin/injection/code/MethodSlice$InsnListS
+ lice$SliceIterator.class
+SHA-256-Digest: e/9pfoTxSi67U8/LHxffFZGgdHW3WRfALrm+R5MUeKg=
+
+Name: org/spongepowered/asm/mixin/injection/struct/InjectionInfo$Annot
+ ationType.class
+SHA-256-Digest: JiajBAXvU2B1dxX4si7NUDnc4fzCCuMt3vOzz7bPjsw=
+
+Name: org/spongepowered/asm/launch/MixinTransformationServiceAbstract.
+ class
+SHA-256-Digest: ZbAUccdR5k6eCslCLU1FeiHQlRVDv4OGy6+kP/kN4Uc=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/arg/ArgumentCountEx
+ ception.class
+SHA-256-Digest: Ez9+j7U0rXO9tu8WKkEIWwga1nl0a0Jlh9xNYL4LfiQ=
+
+Name: org/spongepowered/asm/util/PrettyPrinter$Column.class
+SHA-256-Digest: agg2Q1dc2fNYGWL+ji63BHpAh8/lX8uH8M40iGGKNz0=
+
+Name: org/spongepowered/asm/mixin/transformer/MethodMapper.class
+SHA-256-Digest: UgGclDXJMaj+wOfz9omhZAY8GAwU5K6eWEd0Wi4vw2Q=
+
+Name: org/spongepowered/asm/mixin/extensibility/IMixinErrorHandler$Err
+ orAction.class
+SHA-256-Digest: qOi/fCN/XoWs4cH15hFzwlYzM7xDUO+STbdi1mbIypg=
+
+Name: org/spongepowered/asm/mixin/Interface.class
+SHA-256-Digest: XCCm9TjD8l0eU142bipzucJa197MbvnazivuhQRnrIA=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$TokenProviderWrappe
+ r.class
+SHA-256-Digest: jJ63ErJhPFL6qur7quAgdHUONOoz+b9tlFMT2zA0rV4=
+
+Name: org/spongepowered/asm/mixin/struct/MemberRef$Method.class
+SHA-256-Digest: yave7cVCTwcXxiZ2hWZ4lAffEeGlQH5Fs2Riu+8yccQ=
+
+Name: org/spongepowered/asm/launch/platform/MixinPlatformAgentDefault.
+ class
+SHA-256-Digest: 8IMH0MSIz8YOGauShyh7PmksH+mw48CwFkA9gvNzjZw=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ Accessor$AnnotatedElementInvoker.class
+SHA-256-Digest: U6qZe9IzGlhZscPyp732TxVo9EjF5tkl0M27E+7134M=
+
+Name: org/spongepowered/asm/mixin/injection/ModifyConstant.class
+SHA-256-Digest: uYnCJ5sKScyrsYO1MGQlLXbTbe85Y9gyexCJ1QC8EXw=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/IObfuscationDataP
+ rovider.class
+SHA-256-Digest: /FotrKvu5sTsptdGXRMV0nrTBGjVI6uSIIF9eQpFqdk=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/dynamic/Descript
+ orResolver$IResolverObserver.class
+SHA-256-Digest: eH8lIvPSxXd+mRzhGEg3YldZ587jyG6blQEtOPP57xE=
+
+Name: org/spongepowered/asm/launch/platform/container/ContainerHandleM
+ odLauncherEx$SecureJarResource.class
+SHA-256-Digest: fzEZNlYALOD2TQO4rw9Rt3TR9DYw7szQCl0efAwrZNY=
+
+Name: org/spongepowered/asm/mixin/extensibility/IRemapper.class
+SHA-256-Digest: Jm7upHfBRTjIsPvIkSIBHiscx9wWVww9o9lyIkrB8/w=
+
+Name: org/spongepowered/tools/obfuscation/mapping/common/MappingProvid
+ er.class
+SHA-256-Digest: KdKDc1WHttW1M5QSek/ePzJ+aUw8fjWjjw9duae/EIA=
+
+Name: org/spongepowered/asm/launch/platform/IMixinPlatformAgent.class
+SHA-256-Digest: Q/znhJhQlbtj0SNepSnQrqureVv08Jd7TgnOcEA1EIE=
+
+Name: org/spongepowered/asm/mixin/transformer/ClassContext.class
+SHA-256-Digest: cSOin6YVBlM0zm3E6mKFp7Nnm6VeLERDb/1tChgl3XM=
+
+Name: org/spongepowered/asm/lib/FieldVisitor.class
+SHA-256-Digest: wnYXQoHwhTM8EP3dA+kkiMe3CoXLURGyjKpJpvi1aXU=
+
+Name: org/spongepowered/asm/util/asm/IAnnotatedElement.class
+SHA-256-Digest: /0dBLuYaWDzdYU3QRZ/mC9cq8BhEcLToFCj4lMZCDXI=
+
+Name: org/spongepowered/tools/obfuscation/service/IObfuscationService.
+ class
+SHA-256-Digest: PtmG/OtPkKFJ+MTXecxla9Dk9JP/mncHfzhTYX/GNDA=
+
+Name: org/spongepowered/asm/util/Annotations$1.class
+SHA-256-Digest: WRNz+lQd7q3tTTFIYNauonF9EJ/r97HLNkdqi1+Uo40=
+
+Name: org/spongepowered/asm/launch/platform/MixinPlatformAgentLiteLoad
+ erLegacy.class
+SHA-256-Digest: ffq+Ryu4Kjs7Bs3mHOGBpmLZbxcpyaO/LD6clWOLZHA=
+
+Name: org/spongepowered/asm/mixin/throwables/CompanionPluginError.clas
+ s
+SHA-256-Digest: 6r/Hb4bI1IpsvZ+na38gnPR9YwYZ9N2jcTxoalFgMXg=
+
+Name: org/spongepowered/asm/util/ClassSignature$Lazy.class
+SHA-256-Digest: dbGOJYrjZgPokk4n5rfKrgaB06wy31RdwQNtjOF+TJg=
+
+Name: org/spongepowered/tools/obfuscation/ObfuscationManager.class
+SHA-256-Digest: up9GM+K7KqVW0F1+QoAZnC9cGUptOQugKSyPb7nRY7w=
+
+Name: org/spongepowered/asm/util/PrettyPrinter$IVariableWidthEntry.cla
+ ss
+SHA-256-Digest: 5f/JfczpQ1xPQm/9LHVlfYCVXSJ3YEPcXU89o1faa38=
+
+Name: org/spongepowered/asm/mixin/injection/ModifyVariable.class
+SHA-256-Digest: j/8I4ZUgY1sM8w9LQZCpUcn7tLQyWvdmXe9hDW+DU7k=
+
+Name: org/spongepowered/asm/lib/TypePath.class
+SHA-256-Digest: gAcvu7XQA6LyNuuMQalnZy4HkNPGPUMKACt/e/A/+sw=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ITargetSelectorD
+ ynamic$SelectorAnnotation.class
+SHA-256-Digest: Q0ZWtw94UryhpC83iID7T8nwOlsA+/4Moyk0gHbSv1E=
+
+Name: org/spongepowered/asm/util/SignaturePrinter.class
+SHA-256-Digest: O0QOT8f9q/fCj7CJTXvFAF+C97nzbeJcHZBkADrbM7M=
+
+Name: org/spongepowered/asm/mixin/gen/AccessorGeneratorFieldSetter.cla
+ ss
+SHA-256-Digest: +qLC9c/Fx+YwV1pcVSNk1/b/ACakmCA0K9DDZC5c6ao=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ Accessor.class
+SHA-256-Digest: 2hFRa+/Bwifijs3SbSFedF1gX2c2I9o1wyRU7oWzw6s=
+
+Name: org/spongepowered/tools/obfuscation/mapping/common/MappingWriter
+ .class
+SHA-256-Digest: 6lmdsertd1bMS3/Z9vT2QdjnRj7NphTgCDTtcUSZrKs=
+
+Name: org/spongepowered/asm/util/asm/MethodNodeEx.class
+SHA-256-Digest: jYk1YIp99wZWJvBM6j6bLLDmu/MjpH95UrLBh0PzyQA=
+
+Name: org/spongepowered/asm/mixin/throwables/MixinException.class
+SHA-256-Digest: 2PhxRW+huIZRvBSbO330dm/tkaR2/3l7e52jOYnvoeY=
+
+Name: org/spongepowered/asm/obfuscation/mapping/common/MappingMethod.c
+ lass
+SHA-256-Digest: SfvReDYFwM2I/iqK83k2izj7LMZO29103VihSrzPNUo=
+
+Name: org/spongepowered/tools/obfuscation/Mappings$MappingConflictExce
+ ption.class
+SHA-256-Digest: 8DR+ROpEa1vJyK8D/4dynh2PTD3VR6ZvObtY9xtgOdY=
+
+Name: org/spongepowered/asm/mixin/transformer/throwables/MixinReloadEx
+ ception.class
+SHA-256-Digest: CidGiHr58x0Wb/EBQRPhat/MRVieDQ0UjpRYGaxN0Gk=
+
+Name: org/spongepowered/asm/obfuscation/mapping/common/MappingField.cl
+ ass
+SHA-256-Digest: 3Z7yVTRxSX7lJEAYtut5IONGvotNvi/1fzg4n4jANHA=
+
+Name: org/spongepowered/asm/mixin/injection/modify/ModifyVariableInjec
+ tor$Context.class
+SHA-256-Digest: 0wOsAM89ZZ76XsofrNSW1W5Hq3xiMYAHJsxATF5/vUw=
+
+Name: org/spongepowered/asm/mixin/gen/AccessorInfo$AccessorType.class
+SHA-256-Digest: O23H3JNbn5ulHZbo3xw7fXdYn++GrDe3mK3t62ge/qQ=
+
+Name: org/spongepowered/tools/obfuscation/mapping/IMappingConsumer$Map
+ pingSet$Pair.class
+SHA-256-Digest: 8XbuYxhUCcY5ndl6WSgYWMaYPMqIlpKF/wQVpllyQv0=
+
+Name: org/spongepowered/asm/service/mojang/MixinServiceLaunchWrapperBo
+ otstrap.class
+SHA-256-Digest: FDEt98BTCYx3UI7oHDZt5LPc9gScE1lzgFqSHwkJFD0=
+
+Name: org/spongepowered/asm/util/ClassSignature$IToken.class
+SHA-256-Digest: AZ+0T2z2gEy5e6YbJN1PfrsovJUWhrLw2uAf/Z8g1bY=
+
+Name: org/spongepowered/asm/util/perf/Profiler$LiveSection.class
+SHA-256-Digest: qNT1ZPnemY+9lOXIRswHpcvL/gI+CzzCn7wliIyv85o=
+
+Name: org/spongepowered/asm/mixin/transformer/PluginHandle$Compatibili
+ tyMode.class
+SHA-256-Digest: S3hQrjSkp27zj639kRmaldW15K0pUOoJ0FqL/vXenaE=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$CompatibilityLevel$
+ 9.class
+SHA-256-Digest: K+DHgKEjc7anrzOPEh78apGOOMsNJPugPrAJyN00Uto=
+
+Name: org/spongepowered/asm/mixin/struct/SourceMap.class
+SHA-256-Digest: zOzKPj8gt/ln8YgPZc3OnxgpPMlMpR5cUQTSRQAdXzY=
+
+Name: org/spongepowered/asm/service/IClassProvider.class
+SHA-256-Digest: T3VUsH2SpaAAOyVrsKqAc3nGAADewkLLXuHVZAcHqeU=
+
+Name: org/spongepowered/asm/mixin/injection/points/JumpInsnPoint.class
+SHA-256-Digest: EUM+Ni13zZ9VyHLq4NZmnQnGZUDMhO0nyEPhim/Di+k=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinInfo$1.class
+SHA-256-Digest: r46aMgGEaulBDwxPMFKV5a9WgvoM0S5ScvsgJwNbKE0=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/IMixinValidator$V
+ alidationPass.class
+SHA-256-Digest: 00AcYjKGQhEfdwtIYCoIkrRdM7du39Yd4V6afGy9RI0=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ $AnnotatedElement.class
+SHA-256-Digest: +QsMgUXgQ2tmNF/K61GRpKYfF1zq8i9DNANK3oTPom8=
+
+Name: org/spongepowered/asm/mixin/transformer/throwables/MixinApplicat
+ orException.class
+SHA-256-Digest: jrNMoegAMfoWyNmt/QxBtQC2naFYKE4aS+lKc+Xz/Qk=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$Option.class
+SHA-256-Digest: o80l+n8OV74C+rO7A/yjc1KjwFmbMoe0lPOQtxZKuSI=
+
+Name: org/spongepowered/tools/obfuscation/mapping/fg3/MappingProviderT
+ Srg.class
+SHA-256-Digest: ti1E/Qy2KRVb5GV+zDqev5ZTehuA/IIZ582aN7oabbU=
+
+Name: org/spongepowered/asm/mixin/transformer/Proxy.class
+SHA-256-Digest: x8uR+KkirQo8QWEsR+G3hLIydcQGvxjFghe3dOweVfI=
+
+Name: org/spongepowered/asm/mixin/injection/callback/CallbackInjector$
+ 1.class
+SHA-256-Digest: lDuPri4jTfK7cio9eEqZ/1hYlnMUwuZunIpkXchQi8g=
+
+Name: org/spongepowered/asm/lib/ClassVisitor.class
+SHA-256-Digest: YQxPT3tEE9CiW2XO9qtOhFaFx3WgF5mtJ0jamjTTkJg=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ Injector$AnnotatedElementSliceInjectionPoint.class
+SHA-256-Digest: yPj/5VzJlVkkCIpw9dN3BMoO6FLPJAub1+r5mf4fYag=
+
+Name: org/spongepowered/asm/mixin/injection/struct/InjectionInfo$Selec
+ tedTarget.class
+SHA-256-Digest: eyXRBhODeh+LsO7Ue0VOnc+sl/J9KiZsVz/Wfv9dQb0=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ElementNode$Node
+ Type.class
+SHA-256-Digest: LzVbSPSsQYbo7cb1ihwcQ1K3WWxVAmVs3w6efRsrFNg=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ITargetSelectorC
+ onstructor.class
+SHA-256-Digest: kxA9QdVkWOrEmucgPZnZ93So7tYgx3IUyOcFXHJk5s8=
+
+Name: org/spongepowered/asm/util/ClassSignature.class
+SHA-256-Digest: yuiWwQsJj8LNUjImrts4HgI1r5jVvimC8yKRyNOnsj4=
+
+Name: org/spongepowered/asm/mixin/transformer/throwables/InvalidInterf
+ aceMixinException.class
+SHA-256-Digest: P9rKRhbDLLLIm2DChRL3o4k60CQDTqWMJYjippq7dQ4=
+
+Name: org/spongepowered/asm/util/asm/ASM.class
+SHA-256-Digest: 38vcAnhxA/X/bd1ifgG+xUlVaJBhYg7qU/dGXCFy4Kw=
+
+Name: org/spongepowered/asm/service/modlauncher/ModLauncherClassProvid
+ er.class
+SHA-256-Digest: Ks5lu/Qm5oQcEf6Mv1QF2eo903wXFuuSnY2YcO7D1o8=
+
+Name: org/spongepowered/asm/mixin/transformer/ClassInfo$Method.class
+SHA-256-Digest: XDcxfSb4I/69Q11UsYOoLeTSabPegA7ClwWJOPMWqrk=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinApplicatorStandard.
+ class
+SHA-256-Digest: RhL5n7HJ+vrqdZzejj8iCQqkQyFVyO5Sf2Hi1UDcbYI=
+
+Name: org/spongepowered/asm/mixin/injection/struct/ModifyConstantInjec
+ tionInfo.class
+SHA-256-Digest: +xtb1qM5QjPsL1rMscQprdAl0sqMey/w00scB5NgckM=
+
+Name: org/spongepowered/asm/mixin/refmap/IMixinContext.class
+SHA-256-Digest: nBQJXBD2jQs041gQjsaFSRvGFR1MtcOKtJvonLcAJ8s=
+
+Name: org/spongepowered/asm/service/IClassTracker.class
+SHA-256-Digest: p9eoAwBSe/yS4yKKHHXMYvp5HCqd4PHwTDFL7NCOhAg=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ SoftImplements.class
+SHA-256-Digest: GLN24uZ1PzPleGEgWWSQwp3xk+5ZLe9xkkDLBxxEeG0=
+
+Name: org/spongepowered/asm/mixin/transformer/throwables/InvalidMixinE
+ xception.class
+SHA-256-Digest: QUqGQ84Hj2Z/6pWIExJNfDCxC3odpdNcLBzwLk+6h/Q=
+
+Name: org/spongepowered/asm/service/MixinService$LogBuffer.class
+SHA-256-Digest: GJwp+5B6KyYa+xwuVD+sum8dLlHZ3t+ghyKS1zOTK5s=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/IMessagerSuppress
+ ible.class
+SHA-256-Digest: iEaFKNm+9vMVpei2AlRzN1hqvgo3c2utCdcM2mHvtWI=
+
+Name: org/spongepowered/tools/obfuscation/mirror/mapping/MappingMethod
+ Resolvable.class
+SHA-256-Digest: GQuFXT8o+UClk4IiCzNc/ioFV8z7q2v6IzSnCc7OjCg=
+
+Name: org/spongepowered/asm/service/modlauncher/Blackboard.class
+SHA-256-Digest: pGE+tRn428qVT2BJhO5NG+jYrI+YyxbobrQobzifhTc=
+
+Name: org/spongepowered/asm/util/throwables/SyntheticBridgeException$P
+ roblem.class
+SHA-256-Digest: E1F9VXZx909VJt8kBVsxREGFhWN0jhQn3BHl0nIe3Ys=
+
+Name: org/spongepowered/asm/mixin/transformer/InnerClassGenerator.clas
+ s
+SHA-256-Digest: l3iJj8oDqDlVp+oGnJvG8MeAUueAWPEPwCorNE20WSA=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/TargetSelector.c
+ lass
+SHA-256-Digest: g4f83Ii3QdSVVRS4C+Nac3PbRki+xSQgGf2xxzKOm6c=
+
+Name: org/spongepowered/asm/mixin/Intrinsic.class
+SHA-256-Digest: sCtKF5Fm32d8j7g1lwHZCQeLvl1TYPtI0xA0jaJYNDk=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinCoprocessorNestHost
+ .class
+SHA-256-Digest: cHk/YKj7wRDAyYgbLEehhd6YPTTeys8mp6mdSomTlNo=
+
+Name: org/spongepowered/asm/util/ITokenProvider.class
+SHA-256-Digest: uLGy5F3G04tK4HYOo0TlN0yIYPiVqRGiuv86HnvtmdQ=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/arg/ArgumentIndexOu
+ tOfBoundsException.class
+SHA-256-Digest: Hp+9rogU7z11rLcPxLa6seV7MNgAuGWVxHGkDQo8dU4=
+
+Name: org/spongepowered/asm/mixin/injection/At$Shift.class
+SHA-256-Digest: txIdZ+utWSbXR/nLJXARk4K4Ic3Lb/myetm8v27j0nY=
+
+Name: org/spongepowered/asm/util/VersionNumber.class
+SHA-256-Digest: 3E3UYdCnaDqPGnIg7khv8kLmhkHfpHFDXRZLCEasUro=
+
+Name: org/spongepowered/asm/util/Locals.class
+SHA-256-Digest: hIViRlalAxooIw7uj9JVpw930N8dopMZZElWCVOywoc=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ Shadow.class
+SHA-256-Digest: wW63tNKbtDNPOUcq8mYqxeOZlLcJFs+OeQBk50SQU8U=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/IMixinAnnotationP
+ rocessor$CompilerEnvironment.class
+SHA-256-Digest: 7iK+R/M0Hvixru+SfrLwztJ5JOeBsHzhtzhhY35Maz8=
+
+Name: org/spongepowered/asm/service/modlauncher/ModLauncherClassTracke
+ r.class
+SHA-256-Digest: 1R+yEVccy4PU3abPFz14m1jt0DzQ3Xr9QHYFuRtTQKc=
+
+Name: org/spongepowered/asm/mixin/injection/InjectionPoint$ShiftByViol
+ ationBehaviour.class
+SHA-256-Digest: vtSVuGNoMm3J/d54OLNeRI8ufsICxGsiSHLXD3ZJ6Nk=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$Side.class
+SHA-256-Digest: 29SZzwpshdCSvHs3t+l6OFvYsb/kQmsGDkfvaA3SCE4=
+
+Name: org/spongepowered/tools/obfuscation/mirror/MethodHandle.class
+SHA-256-Digest: mHq/K1jhD9YG8qI7q5w2dzIDq0I5/jcno6xSjoyoOls=
+
+Name: org/spongepowered/tools/obfuscation/MixinObfuscationProcessorInj
+ ection.class
+SHA-256-Digest: URQ2V80BqsPCdTKbXXbM18Mc2V5q+VdNHgBJDlVik5c=
+
+Name: org/spongepowered/asm/mixin/transformer/ext/extensions/Extension
+ ClassExporter.class
+SHA-256-Digest: cXc9m0v3knB7V9GUTCuhiq8rvpWTsJxIrDpiDxPNh3I=
+
+Name: org/spongepowered/tools/obfuscation/mirror/TypeHandle.class
+SHA-256-Digest: OiHwAFuiySKDk2/Mjt39ojHb6tAFHU24GPUrZK6uVsU=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinInfo$DeclaredTarget
+ .class
+SHA-256-Digest: oJvHfBudUBe+VYXxMjAxdKF5Hwxo9Bzt/fxTjMiSb40=
+
+Name: org/spongepowered/asm/mixin/SoftOverride.class
+SHA-256-Digest: 8vzpOPdliV9xBKMihgajBLbXRb+C2olm0eeSN6aBdao=
+
+Name: org/spongepowered/asm/mixin/injection/callback/CallbackInjector$
+ Callback.class
+SHA-256-Digest: ZqqgwMOm5j42+XBLC/SfomJjtcFDGXRCIBS9dBtQ2BE=
+
+Name: org/spongepowered/asm/mixin/injection/Coerce.class
+SHA-256-Digest: v/Nr71gmyVVeLrLnePHcP7/Z1kUIJksNOdBSxup/L9w=
+
+Name: org/spongepowered/tools/obfuscation/mapping/IMappingWriter.class
+SHA-256-Digest: nd/fa/ibUw+lNdH6fHNudbzk6Lv4IBwhgbLcIaeexpQ=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/RedirectInjector$Re
+ directedInvokeData.class
+SHA-256-Digest: 4pp3UC8ixJx7WsVt/O0EoRvwfXA2CohVL3gqkljLxOs=
+
+Name: org/spongepowered/asm/mixin/refmap/RemappingReferenceMapper$1.cl
+ ass
+SHA-256-Digest: J9zU9EQQvcW9AoWWwJ8NiqrheIaOtF8OUkVrXKxNydQ=
+
+Name: org/spongepowered/asm/mixin/transformer/ext/extensions/Extension
+ CheckInterfaces.class
+SHA-256-Digest: IHZlzvkbiMwFQQSBlBX/EVa6pJFR8Sy3906exP6cnLk=
+
+Name: org/spongepowered/asm/mixin/transformer/ActivityStack$Activity.c
+ lass
+SHA-256-Digest: CEQw9iLb6X8L3klaubND8HxjSwbg0eynpk9l1kiOzPo=
+
+Name: org/spongepowered/asm/util/ClassSignature$TypeVar.class
+SHA-256-Digest: e8z/kpCICwvmGT/uoePBjt1Nhgz8L9INEPP2xnalZcg=
+
+Name: org/spongepowered/tools/obfuscation/mirror/TypeUtils.class
+SHA-256-Digest: xV+aOueffcLCHgJKhfeDP89PCEBwEl5c+SJtrjmYJmw=
+
+Name: org/spongepowered/asm/util/Constants$ManifestAttributes.class
+SHA-256-Digest: WXjgRypnT2tarQdYpLcKdvB1w5ouDuRMes+/mS4N9n4=
+
+Name: org/spongepowered/asm/mixin/struct/SourceMap$File.class
+SHA-256-Digest: iR9SsWf2REgdj7hoUd3JLvV3m9miotmh7wx8sa28sAs=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinPreProcessorStandar
+ d.class
+SHA-256-Digest: k3mdxzwlKZJLchuKeEQbQMB70ZLX6ojRq4szLKZ3KDU=
+
+Name: org/spongepowered/asm/util/ClassSignature$SignatureParser$TokenE
+ lement.class
+SHA-256-Digest: FhHjcMV8zfG9ZqAfATmH7rqCYj/u8b5Md/YOHA3iG2o=
+
+Name: org/spongepowered/asm/obfuscation/mapping/mcp/MappingFieldSrg.cl
+ ass
+SHA-256-Digest: Gr3pwPthwjc41nNVZAPmtMi/xzKXCnQf4vuF2katR1U=
+
+Name: org/spongepowered/tools/obfuscation/service/ObfuscationServices.
+ class
+SHA-256-Digest: HLU36DZ5DZei/RvITgfcapO4sj+nxrTzy6rRB1L7TJY=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinInfo.class
+SHA-256-Digest: av+4sECTlKp4esBBMwUexULSo7958uRVtxqNatEH/fU=
+
+Name: org/spongepowered/asm/launch/GlobalProperties$Keys.class
+SHA-256-Digest: osJOT4H/z1VJ/sIWR/5/buJK/r1e/JkWF8VBUBi5T0U=
+
+Name: org/spongepowered/tools/obfuscation/mirror/MethodHandleASM.class
+SHA-256-Digest: qFPU7JlX9T6gSTJCIyDJp7K7MvFe9hUZptJ/TAtzYVo=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/arg/Args.class
+SHA-256-Digest: DUyKF5y1p4evbN6cJ5hmYM4fRUpRYHw2vOk6WvIVufw=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ITargetSelectorD
+ ynamic.class
+SHA-256-Digest: U47YwXEc8nw2aQZVSUnpxnvSya3EKw776i9KgM4ypwM=
+
+Name: org/spongepowered/asm/util/asm/MethodVisitorEx.class
+SHA-256-Digest: AJESuaxmpHeSyQY87rDFC8RtGCv01mckM3hKeMQ8k2E=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ElementNode$Elem
+ entNodeMethod.class
+SHA-256-Digest: aYoieRzk0W6EeABr9VHJUi3wHbUjogf7Xcku+Y3Xzb8=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/IMixinAnnotationP
+ rocessor.class
+SHA-256-Digest: vzkLHC3TYxzY1e0oypzHWQi2ALX+RoTREa03wYyD57U=
+
+Name: org/spongepowered/asm/mixin/gen/AccessorGeneratorField.class
+SHA-256-Digest: w4fM8D+LLt+WCv6q3RxazQUqXjrE4Sy5aYsrNYSD3N4=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixin.class
+SHA-256-Digest: A+eRxabrLCktuTejXeoRMaFDuy1ss2gh9QshWDTsdNY=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ Injector$AnnotatedElementInjector.class
+SHA-256-Digest: YnXWCniAgcNuErEl/q+wfsPtFvy1BU74yZYp0B61DAA=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinCoprocessor.class
+SHA-256-Digest: UqbbzBSquI2xJMV84fyuGjjMEJXpKLA27VUrC5+nr+8=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$CompatibilityLevel$
+ 8.class
+SHA-256-Digest: ymQnKBswykC7ACBOulo8pN68f+D/iqBUTOPcDId9TTQ=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ITargetSelectorB
+ yName.class
+SHA-256-Digest: KPleb73NpCXM/3v4FQeFNHR4TeegrnGZmfyrT5iQqrA=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinInfo$SubType$Interf
+ ace.class
+SHA-256-Digest: Eq1bctWra1HgiUHYCg6W0VXJqsl9y0Vz0wsPLxAgN3c=
+
+Name: org/spongepowered/asm/transformers/MixinClassReader.class
+SHA-256-Digest: Kik46vPaMADYCf+mksOV/sq1cmuIDv/+QFA1T5OIdDY=
+
+Name: org/spongepowered/asm/launch/platform/container/ContainerHandleV
+ irtual.class
+SHA-256-Digest: 4+wK48Pma7nSnNNFTOyIPs2DVyaJBQ2hpxVgpVGrU3g=
+
+Name: org/spongepowered/asm/mixin/injection/callback/Cancellable.class
+SHA-256-Digest: CpNgZf0qiO/B0O9T9BrUk/5ff7WaKEW5vGFPoosJBq0=
+
+Name: org/spongepowered/asm/util/Annotations.class
+SHA-256-Digest: u9PrbZKg3U/Bb5xagbD6pJlde4a8OO703VjMzna1Nh4=
+
+Name: org/spongepowered/asm/service/mojang/LaunchClassLoaderUtil.class
+SHA-256-Digest: FjZj5oW9wVCxJ3FV3ZxRdO3Rj/ljD63bO28wWVzsZ5o=
+
+Name: org/spongepowered/asm/mixin/transformer/debug/RuntimeDecompiler.
+ class
+SHA-256-Digest: hSoSwl44W29jeYiSxuWaZhymryJCQZ4Ge7N7b0x4WF8=
+
+Name: org/spongepowered/tools/obfuscation/validation/ParentValidator.c
+ lass
+SHA-256-Digest: +ULFkOJZU8UokCea4Er+XJJ3/50Cnuy9ItYbvUE8dbc=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinConfig$OverwriteOpt
+ ions.class
+SHA-256-Digest: 1K0XLSBJH+/+AYdHgRXmxUdY44KTHpYYszWv2Lqdof4=
+
+Name: org/spongepowered/asm/mixin/gen/Accessor.class
+SHA-256-Digest: CATv2nPErIautCltHHlS3Yt9+OH6rlcf3QGv1lprUp4=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/throwables/Selec
+ torException.class
+SHA-256-Digest: L7LRZKsqvK43tFkTNeONhP/pJpZkk9HfRQdZws8dHzw=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/arg/ArgsClassGenera
+ tor$ArgsClassInfo.class
+SHA-256-Digest: /+7s15SA8DhJLbkLUcrrKFmo6a8kuNsariJxP3nFjOw=
+
+Name: org/spongepowered/asm/mixin/transformer/PluginHandle.class
+SHA-256-Digest: Ja1ozW2AGCxGIcR25iSzCWZ7cOp9veQe31sgYP2TgEM=
+
+Name: org/spongepowered/tools/obfuscation/mapping/fg3/MappingWriterTSr
+ g.class
+SHA-256-Digest: x9Gy4O1MCh+p2A+Y6uYfXQkKQxDr0NQDiQ1HbpSmWKo=
+
+Name: META-INF/services/org.spongepowered.asm.service.IMixinService
+SHA-256-Digest: jA97t+1c3B9Oy0KXN6mTknzFXmUDZxAsGWpfvsXPP5A=
+
+Name: org/spongepowered/asm/util/perf/Profiler$ResultSection.class
+SHA-256-Digest: ZODA1YPfPp9pnsdYwOfByesrDiow5HJWAb8NEf0dkpA=
+
+Name: org/spongepowered/asm/mixin/transformer/ClassInfo$SearchType.cla
+ ss
+SHA-256-Digest: uAmjslToAGOrKHa8HhmYyb/pQ9lvvKY0E6oD83RiFXA=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinConfig$IListener.cl
+ ass
+SHA-256-Digest: icCsDsyPluFyca5DoiKHW2ySOHfWz0Oxe3F/JRMLKGA=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/IObfuscationEnvir
+ onment.class
+SHA-256-Digest: ien7QF6BeI6IRLGrbVJyDJgZLbalym8oGtKN+lLxk5o=
+
+Name: org/spongepowered/asm/mixin/transformer/ext/IExtension.class
+SHA-256-Digest: zP5AD8sSb78L59THWYjAV+IjDAMzUbvvrRDn6ghMkuI=
+
+Name: org/spongepowered/asm/mixin/extensibility/IActivityContext.class
+SHA-256-Digest: 0J3klXw9atS6zlThIvHi2ZZsPWWiLF/2Q20J58jPNbg=
+
+Name: org/spongepowered/tools/obfuscation/struct/InjectorRemap.class
+SHA-256-Digest: UtyG9uVp1giB8oP6xEizjoYU2XCfk7djRhaJj3lCOzY=
+
+Name: org/spongepowered/asm/mixin/transformer/ClassInfo$Traversal.clas
+ s
+SHA-256-Digest: dwOGt8II2ujGuC45X0FrFneumT0P0ZV1oUznk6qM5Wk=
+
+Name: org/spongepowered/asm/util/Bytecode$DelegateInitialiser.class
+SHA-256-Digest: RgO1IkQFZIYlKHjRe3dfURfHA13oWMhnPq/0xzm8no0=
+
+Name: org/spongepowered/asm/mixin/injection/callback/CallbackInfoRetur
+ nable.class
+SHA-256-Digest: 2YbkJJzNs58MY9VjhHAIoy/AT9BbWc4R0pDWavvK1kc=
+
+Name: org/spongepowered/asm/mixin/injection/InjectionPoint$CompositeIn
+ jectionPoint.class
+SHA-256-Digest: zeeiyiXu4b6GC9RDpSQO3jTTobKPhPnYv3j5KfsabN8=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$CompatibilityLevel$
+ 11.class
+SHA-256-Digest: FD7TJELhL8X2yq2ow+KNRi6jUz30yxGjcqlXId4fHk0=
+
+Name: org/spongepowered/asm/mixin/transformer/SyntheticClassRegistry.c
+ lass
+SHA-256-Digest: Iu8Mydsu/QFxAv8tncdKCS0paOYG5y54V4QzFtEwEoI=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/MatchResult.clas
+ s
+SHA-256-Digest: VKy8ysDOLrflbaxMetkYExXbJUOLcZjXT/mtbB4AFmQ=
+
+Name: org/spongepowered/asm/mixin/struct/MemberRef$Field.class
+SHA-256-Digest: kfI7jnn7BATQplE9TcjugQrQtV7tJpiRdKG/DRDe6Ts=
+
+Name: org/spongepowered/asm/service/mojang/Blackboard$Key.class
+SHA-256-Digest: PT694AfPYvB3nGh6zdJPASuI4/NodBNteYT8aBKy3LI=
+
+Name: org/spongepowered/asm/util/PrettyPrinter$Alignment.class
+SHA-256-Digest: 9CXCfC4thuaypi18BDl4ZQW4qsjuLVosln6lUQ75oVA=
+
+Name: org/spongepowered/asm/util/asm/IAnnotationHandle.class
+SHA-256-Digest: PLNpripW+o2lK9pqjDXDrx1cVjw48KyIpQcTZao6AQs=
+
+Name: org/spongepowered/asm/launch/platform/container/ContainerHandleM
+ odLauncher.class
+SHA-256-Digest: U8E1GOIDZCmGP+8MtHP6/jfYL0BSDBKBGTSDGYGI9l4=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/dynamic/DynamicS
+ electorDesc$Next.class
+SHA-256-Digest: T+AXfMiCh87K3SMwVSatUALVUHyGUVGxPWWOEjHH3pk=
+
+Name: org/spongepowered/asm/mixin/injection/throwables/InjectionValida
+ tionException.class
+SHA-256-Digest: Rwogu9TxM8Xu/dw3pV9hdNPBJZhVg6kAHvPJX/PM4zQ=
+
+Name: org/spongepowered/asm/mixin/connect/IMixinConnector.class
+SHA-256-Digest: Vo2Oh3iJBXRe2Q1hVd+SMIppWaBjeTuQV14o6V7aJKc=
+
+Name: org/spongepowered/asm/mixin/injection/ModifyArgs.class
+SHA-256-Digest: IdnjcYvkN817ANcUluv8IAy3iEDzfUdA2Qcpxxn3eD8=
+
+Name: org/spongepowered/asm/util/perf/Profiler$SubSection.class
+SHA-256-Digest: aniWP8QVHi+rFcaayP/scGxUxxy6SN4pmpWGbJXi9wo=
+
+Name: org/spongepowered/asm/obfuscation/mapping/IMapping$Type.class
+SHA-256-Digest: QOCjfpH0HJU7Khdy6hj7822bvJ9L/xV/G/sGopv6tLc=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/InvokeInjector.clas
+ s
+SHA-256-Digest: aEzbqtLtcmMsLH+DBltxTFvHHbcq37dv0UHVOtOAqwc=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/arg/ArgsClassGenera
+ tor.class
+SHA-256-Digest: v7zczWKy6bLE+36c1yb99KGSbg22IWoud/fXOJpO1ns=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ Shadow$AnnotatedElementShadow.class
+SHA-256-Digest: WVhi0snBqlksxe0KIX8qJoQwXliih2QBQ4c0bFOdvEk=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ Injector.class
+SHA-256-Digest: fOvYVhtuIP3Fz23HZGieDR1aGOhHdThXs+MNFicx7Cw=
+
+Name: org/spongepowered/asm/service/ISyntheticClassInfo.class
+SHA-256-Digest: bOSxebCHi7hGlUgCmEJ/QyZ31ie5bci4u7/vRb9cY5U=
+
+Name: org/spongepowered/asm/launch/MixinInitialisationError.class
+SHA-256-Digest: 4oBg1S4YPr5jNQ7eBUChKeBUrqSRiOts+fUirxpX1zU=
+
+Name: org/spongepowered/tools/obfuscation/mirror/FieldHandleASM.class
+SHA-256-Digest: kFCnRL3Parqe+53J9HwUVJfADdxw6o8KOPq/vvaZwBg=
+
+Name: org/spongepowered/asm/launch/MixinTweaker.class
+SHA-256-Digest: v66QDi+ENy8k6Lz2gIRKZloajiXWI3AiSv6Ij2Fws3E=
+
+Name: org/spongepowered/asm/mixin/gen/AccessorGeneratorMethodProxy.cla
+ ss
+SHA-256-Digest: yAcFWmjMWxInWtUqLrraghcFPzZvzPW6MszUX4VpXqA=
+
+Name: org/spongepowered/asm/mixin/transformer/IMixinTransformer.class
+SHA-256-Digest: XcU9T6+8KU8ccf2DA6qfIY/aVxNYCqZyR0z/dABhPbw=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinCoprocessorPassthro
+ ugh.class
+SHA-256-Digest: kMzXYy0e5Q8cb86PTxLcnnZ0UjSWinVNPDHVN+txT4Y=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/util/InsnFinder$Pop
+ Analyzer.class
+SHA-256-Digest: JxZbnt+ZJpy2XBcizHLzBeUa95Cste/jWmpp8PGxOv8=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ElementNode$Elem
+ entNodeIterator.class
+SHA-256-Digest: iqKFQ7O8yaS9/7YkZ8h5/Q8ECmjFezSHr1HgJ1aBSUU=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/IMessagerEx.class
+SHA-256-Digest: TlQRv6V4eaLL9Hyie39Hpj/C1/NUe+kdYjO6P1d8aN0=
+
+Name: org/spongepowered/asm/mixin/extensibility/IActivityContext$IActi
+ vity.class
+SHA-256-Digest: sFZgB9YZoWSGxAl1moS8hxUbIYcMeDl0fZ7weXlKIRI=
+
+Name: org/spongepowered/tools/obfuscation/ReferenceManager$ReferenceCo
+ nflictException.class
+SHA-256-Digest: aak5W26J5tYlq+9NbCskRNwv/PXAZdHAtbfH6dBoo0I=
+
+Name: org/spongepowered/asm/logging/LoggerAdapterAbstract$FormattedMes
+ sage.class
+SHA-256-Digest: befMGFCUHkScApfVego0DgzU8Xa7Wo7dorkUG2V7dgY=
+
+Name: org/spongepowered/asm/mixin/injection/modify/LocalVariableDiscri
+ minator$Context.class
+SHA-256-Digest: KqqSj1S3DYbjcZbQhCP8z24bSBJ2AXwyphZzhuoV0P4=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$PhaseConsumer.class
+SHA-256-Digest: G9I7kbxguC5o075MHUUvFfJmSX72ykV8OqdAVv3XMHg=
+
+Name: org/spongepowered/asm/util/asm/ClassNodeAdapter.class
+SHA-256-Digest: qtm4HrKu0kAmKQHTBk55ARf/3XOtjGJNHIwRgvrHTKw=
+
+Name: org/spongepowered/tools/obfuscation/mirror/AnnotationHandle.clas
+ s
+SHA-256-Digest: 8+28O3+zOF8TZaKTzFKHWh827yXO6b6PUxjqvcHMAew=
+
+Name: org/spongepowered/asm/util/logging/MessageRouter.class
+SHA-256-Digest: tnV78VHMNrfRf99VUW+931IYIeufOYIK2hWY9blQmLE=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/ModifyConstantInjec
+ tor.class
+SHA-256-Digest: Tcb3PZmVjlQd01X/Fpk4lEg4UGPmwqhRosq0CqA9vRY=
+
+Name: org/spongepowered/asm/mixin/struct/MemberRef$Handle.class
+SHA-256-Digest: JXeqQgZtPo1ejlaZOau7tcJdNtJW3YCQT+M8jzw7nuQ=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment.class
+SHA-256-Digest: slco/ZFyCu140tTxZ+oATzNS32nWE/iCKoODyU6DSsU=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/dynamic/Descript
+ orResolver$ResolverObserverDebug.class
+SHA-256-Digest: NIkmAw1+AIb/6/Rn/7ni1QRHTTpS/eyS5H79bLX742Y=
+
+Name: org/spongepowered/asm/mixin/injection/struct/SelectorAnnotationC
+ ontext.class
+SHA-256-Digest: eXrT+BaN6GveQZFzUePLZGcwHnwxJVe0HFL9sS1a7vo=
+
+Name: org/spongepowered/asm/mixin/injection/throwables/InvalidInjectio
+ nPointException.class
+SHA-256-Digest: KetxadnBmUV4sxfXnWzKFvZFM5U/R4HCNn8QVcPihiA=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$CompatibilityLevel$
+ 1.class
+SHA-256-Digest: 3WAjlAm+mktTE0OJwVNxZ3KOqqk5IQntelYq4VVVQ64=
+
+Name: org/spongepowered/asm/mixin/transformer/ext/IHotSwap.class
+SHA-256-Digest: dPLDdeKcDjhXFNUaEi9yHZILGE98Kuf+KtIcCD/Nui0=
+
+Name: org/spongepowered/asm/mixin/transformer/SyntheticClassInfo.class
+SHA-256-Digest: hcStJfveI6ewHY7wWtcmGWsfq3pFYIK9kBLEblATuFo=
+
+Name: org/spongepowered/asm/launch/MixinTransformationServiceLegacy.cl
+ ass
+SHA-256-Digest: cxHRbq69HFigGNRNc6MYbHTw92R4kWUZb6AA8U1Fgj4=
+
+Name: org/spongepowered/asm/util/Locals$ZombieLocalVariableNode.class
+SHA-256-Digest: StnMbnZaosISuv2vNpE955YhcIUynCcy1r3SouUtsg8=
+
+Name: org/spongepowered/asm/mixin/injection/code/MethodSlice.class
+SHA-256-Digest: mIyzJhl7VA23SgUPwlgTf81FLsQhd1mqpWMPg3aP9ek=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinClassGenerator.clas
+ s
+SHA-256-Digest: SZgut6HcAIWOasFypH7KfIIfDDoL4C5o5N+V0lQwrDg=
+
+Name: org/spongepowered/asm/mixin/transformer/throwables/MixinTransfor
+ merError.class
+SHA-256-Digest: 0ONdtqcdBTYKwh5GojbDDAx7vuukxRA2EzcYTkP4jvk=
+
+Name: org/spongepowered/asm/util/PrettyPrinter$IPrettyPrintable.class
+SHA-256-Digest: Y74gYOwLFB6tBcx4m9eyBAYIHXGv/s8RArTXduz60gs=
+
+Name: org/spongepowered/asm/mixin/injection/IInjectionPointContext.cla
+ ss
+SHA-256-Digest: kI6ij/rIR0WxMkhCTsUeDW3vLSbqFD/p83S/4JmklEk=
+
+Name: META-INF/services/cpw.mods.modlauncher.api.ITransformationServic
+ e
+SHA-256-Digest: u8fDVLxbG1Vlmel/qdvB14or9u9xOHy4MDV8S5I5Yew=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/RedirectInjector.cl
+ ass
+SHA-256-Digest: yG1jA7iYACBlzqrouugDnXRdIAOVR7KmXA5/ff0H3Os=
+
+Name: org/spongepowered/tools/obfuscation/fg3/ObfuscationServiceFG3.cl
+ ass
+SHA-256-Digest: rXWF+k8m78EDbCQngQk2HXkoQFdpOfwOSNX0Ft1sG4s=
+
+Name: org/spongepowered/asm/mixin/injection/points/BeforeNew.class
+SHA-256-Digest: dlXbXycX9d0T6z9DPpkumQHdqBl5JZSzcpFuR4OEhhg=
+
+Name: org/spongepowered/asm/mixin/throwables/ClassMetadataNotFoundExce
+ ption.class
+SHA-256-Digest: iOhZHTGAkJRVqQ3p6qYaipX7z5KuoCUdwCd44v1WQQY=
+
+Name: org/spongepowered/asm/mixin/injection/struct/Target.class
+SHA-256-Digest: jWyhuOn9E7WX1Dt6MgdXyxgOmWz2QILryghqpuZD/Wg=
+
+Name: org/spongepowered/asm/mixin/refmap/IReferenceMapper.class
+SHA-256-Digest: 86ylLuG4/ceU1T4LJ5btvD1cy7ol1iU9IueC0GwD/Ek=
+
+Name: org/spongepowered/asm/mixin/injection/Desc.class
+SHA-256-Digest: xIl91IUmrCKMMK81BJk69ypMu89bFdVZZRN3PB3MmMA=
+
+Name: org/spongepowered/asm/util/PrettyPrinter$KeyValue.class
+SHA-256-Digest: lzj7s7jKbkO9ZxAQFNAOGpqqxcpsUBB0Wps+iPz5yhc=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/dynamic/IResolve
+ dDescriptor.class
+SHA-256-Digest: SP93H3Jjx2h+98ao7oAByDtq0u4ui0FhkExb0H3kLAg=
+
+Name: org/spongepowered/asm/mixin/Dynamic.class
+SHA-256-Digest: Q8p4/Jos2g3a22Kx8MJmMD23zn/YBcS5aHs7Q6/zzpM=
+
+Name: org/spongepowered/asm/mixin/transformer/ext/Extensions.class
+SHA-256-Digest: Lj6Takk6iFIYm/TAZ1/lIuQ/WYMcO+K8qHf54dy3Ae8=
+
+Name: org/spongepowered/asm/mixin/transformer/meta/MixinProxy.class
+SHA-256-Digest: phBZhBF83b74TIQ0yyGetn3rbUTuByxUg7JVvKOJQgA=
+
+Name: org/spongepowered/asm/mixin/gen/AccessorGeneratorFieldGetter.cla
+ ss
+SHA-256-Digest: FqCVRblBJP0wpmsQGOtRcih2pfTTvbwLm6OzBgj4xW4=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixins.class
+SHA-256-Digest: AwbxysCyG+kBrRZ9ARJDmXEPggT+yKyxSf4XqE7KIkw=
+
+Name: org/spongepowered/asm/mixin/injection/Constant$Condition.class
+SHA-256-Digest: 3BKqMp1N4m75R5Vxgj0UwIkHy9CUjfBuPg7/Qh838TU=
+
+Name: org/spongepowered/asm/mixin/transformer/IMixinTransformerFactory
+ .class
+SHA-256-Digest: RY7Qk2gcGJTFzZlRbo8vTAuVLVC85rqqpgDQUvtG+tY=
+
+Name: org/spongepowered/asm/mixin/injection/points/MethodHead.class
+SHA-256-Digest: Y2KAY5vmCWlZ2TG1sP/CsPaEAFL6Enp5Whk9teFAG2Q=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/IMixinAnnotationP
+ rocessor$CompilerEnvironment$1.class
+SHA-256-Digest: VXAnAZATI58JxrDZWM+EROJ0ufPUCJjQbeNMq/xRgDQ=
+
+Name: org/spongepowered/asm/mixin/injection/struct/InjectionPointData.
+ class
+SHA-256-Digest: GOTernlDIa769YiydWmIUxU+5RKU67Lg/srH7TPWZig=
+
+Name: org/spongepowered/asm/mixin/gen/InvokerInfo.class
+SHA-256-Digest: PtWn0aVNU1wcUMccjb0zPzZ+p2q5ufVdHxD4p8c2OHg=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/ITypeHandleProvid
+ er.class
+SHA-256-Digest: Vwrg2OD6tqfm36dXOS1J7xorTCJwUqmhT0zzRJC5IpU=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinInfo$Variant.class
+SHA-256-Digest: z3f3f0hFevPXWZYUAwLnqHLcWZhYRB0WdVmkdmlOlrk=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ Shadow$AnnotatedElementShadowField.class
+SHA-256-Digest: hTAyraIAlq2OnLP2bdDGvnTB7fmOJGNNMbP7kwrY11A=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ Accessor$1.class
+SHA-256-Digest: crnbsUBc0pEsBWw8meG4tnX80ZYX/fQkEKZQdE6tJow=
+
+Name: org/spongepowered/asm/mixin/gen/AccessorInfo.class
+SHA-256-Digest: kWMul6TRjcgDryTzc8DAq7YmqQmq0hk4QXUlxzUHvic=
+
+Name: org/spongepowered/asm/service/IMixinAuditTrail.class
+SHA-256-Digest: Blf6fP8rrDOpAMqJ34hMkCfQSCZcIldQScEhfOmK724=
+
+Name: org/spongepowered/asm/mixin/injection/struct/ModifyArgsInjection
+ Info.class
+SHA-256-Digest: xngyeXiYxK8QRcrfNzC+DiSEYQSRaaSX90FdlQSuPD0=
+
+Name: org/spongepowered/tools/obfuscation/fg3/ObfuscationEnvironmentFG
+ 3.class
+SHA-256-Digest: 7IAiD6MBa2+cKcm42/IUNnQM7dNoqOPebPIU+EGpzYE=
+
+Name: org/spongepowered/asm/mixin/injection/throwables/InvalidInjectio
+ nException.class
+SHA-256-Digest: rSo6d/yrXl2ICYA5fPs4vLyP3/9WlZX6t8wwJDSLbFU=
+
+Name: org/spongepowered/asm/mixin/gen/AccessorInfo$AccessorName.class
+SHA-256-Digest: hyI9e4Fkb7ogUy1yIrwGNZf156Kz4Coklg04+4pJpHI=
+
+Name: org/spongepowered/asm/util/perf/Profiler.class
+SHA-256-Digest: snEUOocfNbdqWlUSOzGIs+scau2e3EBtvnEmikHMWKE=
+
+Name: org/spongepowered/tools/obfuscation/service/ObfuscationTypeDescr
+ iptor.class
+SHA-256-Digest: +7Pspv0DxoEfSAMHz/JGPNvnMeUMNj/V3k/tb6tUYKs=
+
+Name: org/spongepowered/asm/logging/LoggerAdapterAbstract.class
+SHA-256-Digest: xuSt/IyQ6P3Exz5PmCT/XaL2l/540Q/AYjOz0OVZSK4=
+
+Name: org/spongepowered/asm/mixin/injection/modify/InvalidImplicitDisc
+ riminatorException.class
+SHA-256-Digest: 0rYP7zxT3FgVXKkZ3cputF53CKY8KkPkLmosuUT7i0w=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$CompatibilityLevel$
+ 3.class
+SHA-256-Digest: uOvWzX656sRGnMnsWuAlNhMHn6QtnQWN7WhkYc9EmkU=
+
+Name: org/spongepowered/tools/obfuscation/ObfuscationEnvironment$Remap
+ perProxy.class
+SHA-256-Digest: xe8ZvWKpteQv2P3MDxeKa4S7+fwu18WDSxbVBiuQRS0=
+
+Name: org/spongepowered/asm/util/ConstraintParser$Constraint.class
+SHA-256-Digest: rVuyuE88lgjMPIvjYUvov4PxeCtA5aKJWYc4aOyr3EE=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/IMixinValidator.c
+ lass
+SHA-256-Digest: ygRbBAf0qGMWHzC3RgDe3V8TCuwCJcU9HmlLNuDeY5Q=
+
+Name: org/spongepowered/asm/mixin/struct/AnnotatedMethodInfo.class
+SHA-256-Digest: adOD/Jz3cwYxFkoX2unSj/hm7hrofBdE4HoqZI+BxdA=
+
+Name: org/spongepowered/asm/mixin/struct/SpecialMethodInfo.class
+SHA-256-Digest: ETt7XCRnn+VrG6eRSPcTAH8O9kREEKC/TRlaanPaUks=
+
+Name: org/spongepowered/asm/launch/platform/CommandLineOptions.class
+SHA-256-Digest: NarM64JZoc4ADuoZMGdD6qknOv/M2NH3XzJPseunGDI=
+
+Name: org/spongepowered/asm/mixin/transformer/debug/RuntimeDecompilerA
+ sync.class
+SHA-256-Digest: cm4sL2megFjl5UyMcGzsuLiMMfN3MEs5YzH4E+F+xe4=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinCoprocessorAccessor
+ .class
+SHA-256-Digest: 0YMJDErVNy5AgD+sBofEA37SyC/ndBgZ12mrNBXDlLM=
+
+Name: org/spongepowered/asm/launch/MixinLaunchPlugin.class
+SHA-256-Digest: ubpNBxUxE9/dZnNqp1U7GVGyhtuCD97BqDSZc8fjwE4=
+
+Name: org/spongepowered/asm/mixin/transformer/ext/extensions/Extension
+ CheckClass.class
+SHA-256-Digest: 28Ae1o3omWP6R6WNkvjszRWivMPBKKPHpG88atdET5Q=
+
+Name: org/spongepowered/asm/mixin/injection/Descriptors.class
+SHA-256-Digest: kuNg9pBj36nABXvS8SLAiW+BiUfJSQEZK9y2S2YukVY=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinConfig.class
+SHA-256-Digest: yOZaLdQ5hA+DFHMQCt6y8EIMChri+xt+XpvqWG1yXOM=
+
+Name: org/spongepowered/asm/service/mojang/Blackboard.class
+SHA-256-Digest: A90+6UCv3ZaPAVIWUrXIHahOmxKIHcX2Wp1KGc1qt2Q=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinInfo$SubType$Access
+ or.class
+SHA-256-Digest: mw5uOcT8963zi3GD19DJI+5B0Rr0DsSHPHQxZw77FWE=
+
+Name: org/spongepowered/asm/service/ServiceInitialisationException.cla
+ ss
+SHA-256-Digest: YuINgZPmuoU2vVSpd6UyDe6ZdacmL9okKI0fZKkauw0=
+
+Name: org/spongepowered/asm/mixin/transformer/DefaultExtensions$1.clas
+ s
+SHA-256-Digest: oIWR5ZM7RZuh3ZsBBrzhscUjj3eBa7ouTQButupMqZM=
+
+Name: org/spongepowered/asm/util/asm/MixinVerifier.class
+SHA-256-Digest: lcdHjdtTHWtBd6Wev/hvSUDepGMELrNamPAy2VhYhKU=
+
+Name: org/spongepowered/asm/util/logging/MessageRouter$DebugIntercepti
+ ngMessager.class
+SHA-256-Digest: FB+4lXcjB1Hmi38Xjhp+FHr/hgscoZH75d2NL/h76bE=
+
+Name: org/spongepowered/asm/mixin/transformer/throwables/IllegalClassL
+ oadError.class
+SHA-256-Digest: wNyTLGx7QjSLa46TM8dbAt8wGbL4winkpwrFuThd1Ks=
+
+Name: org/spongepowered/asm/mixin/throwables/MixinPrepareError.class
+SHA-256-Digest: JBlYaZuiuUDWt+oh1ixS78zxAsKwqTJIDOzKXoM0Zrw=
+
+Name: org/spongepowered/tools/obfuscation/MixinObfuscationProcessor.cl
+ ass
+SHA-256-Digest: 9NkE8LPwLvp3XCuBZZdB6Azd6OrBhbHn+/Dg2yjCGBw=
+
+Name: org/spongepowered/asm/mixin/gen/throwables/InvalidAccessorExcept
+ ion.class
+SHA-256-Digest: 3q1TdlkSS8PYTutZ9UXFSnlUg9mgX0IMtvHrOTprZyY=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/util/InsnFinder$Ana
+ lysisResultException.class
+SHA-256-Digest: jBbrHl8ot+NUbCSkWzKYe6dZBM/GVz0t92Z6X600jVM=
+
+Name: org/spongepowered/asm/mixin/transformer/InnerClassGenerator$Inne
+ rClassInfo.class
+SHA-256-Digest: qkDGUBEYlygro+0uQBD1JWs30Z/CQf+qb2MQXNb5kgI=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ITargetSelectorR
+ emappable.class
+SHA-256-Digest: 5jnQCTyeFZjFnpUekb1ry4A49Ey0wuP4SvLaelfEuqY=
+
+Name: org/spongepowered/asm/util/JavaVersion.class
+SHA-256-Digest: N66XPkbJDR+vmJGlBjqzYOfg27FoS6A+RnFZK2SXDSs=
+
+Name: org/spongepowered/asm/mixin/injection/struct/ModifyArgInjectionI
+ nfo.class
+SHA-256-Digest: a4vbLxzr4bcYM8+vn5XSz3y9vS1GHbgSCfwPNDQHvws=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinPreProcessorStandar
+ d$SpecialMethod.class
+SHA-256-Digest: 4dUTyQ/6KDM1gycoTCxWMuau0fwuk9LcBCRsNDdtcx8=
+
+Name: org/spongepowered/asm/mixin/injection/Inject.class
+SHA-256-Digest: vspMAbyChSfEtwr6F7qH15NJ2ppxS9d0+87+r9FBK8o=
+
+Name: org/spongepowered/asm/mixin/gen/AccessorInfo$AccessorType$3.clas
+ s
+SHA-256-Digest: j/cOKT0xI6DKRqEkiucb9WMjBvv2XWWcfcGoDvuOYyQ=
+
+Name: META-INF/services/org.spongepowered.asm.service.IGlobalPropertyS
+ ervice
+SHA-256-Digest: MyLMYr46GzWZkdx37NvNxzlB0YMrSS83eXPl0AprUyk=
+
+Name: org/spongepowered/asm/service/MixinService$LogBuffer$LogEntry.cl
+ ass
+SHA-256-Digest: 9ei1xTCqrYuydgrnOdw4q3qh3O3zJAu0XyACo2biJjI=
+
+Name: org/spongepowered/asm/launch/platform/IMixinPlatformServiceAgent
+ .class
+SHA-256-Digest: EP7v01cGbWZFu+HvTeKm/mkwhSMDSt85lNS9jxZAjbk=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinConfig$1.class
+SHA-256-Digest: t4iZrVY7A5glGtnTNxhRBMGQnr0F6DWfndY/Q2fCYog=
+
+Name: org/spongepowered/tools/obfuscation/SupportedOptions.class
+SHA-256-Digest: tQFjhIoabu8aKe1GKhQ2vTVefZYjoaRdOwDwknKzkDg=
+
+Name: org/spongepowered/asm/mixin/injection/struct/InjectorGroupInfo.c
+ lass
+SHA-256-Digest: 8GpVtI8EtgKxWjpZg9SKHYZo+xwF417dUiDet2TVX3Y=
+
+Name: org/spongepowered/asm/util/PrettyPrinter$Row.class
+SHA-256-Digest: m9moOul32BmudEum0YLZO6ym5QJYmiOvtQcrbEU1KOQ=
+
+Name: org/spongepowered/asm/mixin/Mixins.class
+SHA-256-Digest: p0s7kdeKErPNt0X0jntTvg0z6pxhGc41K2foYykfh/E=
+
+Name: org/spongepowered/tools/obfuscation/ObfuscationEnvironment.class
+SHA-256-Digest: gCTZdXkPy0E4RLKnTkSlOv5lDzjWbXQp9svuAJ172Gw=
+
+Name: org/spongepowered/asm/mixin/transformer/ClassInfo$FrameData.clas
+ s
+SHA-256-Digest: 2/PtR5rkIN6sq5Mz0ugIweME7Y4SVddKEUTV49TgAiE=
+
+Name: org/spongepowered/asm/mixin/injection/modify/LocalVariableDiscri
+ minator.class
+SHA-256-Digest: pQbnTTK/rJQFg4miFlSTaVGlgg4cIHHZ/I3QVvNKiIk=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/IReferenceManager
+ .class
+SHA-256-Digest: mzDBaKBR++Rne/GEceqZg4draOl8IqYHmHR6kEWII9A=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinCoprocessors.class
+SHA-256-Digest: U1YjDSSWybNC/QbLWYeasbaKFTWbPJtwGUSMMqCAUzA=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ Accessor$AnnotatedElementAccessor.class
+SHA-256-Digest: O3vC51iSBy0TxcqzbG5tyWRAEiGCOto1wHW+QGp3abo=
+
+Name: org/spongepowered/asm/service/ISyntheticClassRegistry.class
+SHA-256-Digest: Mo9DNaBranDvhhr3D6zmWhzrlL9CaxmsVMQo22YyRpE=
+
+Name: org/spongepowered/asm/transformers/TreeTransformer.class
+SHA-256-Digest: OwWF69qgeqjUoDxVHXyMBKJtKvg6PMTBYtqgfNwJ58I=
+
+Name: org/spongepowered/asm/mixin/Final.class
+SHA-256-Digest: a9NQSaPIgpoUQtRRIQlHwsXbV01GGwxG/7zfUMo/o2E=
+
+Name: org/spongepowered/asm/mixin/injection/throwables/InjectionError.
+ class
+SHA-256-Digest: Dd9AuagOnfjBG+r2zd935ZM3sw9RzIUNDFPLwgwwpxA=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$Side$1.class
+SHA-256-Digest: qczmXaFVq3KpinrqFcJS3pKDNUOd1fZa3uIiVID2KW0=
+
+Name: org/spongepowered/asm/util/ClassSignature$SignatureParser$Signat
+ ureElement.class
+SHA-256-Digest: 47J+SSVL4bDcPU9v32DK11/Blb+BqNPr87Te7k+B4xI=
+
+Name: org/spongepowered/asm/mixin/Overwrite.class
+SHA-256-Digest: 4nmR/RjPfRGaWViYXVZd0qDczne+gldWwgcf3b/a2CA=
+
+Name: org/spongepowered/asm/util/throwables/SyntheticBridgeException.c
+ lass
+SHA-256-Digest: Ch9gd+wlR5mkcJxR66/9bFs+8U6vCjGan5swgiT3Nu0=
+
+Name: org/spongepowered/asm/mixin/transformer/ext/IExtensionRegistry.c
+ lass
+SHA-256-Digest: ieC08mUWJulYRu8CIAdUne0PpvkqboQqplGjvvzhhKw=
+
+Name: org/spongepowered/asm/mixin/gen/AccessorGeneratorObjectFactory.c
+ lass
+SHA-256-Digest: wcJ/JuTTQhfE8rJt+3xjsbhcyP2BotB4BJjjOUylUNQ=
+
+Name: org/spongepowered/asm/util/Constants.class
+SHA-256-Digest: FmTwaCQ1PTIl0oGrPQ/JQhvHoRKkb9tnlAb6z42IGgk=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/RedirectInjector$Me
+ ta.class
+SHA-256-Digest: CioV1bKcrtJq9kzAN2HXOe7g4cXc1XLUh77hztHqrU0=
+
+Name: org/spongepowered/asm/service/ILegacyClassTransformer.class
+SHA-256-Digest: RiW8dkG4RiVE1mpToTOjEbarogwMVl1KFD4dP4EeGpg=
+
+Name: org/spongepowered/tools/obfuscation/mapping/mcp/MappingProviderS
+ rg.class
+SHA-256-Digest: CAYmBKyhPs90zE3XRyNDSa2Xi0trhx4NZEVO908pYRQ=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$CompatibilityLevel.
+ class
+SHA-256-Digest: oLsbid0gv/Jw5PFFmIsmAo1/PQQlxSj0KB0e8IfKTpw=
+
+Name: org/spongepowered/asm/util/IMessageSink.class
+SHA-256-Digest: ayf6xjY+pcnbDpPDDRzZnKcCp3WXtmUf96geQ5X38hE=
+
+Name: org/spongepowered/asm/launch/IClassProcessor.class
+SHA-256-Digest: 6gGsA/priUr4idBzlqm3ajRWtpLsFmaEmChO614fbBg=
+
+Name: org/spongepowered/asm/launch/platform/container/ContainerHandleM
+ odLauncherEx.class
+SHA-256-Digest: dmiLC51L4c3zoKWLwNq92exEn5M7IT38eyzVGPl1Dio=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinTargetContext.class
+SHA-256-Digest: AojZ6cyxjrQDJH9gUuxTFknJS6fBJcQg2nBzzIyqLSA=
+
+Name: org/spongepowered/tools/obfuscation/mirror/MemberHandle.class
+SHA-256-Digest: q+HcthCFskyzv2oMjkMh4Ljqmbx3McoWlHQ948hJkiY=
+
+Name: org/spongepowered/asm/launch/platform/MixinPlatformAgentFMLLegac
+ y.class
+SHA-256-Digest: oLViJ1/trQPn4MjBMxhp9aQ3iAJN2ffKAuF54xtm/60=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinConfig$InjectorOpti
+ ons.class
+SHA-256-Digest: EYFUFTHrMGfQTy0cSqkfDOrQpfrpuYHwKAqg3uocCHk=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinTransformer.class
+SHA-256-Digest: hVR0h7vbvatu6/9dZLd/0q0NVwIaQj1ZNHPYhLTgeTE=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ .class
+SHA-256-Digest: iJQMIv06pgEFsPxmbx0CWsdq5YrZUL+RBCrn928xFo4=
+
+Name: org/spongepowered/asm/obfuscation/RemapperChain.class
+SHA-256-Digest: oeftEVLaYfsxmF9woeh42ovzex+vGDfX0rDYvlkSGYA=
+
+Name: org/spongepowered/asm/util/perf/Profiler$DisabledSection.class
+SHA-256-Digest: uTKvl2yLzIAqqLjRDArKtPuMjHblZnCICELOkJ7PTl4=
+
+Name: org/spongepowered/asm/mixin/injection/modify/BeforeLoadLocal$Sea
+ rchState.class
+SHA-256-Digest: y21QsuQbcOimRGPPLwGG8FI+ebEBx27Ail6geMSHPWY=
+
+Name: org/spongepowered/asm/launch/platform/MixinConnectorManager.clas
+ s
+SHA-256-Digest: jpo4Mr2SyybPkz4m/SStQOXFEwEEOXebezTlZprGw1I=
+
+Name: org/spongepowered/asm/mixin/extensibility/IMixinConfig.class
+SHA-256-Digest: 2mgNLrdu+jOUZV3W5aFaVGu7VesGReeNLA6eH0NZt9E=
+
+Name: org/spongepowered/asm/mixin/Implements.class
+SHA-256-Digest: Yc6/1aYtX5sLXLCZkAogXB+RfKU+X4hX+YCE1uVOCa0=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinProcessor$1.class
+SHA-256-Digest: +j8XQQOJNKeh+Fd+aOI2sUXAXI2bZKCxSZibtKEZcdc=
+
+Name: org/spongepowered/asm/mixin/injection/code/Injector.class
+SHA-256-Digest: Sj9StXG8kCoNjwLRJ20obp3l2gR3MbRp2pb2oUcU1Kk=
+
+Name: org/spongepowered/tools/obfuscation/Mappings.class
+SHA-256-Digest: w2kZJCE1gmqSTJOsGQ/VObAdhnQCkE1AyK+6ukesTg4=
+
+Name: org/spongepowered/asm/mixin/injection/points/BeforeInvoke.class
+SHA-256-Digest: sw/6DTJ/5w348HP+OLz118Wh8/23z9Uw1kPzjx7wSh8=
+
+Name: org/spongepowered/asm/util/Handles.class
+SHA-256-Digest: QClPSMgWZhDsHCTyNqIpqesTEg/6dBLbxCkYd4EJE7E=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/dynamic/Descript
+ orResolver.class
+SHA-256-Digest: h3sfW3a8AToMbMDdYWyLYTU64JDaVPsGZ8C7FMF4A38=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinApplicatorStandard$
+ InitialiserInjectionMode.class
+SHA-256-Digest: NcA50sooHznB+Jzya5orzBH3wbpc8seBDu2YyobeWkw=
+
+Name: org/spongepowered/asm/logging/LoggerAdapterJava.class
+SHA-256-Digest: Bk8DNH20+Mi/YuXUuVtd/5nMPGv600RIF94nMVU+GKA=
+
+Name: org/spongepowered/asm/mixin/gen/AccessorInfo$AccessorType$2.clas
+ s
+SHA-256-Digest: N4AC+4CHWVjXXrdLSxgWwfii0nAgGzNQ6bZT1PLuBpU=
+
+Name: org/spongepowered/asm/util/ClassSignature$SignatureParser$Interf
+ aceElement.class
+SHA-256-Digest: 144mEp+iZUCkKImMZsY4MkKU93oMRJExgoqi9bmzTQA=
+
+Name: org/spongepowered/tools/obfuscation/mirror/TypeReference.class
+SHA-256-Digest: LovwHwgauUZtUN4l3kpj1Yam2JcXPNADXwO3KqQ86/U=
+
+Name: org/spongepowered/asm/mixin/struct/SourceMap$Stratum.class
+SHA-256-Digest: jRWOM7xHDZqOKqdcrDcvCgNxK61HaA221mb9lNwKq7o=
+
+Name: org/spongepowered/asm/mixin/injection/Group.class
+SHA-256-Digest: QDdKbelZRJckReMXmEjbgTnSOoZqk9dfnxhAZxYXz+Y=
+
+Name: org/spongepowered/asm/launch/platform/IMixinPlatformAgent$Accept
+ Result.class
+SHA-256-Digest: DWpDCmT48lImvemr1VkXAUGdIboX+y68z3rym0nZaUI=
+
+Name: org/spongepowered/asm/util/ConstraintParser.class
+SHA-256-Digest: hcs3C4a0XO/8fBPtC2qUvd2S5m+F/KaKUzqQqnJ+rgQ=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/InvalidSelectorE
+ xception.class
+SHA-256-Digest: qVO2B6Lq+UMWnUQlf8vfJm9U+0C1hh5UUGGqqm8T2NA=
+
+Name: org/spongepowered/asm/service/mojang/LoggerAdapterLog4j2.class
+SHA-256-Digest: mSL2oRIu5GAvx+/tYKXv6hqcgnOXm+2tBvQPGKDMm+Y=
+
+Name: org/spongepowered/asm/service/ServiceVersionError.class
+SHA-256-Digest: qzL1RleVOJU7zqtmH+7/I0/ktOIaKUIvBAEvDr2lUC0=
+
+Name: org/spongepowered/tools/obfuscation/TargetMap.class
+SHA-256-Digest: mlssUdqFjvcsqRMpBnyByPAOE/80e2/y92t6SrxU7/8=
+
+Name: org/spongepowered/asm/mixin/injection/At.class
+SHA-256-Digest: oHmNUHIbpSw7PcCY/GhAaTyewBP23pDNs5+K9cCJFvY=
+
+Name: org/spongepowered/asm/mixin/transformer/ClassInfo$InterfaceMetho
+ d.class
+SHA-256-Digest: aG8qjffaAddlaPsfqVYyV2JSGNKm6FpFXcopgAWKn8E=
+
+Name: org/spongepowered/asm/service/ITransformer.class
+SHA-256-Digest: SB7xzdByeF6XasL5MrJtTiZBGKJ/HCURlZIPiPLrNOI=
+
+Name: org/spongepowered/tools/obfuscation/interfaces/IJavadocProvider.
+ class
+SHA-256-Digest: 4rJq9R6mRt1coMPAjylFiPViBj+ziNBSw6bo3zz0tXY=
+
+Name: org/spongepowered/asm/mixin/throwables/MixinError.class
+SHA-256-Digest: QrybZq0F/Uo+hZW16QvSFgkkWjKzTEkiOAmBcaddRLA=
+
+Name: org/spongepowered/asm/mixin/transformer/ClassInfo.class
+SHA-256-Digest: mulfEgRSfTuH3NaDuHfbn481FnMoSIAeIOFfAIpB/zk=
+
+Name: org/spongepowered/asm/mixin/injection/struct/InjectionInfo$Injec
+ torEntry.class
+SHA-256-Digest: KdOcQCPCR8uaZ8ZHlk3CFRwi/TmTcaASJFevfUVt2aw=
+
+Name: org/spongepowered/asm/util/throwables/SyntheticBridgeException$1
+ .class
+SHA-256-Digest: kxEwBSE2y9qlWZvE1vY8uQHB7QdU6jWttpyViNmr9P4=
+
+Name: org/spongepowered/asm/mixin/injection/InjectionPoint$Selector.cl
+ ass
+SHA-256-Digest: iY+ILlHuMxPfE8sv3TbWX86VZh1crPq55B7vohMHujo=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$Side$2.class
+SHA-256-Digest: ihXAzFhsLGXAgagIpop/MTemQXQY44KnM1H2JBYI8j4=
+
+Name: org/spongepowered/asm/mixin/injection/code/InsnListReadOnly.clas
+ s
+SHA-256-Digest: tW5vdWKo318Eb3Sm5/q4LTHAQIw4qnOHJsBPow8oCh8=
+
+Name: org/spongepowered/asm/service/mojang/LegacyTransformerHandle.cla
+ ss
+SHA-256-Digest: zYu3gk+DO5MlZ6eXpLalVYZwCwzvHAEs6MbdK6yc8Jg=
+
+Name: org/spongepowered/asm/mixin/injection/points/BeforeReturn.class
+SHA-256-Digest: rmRRvTqXoLwb5ae0n9dkwGFFOl25hmRV6L2z41PzYXI=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ $ShadowElementName.class
+SHA-256-Digest: 21mX9LZP9kRL+6RSexUsi6CWo/XupXa4LUHaZfqzf3Y=
+
+Name: org/spongepowered/tools/obfuscation/MixinObfuscationProcessorTar
+ gets.class
+SHA-256-Digest: r4Mk7fc1jsoSqcvYlxYbtBeddkrdOyJq3zFBFqz7A6w=
+
+Name: org/spongepowered/asm/util/logging/MessageRouter$LoggingMessager
+ .class
+SHA-256-Digest: pyayemGnEGxWmoU1C1knENLf9+j0nsCTEtE0T2GXFB8=
+
+Name: org/spongepowered/asm/service/modlauncher/Blackboard$Key.class
+SHA-256-Digest: p2UQTbQKtZxiqXdYgwT3CpqzignNU6LpyRIUa6sXSko=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/InvalidSelector.
+ class
+SHA-256-Digest: 1Y+5E8JPHtyaJDyC242oHTPD1U62L+ZTU6RQyjnl4B4=
+
+Name: org/spongepowered/asm/util/LanguageFeatures.class
+SHA-256-Digest: 0LNJh2SCEauZI7AU2CPp+WdtvIHYvukcz6PGy+VO7n0=
+
+Name: org/spongepowered/asm/launch/platform/container/ContainerHandleU
+ RI.class
+SHA-256-Digest: iLGj4UNc7oL1b8TTmpeFuP1rvS+gyoZyVDrH8pFNAqE=
+
+Name: org/spongepowered/tools/agent/MixinAgent$Transformer.class
+SHA-256-Digest: biA051pklVG44riJYeHLhNPyvnvMeRf98XmKWMN/8Ck=
+
+Name: org/spongepowered/tools/obfuscation/SuppressedBy.class
+SHA-256-Digest: sbJMeEo4K3l48RAik8JepDnZJQJBOlTnhLf3reSLjqc=
+
+Name: org/spongepowered/asm/mixin/injection/InjectionPoint$AtCode.clas
+ s
+SHA-256-Digest: 05vDJ0kZNCIUqLTnAKPQivZb917Tlr7ScTQ0h8isNJo=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ElementNode$Elem
+ entNodeMethodInsn.class
+SHA-256-Digest: jUI/Pp3y6iX/9ivKftImO/AY65B1JK9OXBN6Ih/Bwn8=
+
+Name: org/spongepowered/asm/launch/GlobalProperties.class
+SHA-256-Digest: 8H0dKD1k4GxQRlRjeK4qS+szGumla2lwup3iZn2M2jU=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$Option$Inherit.clas
+ s
+SHA-256-Digest: df55fZoSCwOrh8Iv87IyXzezvQm0Fgo7JQsMf9BzEKc=
+
+Name: org/spongepowered/asm/mixin/throwables/MixinApplyError.class
+SHA-256-Digest: 6cQ0sDGF42XrMwczYJ55mqamnppGl0vY/xwfDoZTJvM=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ $AnnotatedElementExecutable.class
+SHA-256-Digest: qyjOBNKrVbUsQpmbmX8KtGe7JK3pFq+yXUPfEJwfJAg=
+
+Name: org/spongepowered/tools/obfuscation/ObfuscationData.class
+SHA-256-Digest: YifC+UYbWD7/+FAJi11ZX9WKHdPAi5s7PwhcvRLBgXU=
+
+Name: org/spongepowered/asm/mixin/transformer/InterfaceInfo.class
+SHA-256-Digest: F9WbwamFl5ffHsQ13mLfVdVjS0f2K0ygaSq0PRW5Cls=
+
+Name: org/spongepowered/asm/launch/platform/MixinPlatformAgentFMLLegac
+ y$MixinAppender.class
+SHA-256-Digest: IPhuizkkITaxVBbXue0/LUNeXXPIrap6bTkFgmz2wtk=
+
+Name: org/spongepowered/asm/mixin/injection/invoke/ModifyArgsInjector.
+ class
+SHA-256-Digest: CeH8qDhb6RnyyT/RT2BfPrzifsEjr3jUi6V/MiHpU+U=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ Overwrite$AnnotatedElementOverwrite.class
+SHA-256-Digest: 5YH3a7bQgALrUzElCBh7Qab6wj2667rHodixfOT218k=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/ITargetSelector$
+ Configure.class
+SHA-256-Digest: JUQjA3BY3kfXgFG5UINPRo76/AImVurJL/34LfrKOn4=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinApplicatorStandard$
+ 1.class
+SHA-256-Digest: 7kpO+PynNMsLFOegvtt7RV6xWvI5PHgrquRhd/AKD/U=
+
+Name: org/spongepowered/asm/launch/platform/MixinContainer.class
+SHA-256-Digest: evje80ZMpDiCO/n+2wInbO4poFLrPje8TP+1F+Z7FyQ=
+
+Name: META-INF/services/cpw.mods.modlauncher.serviceapi.ILaunchPluginS
+ ervice
+SHA-256-Digest: 0zxAy0MNmc0bvvWkkp92qWul4R/ZTeh4lpc3Bq3KNSk=
+
+Name: org/spongepowered/asm/mixin/Mutable.class
+SHA-256-Digest: +OcSid5wpzj7y6HGgm+CPcbvN5VojtomKvjd8wq8IAg=
+
+Name: org/spongepowered/asm/mixin/MixinEnvironment$Side$3.class
+SHA-256-Digest: p7LU6CPfxiSrTQ+h0JPAXutH3ju44tzqOEe9UWvXfHA=
+
+Name: org/spongepowered/asm/util/PrettyPrinter$ISpecialEntry.class
+SHA-256-Digest: e1OaDBmeV2LFx/avbp0YdiS2zbZf0mHH9KBmWd8OM5k=
+
+Name: org/spongepowered/tools/obfuscation/mirror/TypeUtils$Equivalency
+ Result.class
+SHA-256-Digest: fDl95nQw/U33z+a/SAJwHNYV84t9UnE3CCNAIjpcr4k=
+
+Name: org/spongepowered/asm/mixin/Mixin.class
+SHA-256-Digest: gBK5IQ5RzzD4Rqba+xeezNitYZQIkUCNDrSYW978e60=
+
+Name: org/spongepowered/tools/obfuscation/MixinValidator.class
+SHA-256-Digest: XSn/zYL2wjHYRpdhPxhzmfMExxzE/1VTk65jU8jcBGU=
+
+Name: org/spongepowered/asm/launch/platform/container/ContainerHandleM
+ odLauncher$Resource.class
+SHA-256-Digest: wgFQYovasY2/IAGvHtUojqY5PSpCZPO0jmM1soVMrdI=
+
+Name: org/spongepowered/asm/mixin/transformer/MixinApplicatorStandard$
+ Range.class
+SHA-256-Digest: uC5tZKNidaQ5JRu823QN89TtScRWCGR5lEFxX9Dt1uc=
+
+Name: org/spongepowered/asm/launch/MixinBootstrap.class
+SHA-256-Digest: IbcZunGf0rg4lTZKug0UtYFuzHunwXmjVHmRBBmnZV8=
+
+Name: org/spongepowered/asm/launch/platform/MixinPlatformAgentAbstract
+ .class
+SHA-256-Digest: KaEJDJtOpKttsPo/zmCHKqoT1w8BG1W5benQ8Y4G8cc=
+
+Name: org/spongepowered/asm/mixin/injection/Constant.class
+SHA-256-Digest: f4YT6yLtmEK0rPiKIzwgVh0hQeZf6mvW7SwHH+a/oV0=
+
+Name: org/spongepowered/asm/util/ClassSignature$Token.class
+SHA-256-Digest: jJK8XbR627Qd5kgtGHFtxadtLEdUFBXV1QiT+PRbHek=
+
+Name: org/spongepowered/asm/util/ObfuscationUtil.class
+SHA-256-Digest: m5NIJLwVwg+KbGZ4V88G6atTkob8gQb15r8kFpyH7sI=
+
+Name: org/spongepowered/asm/mixin/injection/struct/RedirectInjectionIn
+ fo.class
+SHA-256-Digest: p/EyOQ7yqmVjtt59Kdqbgueu/lj1pZOn7/Z+kdDqr2I=
+
+Name: org/spongepowered/asm/mixin/injection/selectors/dynamic/DynamicS
+ electorDesc$1.class
+SHA-256-Digest: 3NIcVAaKYmc5j+9E1k0ZBozQWH81H7jhQp+0kkIwsKQ=
+
+Name: org/spongepowered/asm/service/modlauncher/LoggerAdapterLog4j2.cl
+ ass
+SHA-256-Digest: EI0714yBPl7uOi94Nv3onGhkIkdjifb82rdCxSI4FSU=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ Shadow$AnnotatedElementShadowMethod.class
+SHA-256-Digest: xh4GIpB6VZf7UVUpis8h7nC3TLsM9QJZF2RfR58jDAA=
+
+Name: org/spongepowered/asm/mixin/gen/AccessorGenerator.class
+SHA-256-Digest: FL/NTb3pB2qvvmjUpR48nFdXI6PGIqwyrV8viX8d93A=
+
+Name: org/spongepowered/asm/mixin/injection/modify/ModifyVariableInjec
+ tor.class
+SHA-256-Digest: brJdd6Hh6HrKBU3Nieu0tYDXtXy9EmP7xl7kWnQG7C4=
+
+Name: org/spongepowered/asm/util/perf/Profiler$1.class
+SHA-256-Digest: F//cuDyNvv/pVL0+zDAuQbwjevR172LFpvLSPAoy2To=
+
+Name: org/spongepowered/asm/mixin/refmap/ReferenceMapper.class
+SHA-256-Digest: oZEPBRqATJIESRTEcKUhrnjCynFpfapkA7y4W2irQkQ=
+
+Name: org/spongepowered/tools/obfuscation/AnnotatedMixinElementHandler
+ Overwrite.class
+SHA-256-Digest: GBfihRDovm7wzXMqFL6rMVOmY6gimc4i4hRuex0bwX8=
+
+Name: org/spongepowered/asm/util/Files.class
+SHA-256-Digest: PuQNznWf0s6jNm5YE37g9pVMp/OBZUO8bLY4ZJ/1NuM=
+
+Name: org/spongepowered/asm/service/modlauncher/ModLauncherAuditTrail.
+ class
+SHA-256-Digest: RNCUvHOUoxIykl9gh85ZMDo1gWt3Xr21JR1wvjJ8nlg=
+
+Name: org/spongepowered/asm/util/perf/Profiler$Section.class
+SHA-256-Digest: 66N11L4k+A+qHprUwjiWVkuRU49bADs9efWfVB5/apk=
+
+Name: org/spongepowered/tools/obfuscation/validation/TargetValidator.c
+ lass
+SHA-256-Digest: b0yyYfRcysgz+jh+oPSAl0T4CVGlrXdKZu8UTvpbvug=
+
+Name: org/spongepowered/asm/mixin/extensibility/IMixinConfigPlugin.cla
+ ss
+SHA-256-Digest: dGEFwv8nzJm5VapescwwQF8pPcBqJR2oiehwRhT37XY=
+
+Name: org/spongepowered/asm/lib/Attribute.class
+SHA-256-Digest: 4Pw2qdZyLNVvY1jCvgFatpaBwG9iIiqWvyXJoNasLJI=
+
+Name: org/spongepowered/asm/mixin/Interface$Remap.class
+SHA-256-Digest: V/AO9guEMbZOHYLJqsflqrRpIaBkZng04dxyZiiFwN8=
+

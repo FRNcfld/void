@@ -39,7 +39,7 @@ public abstract class TitleScreenMixin {
     @Shadow(remap = false)
     private TitleScreenModUpdateIndicator modUpdateNotification;
 
-    @Inject(method = "init", at = @At("HEAD"), cancellable = true, remap = false)
+    @Inject(method = "init", at = @At("HEAD"), cancellable = true)
     private void createVoid$customInit(CallbackInfo ci) {
         ci.cancel();
 

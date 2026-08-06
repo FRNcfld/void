@@ -1,0 +1,61 @@
+--- a/net/minecraft/world/inventory/AbstractContainerMenu.java
++++ b/net/minecraft/world/inventory/AbstractContainerMenu.java
+@@ -67,7 +_,11 @@
+ 
+    protected static boolean m_38889_(ContainerLevelAccess p_38890_, Player p_38891_, Block p_38892_) {
+       return p_38890_.m_39299_((p_38916_, p_38917_) -> {
+-         return !p_38916_.m_8055_(p_38917_).m_60713_(p_38892_) ? false : p_38891_.m_20275_((double)p_38917_.m_123341_() + 0.5D, (double)p_38917_.m_123342_() + 0.5D, (double)p_38917_.m_123343_() + 0.5D) <= 64.0D;
++         // Vanilla uses 64 which is 8*8. Default reach is 4.5 so add 3.5 padding
++         // magic number so required Mixins can still target here
++         double reachOld = 64.0;
++         double reach = p_38891_.m_21133_(net.minecraftforge.common.ForgeMod.BLOCK_REACH.get()) + 3.5;
++         return !p_38916_.m_8055_(p_38917_).m_60713_(p_38892_) ? false : p_38891_.m_20275_((double)p_38917_.m_123341_() + 0.5D, (double)p_38917_.m_123342_() + 0.5D, (double)p_38917_.m_123343_() + 0.5D) <= reach * reach;
+       }, true);
+    }
+ 
+@@ -229,6 +_,8 @@
+             ItemStack itemstack1 = p_150438_.get();
+             this.f_150394_.set(p_150436_, itemstack1);
+             if (this.f_150397_ != null) {
++               // Forge: Only synchronize a slot change if the itemstack actually changed in a way that is relevant to the client (i.e. share tag changed)
++               if (!p_150437_.equals(itemstack, true))
+                this.f_150397_.m_142074_(this, p_150436_, itemstack1);
+             }
+          }
+@@ -401,6 +_,7 @@
+             ItemStack itemstack10 = this.m_142621_();
+             p_150434_.m_141945_(itemstack10, slot7.m_7993_(), clickaction);
+             if (!this.m_246200_(p_150434_, clickaction, slot7, itemstack9, itemstack10)) {
++            if (!net.minecraftforge.common.ForgeHooks.onItemStackedOn(itemstack9, itemstack10, slot7, clickaction, p_150434_, m_150446_()))
+                if (itemstack9.m_41619_()) {
+                   if (!itemstack10.m_41619_()) {
+                      int i3 = clickaction == ClickAction.PRIMARY ? itemstack10.m_41613_() : 1;
+@@ -610,14 +_,15 @@
+             ItemStack itemstack = slot.m_7993_();
+             if (!itemstack.m_41619_() && ItemStack.m_150942_(p_38904_, itemstack)) {
+                int j = itemstack.m_41613_() + p_38904_.m_41613_();
+-               if (j <= p_38904_.m_41741_()) {
++               int maxSize = Math.min(slot.m_6641_(), p_38904_.m_41741_());
++               if (j <= maxSize) {
+                   p_38904_.m_41764_(0);
+                   itemstack.m_41764_(j);
+                   slot.m_6654_();
+                   flag = true;
+-               } else if (itemstack.m_41613_() < p_38904_.m_41741_()) {
+-                  p_38904_.m_41774_(p_38904_.m_41741_() - itemstack.m_41613_());
+-                  itemstack.m_41764_(p_38904_.m_41741_());
++               } else if (itemstack.m_41613_() < maxSize) {
++                  p_38904_.m_41774_(maxSize - itemstack.m_41613_());
++                  itemstack.m_41764_(maxSize);
+                   slot.m_6654_();
+                   flag = true;
+                }
+@@ -718,7 +_,7 @@
+             i = 1;
+             break;
+          case 2:
+-            i = p_279172_.m_41720_().m_41459_();
++            i = p_279172_.m_41741_();
+             break;
+          default:
+             i = p_279172_.m_41613_();

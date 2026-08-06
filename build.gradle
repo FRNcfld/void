@@ -117,6 +117,9 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
 
+    mavenCentral() // 补充部分传递依赖（log4j、commons-lang3 等），避免只依赖 maven.minecraftforge.net
+    maven { url = "https://repo.spongepowered.org/maven" } // Mixin 注解处理器（org.spongepowered:mixin:processor）
+
     maven {
         // location of the maven that hosts JEI files before January 2023
         name = "Progwml6's maven"
@@ -157,6 +160,10 @@ dependencies {
     implementation(fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}"))
     compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.4.1"))
     implementation("io.github.llamalad7:mixinextras-forge:0.4.1")
+
+    // Mixin 注解处理器：编译时生成 create_void.refmap.json 并自动打进 jar。
+    // 版本必须与 Forge 内置的 Mixin 一致（1.20.1 为 0.8.5）。
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -176,6 +183,12 @@ tasks.named('processResources', ProcessResources).configure {
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
         expand replaceProperties + [project: project]
     }
+}
+
+// Mixin AP 在编译时从 classpath 的 resources 中发现 mixins.create_void.json，
+// 因此必须保证 processResources 先于 compileJava 执行，否则不会生成 refmap。
+tasks.named('compileJava').configure {
+    dependsOn tasks.named('processResources')
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
@@ -216,6 +229,85 @@ publishing {
     }
 }
 
+// Mixin AP 需要 MCP→SRG 方向的旧 .srg 格式映射文件，否则报
+// "Unable to locate obfuscation mapping for @Inject target ..."。
+// ForgeGradle 只生成 SRG→MCP 的 output.srg（旧格式）和 MCP→SRG 的 output.tsrg（tsrg2 格式，
+// Mixin 的 MappingProviderSrg 解析不了）。因此把 output.srg 的两列对调，生成 MCP→SRG 旧格式。
+def mixinSrgFile = file("${buildDir}/createMcpToSrg/output_mcp2srg.srg")
+tasks.register('generateMixinSrgMapping') {
+    dependsOn 'createSrgToMcp'
+    def src = file("${buildDir}/createSrgToMcp/output.srg")
+    inputs.file(src)
+    outputs.file(mixinSrgFile)
+    doLast {
+        mixinSrgFile.parentFile.mkdirs()
+        def reader = new BufferedReader(new FileReader(src))
+        def writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(mixinSrgFile), java.nio.charset.StandardCharsets.UTF_8))
+        String line
+        while ((line = reader.readLine()) != null) {
+            if (line.startsWith('MD: ') || line.startsWith('FD: ')) {
+                def p = line.split(' ', 5)
+                if (p.length == 5) {
+                    // 带描述符：MD: a desc b desc -> MD: b desc a desc
+                    writer.write("${p[0]} ${p[3]} ${p[4]} ${p[1]} ${p[2]}\n")
+                } else if (p.length == 3) {
+                    // 不带描述符：MD: a b -> MD: b a
+                    writer.write("${p[0]} ${p[2]} ${p[1]}\n")
+                } else {
+                    writer.write(line + "\n")
+                }
+            } else if (line.startsWith('CL: ')) {
+                def p = line.split(' ', 3)
+                writer.write("CL: ${p[2]} ${p[1]}\n")
+            } else {
+                writer.write(line + "\n")
+            }
+        }
+        reader.close()
+        writer.close()
+    }
+}
+
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+
+    // 给 Mixin 注解处理器提供 MCP→SRG 映射（旧 .srg 格式），
+    // 并显式指定 refmap 输出位置（写到 resources/main，随 jar 打包）。
+    options.compilerArgs += [
+        "-AreobfSrgFile=${mixinSrgFile.absolutePath}",
+        "-AoutRefMapFile=${buildDir}/resources/main/create_void.refmap.json",
+    ]
+}
+
+// 确保生成映射文件后再编译（generateMixinSrgMapping 依赖 createSrgToMcp/output.srg，
+// 后者由 ForgeGradle 的 MC 准备阶段生成）。
+tasks.named('compileJava').configure {
+    dependsOn tasks.named('generateMixinSrgMapping')
+}
+
+// Mixin AP 无法为泛型 @Invoker 解析混淆映射，生成的 refmap 会缺
+// ScreenInvoker.addRenderableWidget 条目，运行时导致 InvalidAccessorException。
+// 这里把该条目（SRG m_142416_）注入到生成的 refmap 中。
+def generatedRefmap = file("${buildDir}/resources/main/create_void.refmap.json")
+def invokerMapping = 'Lnet/minecraft/client/gui/screens/Screen;m_142416_(Lnet/minecraft/client/gui/components/events/GuiEventListener;)Lnet/minecraft/client/gui/components/events/GuiEventListener;'
+tasks.register('patchMixinRefmap') {
+    inputs.file(generatedRefmap)
+    outputs.file(generatedRefmap)
+    doLast {
+        def json = new groovy.json.JsonSlurper().parseText(generatedRefmap.text)
+        def cls = 'com/frnc/createvoid/mixin/ScreenInvoker'
+        if (json.mappings != null && json.mappings[cls] != null) {
+            json.mappings[cls]['addRenderableWidget'] = invokerMapping
+        }
+        if (json.data != null && json.data.searge != null && json.data.searge[cls] != null) {
+            json.data.searge[cls]['addRenderableWidget'] = invokerMapping
+        }
+        generatedRefmap.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(json))
+    }
+}
+tasks.named('patchMixinRefmap').configure {
+    dependsOn tasks.named('classes')
+}
+tasks.named('jar', Jar).configure {
+    dependsOn tasks.named('patchMixinRefmap')
 }

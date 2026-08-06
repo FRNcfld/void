@@ -23,6 +23,7 @@ public class ModFluids {
                             .viscosity(6000)
                             .temperature(300)
                             .lightLevel(0)
+                            .canExtinguish(true) // 像水一样能熄灭火焰（Forge 会把它接入实体灭火逻辑）
                             .descriptionId("block.create_void.kelp_gel")
             ));
 

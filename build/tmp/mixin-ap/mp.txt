@@ -1,0 +1,16 @@
+﻿Compiled from "MappingProvider.java"
+public abstract class org.spongepowered.tools.obfuscation.mapping.common.MappingProvider implements org.spongepowered.tools.obfuscation.mapping.IMappingProvider {
+  protected final javax.annotation.processing.Messager messager;
+  protected final javax.annotation.processing.Filer filer;
+  protected final com.google.common.collect.BiMap<java.lang.String, java.lang.String> packageMap;
+  protected final com.google.common.collect.BiMap<java.lang.String, java.lang.String> classMap;
+  protected final com.google.common.collect.BiMap<org.spongepowered.asm.obfuscation.mapping.common.MappingField, org.spongepowered.asm.obfuscation.mapping.common.MappingField> fieldMap;
+  protected final com.google.common.collect.BiMap<org.spongepowered.asm.obfuscation.mapping.common.MappingMethod, org.spongepowered.asm.obfuscation.mapping.common.MappingMethod> methodMap;
+  public org.spongepowered.tools.obfuscation.mapping.common.MappingProvider(javax.annotation.processing.Messager, javax.annotation.processing.Filer);
+  public void clear();
+  public boolean isEmpty();
+  public org.spongepowered.asm.obfuscation.mapping.common.MappingMethod getMethodMapping(org.spongepowered.asm.obfuscation.mapping.common.MappingMethod);
+  public org.spongepowered.asm.obfuscation.mapping.common.MappingField getFieldMapping(org.spongepowered.asm.obfuscation.mapping.common.MappingField);
+  public java.lang.String getClassMapping(java.lang.String);
+  public java.lang.String getPackageMapping(java.lang.String);
+}

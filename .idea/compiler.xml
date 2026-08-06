@@ -4,12 +4,18 @@
     <annotationProcessing>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
+        <option name="outRefMapFile" value="E:\GitHub Desktop\repository\void\build/resources/main/create_void.refmap.json" />
+        <option name="reobfSrgFile" value="E:\GitHub Desktop\repository\void\build\createMcpToSrg\output_mcp2srg.srg" />
         <processorPath useClasspath="false">
           <entry name="$PROJECT_DIR$/../../../IntelliJ IDEA/ontology/gradle/caches/modules-2/files-2.1/io.github.llamalad7/mixinextras-common/0.4.1/a7f425cc49de7f10d008a9a676f5f023ebac13bb/mixinextras-common-0.4.1.jar" />
+          <entry name="$PROJECT_DIR$/../../../IntelliJ IDEA/ontology/gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/6d1c8bf4c28e697f472a83bd6add76ec4951734/mixin-0.8.5-processor.jar" />
         </processorPath>
         <module name="void.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17" />
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="&quot;-AreobfSrgFile=E:\GitHub Desktop\repository\void\build\createMcpToSrg\output_mcp2srg.srg&quot; &quot;-AoutRefMapFile=E:\GitHub Desktop\repository\void\build/resources/main/create_void.refmap.json&quot;" />
   </component>
 </project>

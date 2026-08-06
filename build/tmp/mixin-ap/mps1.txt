@@ -1,0 +1,167 @@
+﻿Compiled from "MappingProviderSrg.java"
+class org.spongepowered.tools.obfuscation.mapping.mcp.MappingProviderSrg$1 implements com.google.common.io.LineProcessor<java.lang.String> {
+  final com.google.common.collect.BiMap val$packageMap;
+
+  final com.google.common.collect.BiMap val$classMap;
+
+  final com.google.common.collect.BiMap val$fieldMap;
+
+  final com.google.common.collect.BiMap val$methodMap;
+
+  final java.io.File val$input;
+
+  final org.spongepowered.tools.obfuscation.mapping.mcp.MappingProviderSrg this$0;
+
+  org.spongepowered.tools.obfuscation.mapping.mcp.MappingProviderSrg$1(org.spongepowered.tools.obfuscation.mapping.mcp.MappingProviderSrg, com.google.common.collect.BiMap, com.google.common.collect.BiMap, com.google.common.collect.BiMap, com.google.common.collect.BiMap, java.io.File);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #1                  // Field this$0:Lorg/spongepowered/tools/obfuscation/mapping/mcp/MappingProviderSrg;
+       5: aload_0
+       6: aload_2
+       7: putfield      #2                  // Field val$packageMap:Lcom/google/common/collect/BiMap;
+      10: aload_0
+      11: aload_3
+      12: putfield      #3                  // Field val$classMap:Lcom/google/common/collect/BiMap;
+      15: aload_0
+      16: aload         4
+      18: putfield      #4                  // Field val$fieldMap:Lcom/google/common/collect/BiMap;
+      21: aload_0
+      22: aload         5
+      24: putfield      #5                  // Field val$methodMap:Lcom/google/common/collect/BiMap;
+      27: aload_0
+      28: aload         6
+      30: putfield      #6                  // Field val$input:Ljava/io/File;
+      33: aload_0
+      34: invokespecial #7                  // Method java/lang/Object."<init>":()V
+      37: return
+
+  public java.lang.String getResult();
+    Code:
+       0: aconst_null
+       1: areturn
+
+  public boolean processLine(java.lang.String) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: invokestatic  #8                  // Method com/google/common/base/Strings.isNullOrEmpty:(Ljava/lang/String;)Z
+       4: ifne          16
+       7: aload_1
+       8: ldc           #9                  // String #
+      10: invokevirtual #10                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+      13: ifeq          18
+      16: iconst_1
+      17: ireturn
+      18: aload_1
+      19: iconst_0
+      20: iconst_2
+      21: invokevirtual #11                 // Method java/lang/String.substring:(II)Ljava/lang/String;
+      24: astore_2
+      25: aload_1
+      26: iconst_4
+      27: invokevirtual #12                 // Method java/lang/String.substring:(I)Ljava/lang/String;
+      30: ldc           #13                 // String
+      32: invokevirtual #14                 // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+      35: astore_3
+      36: aload_2
+      37: ldc           #15                 // String PK
+      39: invokevirtual #16                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      42: ifeq          64
+      45: aload_0
+      46: getfield      #2                  // Field val$packageMap:Lcom/google/common/collect/BiMap;
+      49: aload_3
+      50: iconst_0
+      51: aaload
+      52: aload_3
+      53: iconst_1
+      54: aaload
+      55: invokeinterface #17,  3           // InterfaceMethod com/google/common/collect/BiMap.forcePut:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      60: pop
+      61: goto          218
+      64: aload_2
+      65: ldc           #18                 // String CL
+      67: invokevirtual #16                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      70: ifeq          92
+      73: aload_0
+      74: getfield      #3                  // Field val$classMap:Lcom/google/common/collect/BiMap;
+      77: aload_3
+      78: iconst_0
+      79: aaload
+      80: aload_3
+      81: iconst_1
+      82: aaload
+      83: invokeinterface #17,  3           // InterfaceMethod com/google/common/collect/BiMap.forcePut:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      88: pop
+      89: goto          218
+      92: aload_2
+      93: ldc           #19                 // String FD
+      95: invokevirtual #16                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      98: ifeq          140
+     101: aload_0
+     102: getfield      #4                  // Field val$fieldMap:Lcom/google/common/collect/BiMap;
+     105: new           #20                 // class org/spongepowered/asm/obfuscation/mapping/mcp/MappingFieldSrg
+     108: dup
+     109: aload_3
+     110: iconst_0
+     111: aaload
+     112: invokespecial #21                 // Method org/spongepowered/asm/obfuscation/mapping/mcp/MappingFieldSrg."<init>":(Ljava/lang/String;)V
+     115: invokevirtual #22                 // Method org/spongepowered/asm/obfuscation/mapping/mcp/MappingFieldSrg.copy:()Lorg/spongepowered/asm/obfuscation/mapping/common/MappingField;
+     118: new           #20                 // class org/spongepowered/asm/obfuscation/mapping/mcp/MappingFieldSrg
+     121: dup
+     122: aload_3
+     123: iconst_1
+     124: aaload
+     125: invokespecial #21                 // Method org/spongepowered/asm/obfuscation/mapping/mcp/MappingFieldSrg."<init>":(Ljava/lang/String;)V
+     128: invokevirtual #22                 // Method org/spongepowered/asm/obfuscation/mapping/mcp/MappingFieldSrg.copy:()Lorg/spongepowered/asm/obfuscation/mapping/common/MappingField;
+     131: invokeinterface #17,  3           // InterfaceMethod com/google/common/collect/BiMap.forcePut:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     136: pop
+     137: goto          218
+     140: aload_2
+     141: ldc           #23                 // String MD
+     143: invokevirtual #16                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     146: ifeq          188
+     149: aload_0
+     150: getfield      #5                  // Field val$methodMap:Lcom/google/common/collect/BiMap;
+     153: new           #24                 // class org/spongepowered/asm/obfuscation/mapping/common/MappingMethod
+     156: dup
+     157: aload_3
+     158: iconst_0
+     159: aaload
+     160: aload_3
+     161: iconst_1
+     162: aaload
+     163: invokespecial #25                 // Method org/spongepowered/asm/obfuscation/mapping/common/MappingMethod."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+     166: new           #24                 // class org/spongepowered/asm/obfuscation/mapping/common/MappingMethod
+     169: dup
+     170: aload_3
+     171: iconst_2
+     172: aaload
+     173: aload_3
+     174: iconst_3
+     175: aaload
+     176: invokespecial #25                 // Method org/spongepowered/asm/obfuscation/mapping/common/MappingMethod."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+     179: invokeinterface #17,  3           // InterfaceMethod com/google/common/collect/BiMap.forcePut:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     184: pop
+     185: goto          218
+     188: new           #26                 // class org/spongepowered/asm/mixin/throwables/MixinException
+     191: dup
+     192: new           #27                 // class java/lang/StringBuilder
+     195: dup
+     196: invokespecial #28                 // Method java/lang/StringBuilder."<init>":()V
+     199: ldc           #29                 // String Invalid SRG file:
+     201: invokevirtual #30                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     204: aload_0
+     205: getfield      #6                  // Field val$input:Ljava/io/File;
+     208: invokevirtual #31                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     211: invokevirtual #32                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     214: invokespecial #33                 // Method org/spongepowered/asm/mixin/throwables/MixinException."<init>":(Ljava/lang/String;)V
+     217: athrow
+     218: iconst_1
+     219: ireturn
+
+  public java.lang.Object getResult();
+    Code:
+       0: aload_0
+       1: invokevirtual #34                 // Method getResult:()Ljava/lang/String;
+       4: areturn
+}

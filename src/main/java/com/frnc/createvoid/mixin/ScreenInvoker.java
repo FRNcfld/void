@@ -18,6 +18,9 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(Screen.class)
 public interface ScreenInvoker {
 
+    // addRenderableWidget 是 protected 泛型方法，必须用 @Invoker 访问。
+    // 注意：Mixin AP 无法为泛型 @Invoker 解析混淆映射，生成的 refmap 会缺该条目，
+    // 需要在构建时由 patchMixinRefmap 任务补上（见 build.gradle）。
     @Invoker("addRenderableWidget")
     <T extends GuiEventListener & Renderable & NarratableEntry> T createVoid$addRenderableWidget(T widget);
 

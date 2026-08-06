@@ -1,0 +1,56 @@
+﻿Compiled from "MappingProviderSrg.java"
+public class org.spongepowered.tools.obfuscation.mapping.mcp.MappingProviderSrg extends org.spongepowered.tools.obfuscation.mapping.common.MappingProvider {
+  public org.spongepowered.tools.obfuscation.mapping.mcp.MappingProviderSrg(javax.annotation.processing.Messager, javax.annotation.processing.Filer);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokespecial #1                  // Method org/spongepowered/tools/obfuscation/mapping/common/MappingProvider."<init>":(Ljavax/annotation/processing/Messager;Ljavax/annotation/processing/Filer;)V
+       6: return
+
+  public void read(java.io.File) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: getfield      #2                  // Field packageMap:Lcom/google/common/collect/BiMap;
+       4: astore_2
+       5: aload_0
+       6: getfield      #3                  // Field classMap:Lcom/google/common/collect/BiMap;
+       9: astore_3
+      10: aload_0
+      11: getfield      #4                  // Field fieldMap:Lcom/google/common/collect/BiMap;
+      14: astore        4
+      16: aload_0
+      17: getfield      #5                  // Field methodMap:Lcom/google/common/collect/BiMap;
+      20: astore        5
+      22: aload_1
+      23: invokestatic  #6                  // Method java/nio/charset/Charset.defaultCharset:()Ljava/nio/charset/Charset;
+      26: new           #7                  // class org/spongepowered/tools/obfuscation/mapping/mcp/MappingProviderSrg$1
+      29: dup
+      30: aload_0
+      31: aload_2
+      32: aload_3
+      33: aload         4
+      35: aload         5
+      37: aload_1
+      38: invokespecial #8                  // Method org/spongepowered/tools/obfuscation/mapping/mcp/MappingProviderSrg$1."<init>":(Lorg/spongepowered/tools/obfuscation/mapping/mcp/MappingProviderSrg;Lcom/google/common/collect/BiMap;Lcom/google/common/collect/BiMap;Lcom/google/common/collect/BiMap;Lcom/google/common/collect/BiMap;Ljava/io/File;)V
+      41: invokestatic  #9                  // Method com/google/common/io/Files.readLines:(Ljava/io/File;Ljava/nio/charset/Charset;Lcom/google/common/io/LineProcessor;)Ljava/lang/Object;
+      44: pop
+      45: return
+
+  public org.spongepowered.asm.obfuscation.mapping.common.MappingField getFieldMapping(org.spongepowered.asm.obfuscation.mapping.common.MappingField);
+    Code:
+       0: aload_1
+       1: invokevirtual #10                 // Method org/spongepowered/asm/obfuscation/mapping/common/MappingField.getDesc:()Ljava/lang/String;
+       4: ifnull        16
+       7: new           #11                 // class org/spongepowered/asm/obfuscation/mapping/mcp/MappingFieldSrg
+      10: dup
+      11: aload_1
+      12: invokespecial #12                 // Method org/spongepowered/asm/obfuscation/mapping/mcp/MappingFieldSrg."<init>":(Lorg/spongepowered/asm/obfuscation/mapping/common/MappingField;)V
+      15: astore_1
+      16: aload_0
+      17: getfield      #4                  // Field fieldMap:Lcom/google/common/collect/BiMap;
+      20: aload_1
+      21: invokeinterface #13,  2           // InterfaceMethod com/google/common/collect/BiMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      26: checkcast     #14                 // class org/spongepowered/asm/obfuscation/mapping/common/MappingField
+      29: areturn
+}
