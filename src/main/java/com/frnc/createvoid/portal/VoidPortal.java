@@ -6,12 +6,14 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundUpdateMobEffectPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -120,6 +122,15 @@ public class VoidPortal extends Block {
                 player.getYRot(),
                 player.getXRot()
         );
+
+        // ServerPlayer.teleportTo 跨维度时只发 ClientboundRespawnPacket，不会像
+        // ServerPlayer.changeDimension 那样把玩家身上的效果重新同步给客户端。
+        // 客户端 handleRespawn 会重建一个全新的 LocalPlayer（没有任何效果），
+        // 导致 HUD 上的 buff 图标消失（实际效果在服务端仍在）。
+        // 这里手动补发，与 changeDimension 的逻辑保持一致。
+        for (MobEffectInstance activeEffect : serverPlayer.getActiveEffects()) {
+            serverPlayer.connection.send(new ClientboundUpdateMobEffectPacket(serverPlayer.getId(), activeEffect));
+        }
 
         // ---- 6. 播放末影珍珠音效和粒子效果 ----
         currentLevel.sendParticles(
