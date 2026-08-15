@@ -2,7 +2,6 @@ package com.frnc.createvoid.wateringrecipes;
 
 import com.frnc.createvoid.CreateVoid;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
-import com.simibubi.create.content.processing.recipe.ProcessingRecipeSerializer;
 import com.simibubi.create.foundation.recipe.IRecipeTypeInfo;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -38,7 +37,7 @@ public enum RecipeTypes implements IRecipeTypeInfo {
         this.id = new ResourceLocation(CreateVoid.MOD_ID, name);
 
         RegistryObject<RecipeSerializer<?>> serializerObj = Registers.SERIALIZER_REGISTER.register(
-                name, () -> new ProcessingRecipeSerializer<>(factory));
+                name, () -> new WateringRecipeSerializer(factory));
         RegistryObject<RecipeType<?>> typeObj = Registers.TYPE_REGISTER.register(
                 name, () -> RecipeType.simple(id));
 

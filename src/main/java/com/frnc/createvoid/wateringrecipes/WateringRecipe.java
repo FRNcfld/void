@@ -41,6 +41,26 @@ public class WateringRecipe extends ProcessingRecipe<Container> {
         super(RecipeTypes.WATERING, params);
     }
 
+    /**
+     * 是否以"消耗原方块 + 掉落物品"的方式产出结果（而非原地替换方块）。
+     * <p>
+     * 由配方 JSON 的可选字段 {@code "dropAsItem": true} 控制（默认 false）：
+     * </p>
+     * <ul>
+     *   <li>false（默认）：输出是方块（BlockItem）时原地替换；输出是普通物品时掉落。</li>
+     *   <li>true：即使输出是方块（BlockItem），也消耗原方块并把结果以掉落物形式产出。</li>
+     * </ul>
+     */
+    private boolean dropAsItem = false;
+
+    public boolean isDropAsItem() {
+        return dropAsItem;
+    }
+
+    public void setDropAsItem(boolean dropAsItem) {
+        this.dropAsItem = dropAsItem;
+    }
+
     // ==================== 边界定义 ====================
 
     @Override

@@ -219,8 +219,9 @@ public enum WateringBehaviour implements BlockSpoutingBehaviour {
             }
 
             ItemStack result = results.get(0);
-            // 仅当输出是 BlockItem 时才替换方块
-            if (result.getItem() instanceof BlockItem blockItem) {
+            // 配方显式要求掉落物品，或输出本就不是方块：走"消耗 + 掉落"分支
+            if (!recipe.isDropAsItem() && result.getItem() instanceof BlockItem blockItem) {
+                // 方块 → 方块：原地替换为目标方块
                 level.setBlockAndUpdate(pos, blockItem.getBlock().defaultBlockState());
                 // 记录本次转换，同一位置的方块在破坏/重新放置前不再重复转换
                 WateringBlockTracker.markConverted(level, pos, blockItem.getBlock());
@@ -228,9 +229,14 @@ public enum WateringBehaviour implements BlockSpoutingBehaviour {
                         recipe.getId(), currentState.getBlock().getDescriptionId(),
                         blockItem.getBlock().getDescriptionId());
             } else {
-                LOGGER.warn("[CreateVoid] Watering recipe {} result is not a BlockItem: {}, aborting",
-                        recipe.getId(), result.getDisplayName().getString());
-                return 0;   // 失败时不消耗流体
+                // 方块 → 物品：消耗原方块，将结果以掉落物形式产出
+                level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
+                Block.popResource(level, pos, result);
+                // 记录本次转换，防止同一位置被重复浇灌（方块已消失，标记为空气）
+                WateringBlockTracker.markConverted(level, pos, Blocks.AIR);
+                LOGGER.info("[CreateVoid] Watering recipe {}: consumed {} and dropped {} x{}",
+                        recipe.getId(), currentState.getBlock().getDescriptionId(),
+                        result.getDisplayName().getString(), result.getCount());
             }
         }
 
