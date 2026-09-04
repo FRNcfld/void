@@ -1,10 +1,11 @@
 {
   "type": "create_void:watering",
+  "dropAsItem": true,
   "ingredients": [
     {"item": "minecraft:ancient_debris"},
     {"fluid": "minecraft:lava", "amount": 250}
   ],
   "results": [
-    {"item": "minecraft:netherite_scrap", "count": 2}
+    {"item": "minecraft:netherite_scrap", "count": 4}
   ]
 }

@@ -1,5 +1,6 @@
 {
   "type": "create_void:watering",
+  "dropAsItem": false,
   "ingredients": [
     {"item": "minecraft:weathered_copper"},
     {"fluid": "minecraft:water", "amount": 250}
