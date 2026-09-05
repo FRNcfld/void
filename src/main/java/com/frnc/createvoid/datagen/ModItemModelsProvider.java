@@ -17,5 +17,6 @@ public class ModItemModelsProvider extends ItemModelProvider {
         basicItem(ModItems.INCOMPLETE_BRASS_MACHINE.get());
         basicItem(ModItems.KELP_GEL_BUCKET.get());
         basicItem(ModItems.LA_VAGUELETTE.get());
+        basicItem(ModItems.CRY_FOR_ME.get());
     }
 }

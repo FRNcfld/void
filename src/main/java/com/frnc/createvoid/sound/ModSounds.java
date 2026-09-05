@@ -17,6 +17,10 @@ public class ModSounds {
 
     public static final RegistryObject<SoundEvent> CRY_FOR_ME = registerSoundEvent("cry_for_me");
 
+    // 自动合成器
+    public static final RegistryObject<SoundEvent> CRAFTER_CRAFT = registerSoundEvent("block.crafter.craft");
+    public static final RegistryObject<SoundEvent> CRAFTER_FAIL = registerSoundEvent("block.crafter.fail");
+
     private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
         ResourceLocation id = ResourceLocation.fromNamespaceAndPath(CreateVoid.MOD_ID, name);
         return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(id));

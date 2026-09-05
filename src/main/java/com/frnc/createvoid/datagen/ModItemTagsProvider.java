@@ -20,6 +20,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-        this.tag(ItemTags.MUSIC_DISCS).add(ModItems.LA_VAGUELETTE.get());
+        this.tag(ItemTags.MUSIC_DISCS)
+                .add(ModItems.LA_VAGUELETTE.get())
+                .add(ModItems.CRY_FOR_ME.get());
     }
 }

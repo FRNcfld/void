@@ -1,0 +1,9 @@
+{
+  "parent": "create_void:block/crafter/crafter_triggered",
+  "textures": {
+    "top": "create_void:block/crafter/crafter_top_crafting",
+    "north": "create_void:block/crafter/crafter_north_crafting",
+    "east": "create_void:block/crafter/crafter_east_crafting",
+    "west": "create_void:block/crafter/crafter_west_crafting"
+  }
+}

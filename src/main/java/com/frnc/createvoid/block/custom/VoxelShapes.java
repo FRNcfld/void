@@ -50,6 +50,9 @@ public final class VoxelShapes {
             box(0, 0, 0, 16, 6, 16),
             box(2, 6, 3, 14, 15, 6));
 
+    //自动合成器
+    public static final VoxelShape CRAFTER = box(0,0,0,16,16,16);
+
     private static VoxelShape box(double x1, double y1, double z1, double x2, double y2, double z2) {
         return Shapes.box(x1 / 16.0, y1 / 16.0, z1 / 16.0, x2 / 16.0, y2 / 16.0, z2 / 16.0);
     }

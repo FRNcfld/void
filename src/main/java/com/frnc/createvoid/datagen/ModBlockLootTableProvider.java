@@ -20,6 +20,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.COPPER_MACHINE.get());
         dropSelf(ModBlocks.BRASS_MACHINE.get());
         dropSelf(ModBlocks.REDSTONE_MACHINE.get());
+        dropSelf(ModBlocks.CRAFTER.get());
     }
 
     @Override

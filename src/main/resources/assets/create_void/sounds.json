@@ -14,5 +14,17 @@
         "stream": true
       }
     ]
+  },
+  "block.crafter.craft": {
+    "subtitle": "subtitles.create_void.block.crafter.craft",
+    "sounds": [
+      "create_void:block/crafter_craft"
+    ]
+  },
+  "block.crafter.fail": {
+    "subtitle": "subtitles.create_void.block.crafter.fail",
+    "sounds": [
+      "create_void:block/crafter_fail"
+    ]
   }
 }

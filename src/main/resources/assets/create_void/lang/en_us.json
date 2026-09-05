@@ -1,8 +1,8 @@
 {
-  "itemGroup.create_void_tab": "create_void_tab",
+  "itemGroup.create_void_tab": "Void Technology",
 
-  "item.create_void.iron_mechanism": "iron_mechanism",
-  "item.create_void.incomplete_brass_machine": "incomplete_brass_machine",
+  "item.create_void.iron_mechanism": "Iron Mechanism",
+  "item.create_void.incomplete_brass_machine": "Incomplete Brass Machine",
   "item.create_void.kelp_gel_bucket": "Kelp Gel Bucket",
 
   "item.create_void.la_vaguette": "La Vaguelette",
@@ -11,11 +11,16 @@
   "item.create_void.cry_for_me.desc": "Disc — Cry For Me",
 
 
-  "block.create_void.andesite_machine": "andesite_machine",
-  "block.create_void.copper_machine": "copper_machine",
-  "block.create_void.brass_machine": "brass_machine",
-  "block.create_void.redstone_machine": "redstone_machine",
+  "block.create_void.andesite_machine": "Andesite Machine",
+  "block.create_void.copper_machine": "Copper Machine",
+  "block.create_void.brass_machine": "Brass Machine",
+  "block.create_void.redstone_machine": "Redstone Machine",
   "block.create_void.void_block": "Void Portal",
+  "block.create_void.crafter": "Crafter",
+  "container.create_void.crafter": "Crafter",
+  "gui.togglable_slot": "Click to disable slot",
+  "subtitles.create_void.block.crafter.craft": "Crafter crafts",
+  "subtitles.create_void.block.crafter.fail": "Crafter fails crafting",
   "block.create_void.kelp_gel": "Kelp Gel",
 
   "message.create_void.portal_cooldown": "Teleport cooling down, %.1fs remaining",

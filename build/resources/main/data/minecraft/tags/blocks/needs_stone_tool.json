@@ -6,6 +6,7 @@
     "create_void:brass_machine",
     "create_void:redstone_machine",
 
+    "create_void:crafter",
     "create_void:void_block"
   ]
 }

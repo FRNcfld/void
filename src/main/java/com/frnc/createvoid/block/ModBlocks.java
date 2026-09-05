@@ -1,10 +1,7 @@
 package com.frnc.createvoid.block;
 
 import com.frnc.createvoid.CreateVoid;
-import com.frnc.createvoid.block.custom.AndesiteMachineBlock;
-import com.frnc.createvoid.block.custom.BrassMachineBlock;
-import com.frnc.createvoid.block.custom.CopperMachineBlock;
-import com.frnc.createvoid.block.custom.RedstoneMachineBlock;
+import com.frnc.createvoid.block.custom.*;
 import com.frnc.createvoid.fluid.ModFluids;
 import com.frnc.createvoid.item.ModItems;
 import com.frnc.createvoid.portal.VoidPortal;
@@ -60,6 +57,14 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()
                     .noOcclusion()
                     .strength(1.0f, 3.0f)));
+
+    //自动合成器
+    public static final RegistryObject<Block> CRAFTER =
+            registerBlock("crafter", () -> new CrafterBlock(BlockBehaviour.Properties.of()
+                    .sound(SoundType.STONE)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
+                    .strength(0.5f, 3.0f)));
 
     // 流体方块（不需要 BlockItem，通过水桶放置）
     public static final RegistryObject<LiquidBlock> KELP_GEL_BLOCK =

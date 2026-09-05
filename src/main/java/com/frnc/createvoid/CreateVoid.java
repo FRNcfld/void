@@ -1,9 +1,13 @@
 package com.frnc.createvoid;
 
 import com.frnc.createvoid.block.ModBlocks;
+import com.frnc.createvoid.block.entity.ModBlockEntities;
 import com.frnc.createvoid.fluid.ModFluids;
+import com.frnc.createvoid.gui.ModMenuTypes;
 import com.frnc.createvoid.item.ModCreativeModeTabs;
 import com.frnc.createvoid.item.ModItems;
+import com.frnc.createvoid.network.ModNetwork;
+import com.frnc.createvoid.particle.ModParticles;
 import com.frnc.createvoid.sound.ModSounds;
 import com.frnc.createvoid.wateringrecipes.RecipeTypes;
 import com.frnc.createvoid.wateringrecipes.WateringBehaviour;
@@ -48,10 +52,14 @@ public class CreateVoid
         ModItems.ITEMS.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+        ModParticles.register(modEventBus);
         ModFluids.FLUIDS.register(modEventBus);
         ModFluids.FLUID_TYPES.register(modEventBus);
         ModSounds.SOUND_EVENTS.register(modEventBus);
         RecipeTypes.register(modEventBus);
+        ModNetwork.register();
 
 
         // Register ourselves for server and other game events we are interested in
