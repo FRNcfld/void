@@ -3,8 +3,10 @@ package com.frnc.createvoid.gui.screen;
 import com.frnc.createvoid.CreateVoid;
 import com.frnc.createvoid.gui.menu.CrafterMenu;
 import com.frnc.createvoid.gui.menu.CrafterSlot;
+import com.frnc.createvoid.network.CrafterToggleSlotLockMessage;
 import com.frnc.createvoid.network.CrafterToggleSlotMessage;
 import com.frnc.createvoid.network.ModNetwork;
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
@@ -36,6 +38,9 @@ public class CrafterScreen extends AbstractContainerScreen<CrafterMenu> {
             new ResourceLocation(CreateVoid.MOD_ID, "textures/gui/crafter/powered_redstone.png");
     private static final ResourceLocation UNPOWERED_REDSTONE_LOCATION =
             new ResourceLocation(CreateVoid.MOD_ID, "textures/gui/crafter/unpowered_redstone.png");
+
+    /** 锁定格提示：绿色中空方框（ARGB）。 */
+    private static final int LOCKED_SLOT_COLOR = 0xCC00E600;
 
     private static final Component DISABLED_SLOT_TOOLTIP = Component.translatable("gui.togglable_slot");
 
@@ -77,6 +82,24 @@ public class CrafterScreen extends AbstractContainerScreen<CrafterMenu> {
         ResourceLocation lamp = this.menu.isPowered() ? POWERED_REDSTONE_LOCATION : UNPOWERED_REDSTONE_LOCATION;
         guiGraphics.blit(lamp, this.leftPos + 97, this.topPos + 35, 0, 0, 16, 16, 16, 16);
 
+        // 锁定格提示：绿色中空方框 + 槽内被清空时显示锁定物品虚影
+        for (int i = 0; i < 9; i++) {
+            if (this.menu.isSlotLocked(i)) {
+                Slot slot = this.menu.slots.get(i);
+                drawHollowFrame(guiGraphics, this.leftPos + slot.x - 1, this.topPos + slot.y - 1, 18, 18, LOCKED_SLOT_COLOR);
+                if (slot.getItem().isEmpty()) {
+                    net.minecraft.world.item.ItemStack ghost = this.menu.getGhostItem(i);
+                    if (!ghost.isEmpty()) {
+                        RenderSystem.enableBlend();
+                        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 0.4F);
+                        guiGraphics.renderItem(ghost, this.leftPos + slot.x, this.topPos + slot.y);
+                        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+                        RenderSystem.disableBlend();
+                    }
+                }
+            }
+        }
+
         // 悬浮在“启用的空格”上时提示可禁用
         Slot hovered = this.hoveredSlot;
         if (hovered instanceof CrafterSlot && !this.menu.isSlotDisabled(hovered.getSlotIndex())
@@ -87,17 +110,28 @@ public class CrafterScreen extends AbstractContainerScreen<CrafterMenu> {
     }
 
     /**
-     * 左/右键单击空的合成网格槽 → 切换禁用状态（再点一下恢复）。
-     * 仅当光标为空时拦截；否则放行正常放取。
+     * 交互规则：
+     * <ul>
+     *   <li>shift+点击网格槽（有物品，或已被锁定）→ 切换“物品类型锁定”；</li>
+     *   <li>左/右键单击空的、未锁定的网格槽 → 切换禁用（再点恢复）；</li>
+     * </ul>
      */
     @Override
     protected void slotClicked(Slot slot, int slotIndex, int button, ClickType clickType) {
-        boolean clickEmptyCursor = clickType == ClickType.PICKUP && this.menu.getCarried().isEmpty();
-        if (slot instanceof CrafterSlot && !slot.hasItem()
-                && (this.minecraft.player == null || !this.minecraft.player.isSpectator())
-                && clickEmptyCursor) {
-            updateSlotState(slotIndex, !this.menu.isSlotDisabled(slotIndex));
-            return;
+        boolean spectator = this.minecraft.player != null && this.minecraft.player.isSpectator();
+        if (slot instanceof CrafterSlot && !spectator) {
+            // shift → 锁定/解锁
+            if (clickType == ClickType.QUICK_MOVE
+                    && (slot.hasItem() || this.menu.isSlotLocked(slotIndex))) {
+                ModNetwork.sendToServer(new CrafterToggleSlotLockMessage(this.menu.containerId, slotIndex));
+                return;
+            }
+            // 空、未锁定格：点击切换禁用
+            boolean clickEmptyCursor = clickType == ClickType.PICKUP && this.menu.getCarried().isEmpty();
+            if (clickEmptyCursor && !slot.hasItem() && !this.menu.isSlotLocked(slotIndex)) {
+                updateSlotState(slotIndex, !this.menu.isSlotDisabled(slotIndex));
+                return;
+            }
         }
         super.slotClicked(slot, slotIndex, button, clickType);
     }
@@ -105,5 +139,13 @@ public class CrafterScreen extends AbstractContainerScreen<CrafterMenu> {
     private void updateSlotState(int slotIndex, boolean disabled) {
         this.menu.setSlotState(slotIndex, disabled);
         ModNetwork.sendToServer(new CrafterToggleSlotMessage(this.menu.containerId, slotIndex, disabled));
+    }
+
+    /** 在 (x, y) 处画 width×height 的中空方框（1px 边框）。 */
+    private static void drawHollowFrame(GuiGraphics guiGraphics, int x, int y, int width, int height, int color) {
+        guiGraphics.fill(x, y, x + width, y + 1, color);                 // 上
+        guiGraphics.fill(x, y + height - 1, x + width, y + height, color); // 下
+        guiGraphics.fill(x, y, x + 1, y + height, color);                 // 左
+        guiGraphics.fill(x + width - 1, y, x + width, y + height, color); // 右
     }
 }

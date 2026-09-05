@@ -18,7 +18,12 @@ public class CrafterSlot extends Slot {
 
     @Override
     public boolean mayPlace(ItemStack stack) {
-        return super.mayPlace(stack) && !this.menu.isSlotDisabled(this.getSlotIndex());
+        // Slot.mayPlace 默认恒为 true，不查容器 canPlaceItem；
+        // 这里显式问容器（方块实体的 allowsItem：禁用 + 锁定过滤），否则玩家可手动绕过锁定。
+        if (this.menu.isSlotDisabled(this.getSlotIndex())) {
+            return false;
+        }
+        return this.container.canPlaceItem(this.getSlotIndex(), stack);
     }
 
     @Override

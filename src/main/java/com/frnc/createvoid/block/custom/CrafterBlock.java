@@ -3,7 +3,6 @@ package com.frnc.createvoid.block.custom;
 import com.frnc.createvoid.block.entity.CrafterBlockEntity;
 import com.frnc.createvoid.block.entity.ModBlockEntities;
 import com.frnc.createvoid.sound.ModSounds;
-import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.FrontAndTop;
@@ -32,7 +31,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
 
 /**
  * 自动合成器方块：一个由红石“上升沿”触发一次的原版式 3×3 自动合成器。
@@ -51,8 +49,6 @@ public class CrafterBlock extends BaseEntityBlock {
 
     /** 合成完成后，crafting 状态维持的时长（游戏刻），再调度 tick 收回动画。 */
     private static final int CRAFT_ANIMATION_TICKS = 6;
-
-    private static final Logger LOGGER = LogUtils.getLogger();
 
     public CrafterBlock(Properties properties) {
         super(properties);

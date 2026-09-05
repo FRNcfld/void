@@ -9,18 +9,17 @@
   "block.create_void.copper_machine": "铜机械",
   "block.create_void.brass_machine": "黄铜机械",
   "block.create_void.redstone_machine": "红石机械",
+  "block.create_void.kelp_gel": "海带胶",
+  "item.create_void.kelp_gel_bucket": "海带胶桶",
+
 
   "block.create_void.void_block": "虚空传送符石",
   "message.create_void.portal_cooldown": "传送冷却中，剩余 %.1f 秒",
-
   "block.create_void.crafter": "自动合成器",
   "container.create_void.crafter": "自动合成器",
   "gui.togglable_slot": "点击禁用该槽",
   "subtitles.create_void.block.crafter.craft": "自动合成器合成",
   "subtitles.create_void.block.crafter.fail": "自动合成器合成失败",
-
-  "block.create_void.kelp_gel": "海带胶",
-  "item.create_void.kelp_gel_bucket": "海带胶桶",
 
   "item.create_void.la_vaguette": "轻涟",
   "item.create_void.la_vaguette.desc": "一个不完美的故事",

@@ -26,17 +26,20 @@ public class CrafterMenu extends AbstractContainerMenu {
 
     /** 网格 0..8；玩家背包 9..44；结果预览槽 45。 */
     public static final int RESULT_SLOT = 45;
+    public static final int GHOST_FIRST_SLOT = 46;
     public static final int PLAYER_INV_FIRST_SLOT = 9;
     public static final int PLAYER_INV_LAST_SLOT = RESULT_SLOT;
 
     private final Container grid;
     private final ContainerData data;
     private final ResultContainer resultContainer = new ResultContainer();
+    /** 锁定格的“虚影槽”：仅用于把锁定物品同步给客户端显示，离屏且不可交互。 */
+    private final SimpleContainer ghostContainer = new SimpleContainer(CrafterBlockEntity.CONTAINER_SIZE);
 
     /** 客户端（MenuType factory）使用：虚拟容器，物品由服务端推送进 Slot。 */
     public CrafterMenu(int containerId, Inventory playerInventory) {
         this(containerId, playerInventory, new SimpleContainer(CrafterBlockEntity.CONTAINER_SIZE),
-                new SimpleContainerData(CrafterBlockEntity.CONTAINER_SIZE + 1));
+                new SimpleContainerData(CrafterBlockEntity.DATA_COUNT));
     }
 
     /** 服务端使用：以方块实体的容器 + 容器数据构建。 */
@@ -64,6 +67,10 @@ public class CrafterMenu extends AbstractContainerMenu {
         }
         // 只读结果预览槽（右侧产物格）
         this.addSlot(new NonInteractiveResultSlot(resultContainer, 0, 134, 35));
+        // 锁定虚影槽（离屏，仅用于同步锁定物品到客户端）
+        for (int i = 0; i < CrafterBlockEntity.CONTAINER_SIZE; i++) {
+            this.addSlot(new Slot(ghostContainer, i, -10000, -10000));
+        }
 
         this.addDataSlots(data);
         // 打开时就计算一次结果预览（服务端才有效）
@@ -78,8 +85,21 @@ public class CrafterMenu extends AbstractContainerMenu {
             Level level = crafter.getLevel();
             if (level != null && !level.isClientSide) {
                 resultContainer.setItem(0, crafter.getCraftingResult(level));
+                refreshGhosts(crafter);
             }
         }
+    }
+
+    /** 把方块实体的锁定物品同步进虚影槽（服务端）。 */
+    private void refreshGhosts(CrafterBlockEntity crafter) {
+        for (int i = 0; i < CrafterBlockEntity.CONTAINER_SIZE; i++) {
+            ghostContainer.setItem(i, crafter.getLockedItem(i));
+        }
+    }
+
+    /** 客户端取锁定虚影物品（由服务端经虚影槽同步而来）。 */
+    public ItemStack getGhostItem(int slotIndex) {
+        return ghostContainer.getItem(slotIndex);
     }
 
     // ==================== 槽位禁用 ====================
@@ -90,6 +110,12 @@ public class CrafterMenu extends AbstractContainerMenu {
 
     public boolean isPowered() {
         return data.get(CrafterBlockEntity.DATA_TRIGGERED) != 0;
+    }
+
+    /** 客户端：该槽是否被锁定（由容器数据 10..18 同步而来）。 */
+    public boolean isSlotLocked(int slot) {
+        return slot >= 0 && slot < CrafterBlockEntity.CONTAINER_SIZE
+                && data.get(CrafterBlockEntity.DATA_LOCK_START + slot) != 0;
     }
 
     /**
@@ -109,6 +135,14 @@ public class CrafterMenu extends AbstractContainerMenu {
 
     public Container getGrid() {
         return grid;
+    }
+
+    /** 服务端：shift 点击网格槽 → 切换物品类型锁定。 */
+    public void toggleSlotLock(int slot) {
+        if (grid instanceof CrafterBlockEntity crafter) {
+            crafter.toggleSlotLock(slot);
+            refreshGhosts(crafter);
+        }
     }
 
     // ==================== 标准菜单逻辑 ====================

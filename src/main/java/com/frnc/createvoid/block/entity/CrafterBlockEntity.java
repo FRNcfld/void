@@ -4,13 +4,14 @@ import com.frnc.createvoid.block.custom.CrafterBlock;
 import com.frnc.createvoid.gui.menu.CrafterMenu;
 import com.frnc.createvoid.particle.ModParticles;
 import com.frnc.createvoid.sound.ModSounds;
-import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
@@ -33,7 +34,6 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
 
 import java.util.Optional;
 
@@ -52,14 +52,16 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
     public static final int GRID_WIDTH = 3;
     public static final int GRID_HEIGHT = 3;
 
-    /** 容器数据同步：0..8 = 各槽禁用标记(0/1)，9 = 是否被红石触发。 */
+    /** 容器数据同步：0..8 = 禁用位，9 = 红石触发，10..18 = 槽位锁定位。 */
     public static final int DATA_TRIGGERED = CONTAINER_SIZE;
-
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final int DATA_LOCK_START = CONTAINER_SIZE + 1;
+    public static final int DATA_COUNT = CONTAINER_SIZE + 1 + CONTAINER_SIZE;
 
     private final NonNullList<ItemStack> items = NonNullList.withSize(CONTAINER_SIZE, ItemStack.EMPTY);
     private final boolean[] disabledSlots = new boolean[CONTAINER_SIZE];
-    private final SimpleContainerData containerData = new SimpleContainerData(CONTAINER_SIZE + 1);
+    private final boolean[] lockedSlots = new boolean[CONTAINER_SIZE];
+    private final NonNullList<ItemStack> lockedItems = NonNullList.withSize(CONTAINER_SIZE, ItemStack.EMPTY);
+    private final SimpleContainerData containerData = new SimpleContainerData(DATA_COUNT);
 
     /** 合成动画倒计时（>0 时方块显示 crafting 纹理，期间忽略新触发）。 */
     private int craftingTicksRemaining;
@@ -105,6 +107,69 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
         disabledSlots[slot] = disabled;
         containerData.set(slot, disabled ? 1 : 0);
         setChanged();
+    }
+
+    // ==================== 槽位锁定（物品类型过滤） ====================
+
+    public boolean isSlotLocked(int slot) {
+        return slot >= 0 && slot < CONTAINER_SIZE && lockedSlots[slot];
+    }
+
+    /** 锁定物品（未锁定/无记录时返回 EMPTY）。 */
+    public ItemStack getLockedItem(int slot) {
+        return isSlotLocked(slot) ? lockedItems.get(slot) : ItemStack.EMPTY;
+    }
+
+    /**
+     * 锁定某槽：槽内有物品才可上锁，记录该物品类型（忽略数量）。
+     * 锁定后只有同类物品可进入该槽（即使槽内已被清空）。重复调用解锁。
+     *
+     * @return true 表示本次执行了上锁
+     */
+    public boolean toggleSlotLock(int slot) {
+        if (slot < 0 || slot >= CONTAINER_SIZE) {
+            return false;
+        }
+        if (lockedSlots[slot]) {
+            // 解锁
+            lockedSlots[slot] = false;
+            lockedItems.set(slot, ItemStack.EMPTY);
+            containerData.set(DATA_LOCK_START + slot, 0);
+            setChanged();
+            playLockSound(false);
+            return false;
+        }
+        ItemStack current = items.get(slot);
+        if (current.isEmpty()) {
+            return false; // 空格不能锁定
+        }
+        ItemStack snapshot = current.copy();
+        snapshot.setCount(1);
+        lockedSlots[slot] = true;
+        lockedItems.set(slot, snapshot);
+        containerData.set(DATA_LOCK_START + slot, 1);
+        setChanged();
+        playLockSound(true);
+        return true;
+    }
+
+    private void playLockSound(boolean locked) {
+        if (level == null || level.isClientSide) {
+            return;
+        }
+        level.playSound(null, worldPosition, SoundEvents.UI_BUTTON_CLICK.get(),
+                SoundSource.BLOCKS, 0.4F, locked ? 1.0F : 0.7F);
+    }
+
+    /** 该槽是否允许放入 stack：禁用则一律拒绝；锁定时仅允许同类物品。 */
+    private boolean allowsItem(int slot, ItemStack stack) {
+        if (slot < 0 || slot >= CONTAINER_SIZE || stack.isEmpty()) {
+            return false;
+        }
+        if (disabledSlots[slot]) {
+            return false;
+        }
+        return !lockedSlots[slot] || ItemStack.isSameItemSameTags(stack, lockedItems.get(slot));
     }
 
     public boolean isCrafting() {
@@ -179,15 +244,6 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
         }
     }
 
-    private String dumpGrid() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < CONTAINER_SIZE; i++) {
-            ItemStack s = items.get(i);
-            sb.append(s.isEmpty() ? "_" : s.getHoverName().getString()).append('[').append(disabledSlots[i] ? "x" : " ").append("] ");
-        }
-        return sb.toString();
-    }
-
     private TransientCraftingContainer buildGrid() {
         NonNullList<ItemStack> list = NonNullList.withSize(CONTAINER_SIZE, ItemStack.EMPTY);
         for (int i = 0; i < CONTAINER_SIZE; i++) {
@@ -217,19 +273,15 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
      * @return true 表示成功合并且产物已处理
      */
     public boolean craftOnce(ServerLevel level, BlockState state) {
-        LOGGER.info("[Crafter] craftOnce @{} grid={}", worldPosition, dumpGrid());
         Optional<CraftingRecipe> optional = findRecipe(level);
         if (optional.isEmpty()) {
-            LOGGER.info("[Crafter] craftOnce: no recipe found @{}", worldPosition);
             return false;
         }
         CraftingRecipe recipe = optional.get();
         ItemStack result = recipe.assemble(buildGrid(), level.registryAccess());
         if (result.isEmpty()) {
-            LOGGER.info("[Crafter] craftOnce: empty result for {} @{}", recipe.getId(), worldPosition);
             return false;
         }
-        LOGGER.info("[Crafter] craftOnce: recipe={} result={}x{}", recipe.getId(), result.getDisplayName().getString(), result.getCount());
 
         consumeIngredients();
         dispatchResult(level, state, result);
@@ -379,7 +431,7 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
 
     @Override
     public boolean canPlaceItem(int index, ItemStack stack) {
-        return !isSlotDisabled(index);
+        return allowsItem(index, stack);
     }
 
     @Override
@@ -407,6 +459,18 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
             }
         }
         tag.putByte("disabled_slots", mask);
+
+        // 槽位锁定：记录 {slot, item}
+        ListTag locks = new ListTag();
+        for (int i = 0; i < CONTAINER_SIZE; i++) {
+            if (lockedSlots[i]) {
+                CompoundTag entry = new CompoundTag();
+                entry.putInt("Slot", i);
+                entry.put("Item", lockedItems.get(i).save(new CompoundTag()));
+                locks.add(entry);
+            }
+        }
+        tag.put("LockedSlots", locks);
     }
 
     @Override
@@ -418,6 +482,22 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
             boolean disabled = (mask & (1 << i)) != 0;
             disabledSlots[i] = disabled;
             containerData.set(i, disabled ? 1 : 0);
+        }
+
+        for (int i = 0; i < CONTAINER_SIZE; i++) {
+            lockedSlots[i] = false;
+            lockedItems.set(i, ItemStack.EMPTY);
+            containerData.set(DATA_LOCK_START + i, 0);
+        }
+        for (net.minecraft.nbt.Tag t : tag.getList("LockedSlots", CompoundTag.TAG_COMPOUND)) {
+            if (t instanceof CompoundTag entry && entry.contains("Item")) {
+                int slot = entry.getInt("Slot");
+                if (slot >= 0 && slot < CONTAINER_SIZE) {
+                    lockedSlots[slot] = true;
+                    lockedItems.set(slot, ItemStack.of(entry.getCompound("Item")));
+                    containerData.set(DATA_LOCK_START + slot, 1);
+                }
+            }
         }
     }
 
@@ -458,8 +538,8 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
                 if (slot < 0 || slot >= CONTAINER_SIZE || stack.isEmpty()) {
                     return stack;
                 }
-                // 禁用槽拒绝放入
-                if (disabledSlots[slot]) {
+                // 禁用/锁定过滤
+                if (!allowsItem(slot, stack)) {
                     return stack;
                 }
                 ItemStack current = items.get(slot);
@@ -517,7 +597,7 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
 
             @Override
             public boolean isItemValid(int slot, ItemStack stack) {
-                return !isSlotDisabled(slot);
+                return allowsItem(slot, stack);
             }
         };
     }

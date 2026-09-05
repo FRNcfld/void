@@ -23,6 +23,10 @@ public class ModNetwork {
                 CrafterToggleSlotMessage::encode,
                 CrafterToggleSlotMessage::new,
                 CrafterToggleSlotMessage::handle);
+        CHANNEL.registerMessage(nextId++, CrafterToggleSlotLockMessage.class,
+                CrafterToggleSlotLockMessage::encode,
+                CrafterToggleSlotLockMessage::new,
+                CrafterToggleSlotLockMessage::handle);
     }
 
     public static void sendToServer(Object message) {
