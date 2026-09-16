@@ -20,10 +20,12 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.TransientCraftingContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingRecipe;
+import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -67,6 +69,15 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
     private int craftingTicksRemaining;
 
     private LazyOptional<IItemHandler> itemHandler = LazyOptional.empty();
+
+    /**
+     * 配方查找快速路径：上次命中的配方，以及它来自哪个 {@link RecipeManager}
+     * （{@code /reload} 会换掉 RecipeManager，这里用引用相等即可自动失效）。
+     */
+    @Nullable
+    private CraftingRecipe cachedRecipe;
+    @Nullable
+    private RecipeManager cachedRecipeManager;
 
     public CrafterBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.CRAFTER.get(), pos, state);
@@ -255,13 +266,41 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
     }
 
     public Optional<CraftingRecipe> findRecipe(Level level) {
-        return level.getRecipeManager().getRecipeFor(RecipeType.CRAFTING, buildGrid(), level);
+        return findRecipe(level, buildGrid());
+    }
+
+    /**
+     * 带缓存的配方查找。
+     * <p>
+     * 原实现每次都调用 {@code RecipeManager.getRecipeFor}，把所有 CRAFTING 配方整个扫一遍。
+     * spark 采样里这条路径（红石上升沿的 {@code CrafterBlock.tick} → {@code craftOnce} → 本方法）
+     * 几乎就是本 mod 的全部开销：1924 秒里 {@code findRecipe} 自身 9796 ms，
+     * 而整个 {@code LevelTicks} 才 12072 ms。
+     * </p>
+     * <p>
+     * 快速路径只在「同一个 RecipeManager」且「上次的配方对当前网格重新 {@code matches} 仍成立」时命中。
+     * 配方集合与顺序由 RecipeManager 实例决定，上次命中的配方当时就是 {@code getRecipeFor} 的第一个匹配项，
+     * 因此复用它和重新全量查找等价；网格变化、配方不再匹配、或 {@code /reload} 换掉 RecipeManager
+     * 都会自动回退到完整查找（匹配不上时不缓存空结果，行为与原来一致）。
+     * </p>
+     */
+    private Optional<CraftingRecipe> findRecipe(Level level, CraftingContainer grid) {
+        RecipeManager manager = level.getRecipeManager();
+        CraftingRecipe cached = cachedRecipe;
+        if (cached != null && cachedRecipeManager == manager && cached.matches(grid, level)) {
+            return Optional.of(cached);
+        }
+        Optional<CraftingRecipe> found = manager.getRecipeFor(RecipeType.CRAFTING, grid, level);
+        cachedRecipe = found.orElse(null);
+        cachedRecipeManager = manager;
+        return found;
     }
 
     /** GUI 结果预览：当前布局能否合成、合成出什么。 */
     public ItemStack getCraftingResult(Level level) {
-        return findRecipe(level)
-                .map(recipe -> recipe.assemble(buildGrid(), level.registryAccess()))
+        TransientCraftingContainer grid = buildGrid();
+        return findRecipe(level, grid)
+                .map(recipe -> recipe.assemble(grid, level.registryAccess()))
                 .orElse(ItemStack.EMPTY);
     }
 
@@ -273,12 +312,13 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
      * @return true 表示成功合并且产物已处理
      */
     public boolean craftOnce(ServerLevel level, BlockState state) {
-        Optional<CraftingRecipe> optional = findRecipe(level);
+        TransientCraftingContainer grid = buildGrid();
+        Optional<CraftingRecipe> optional = findRecipe(level, grid);
         if (optional.isEmpty()) {
             return false;
         }
         CraftingRecipe recipe = optional.get();
-        ItemStack result = recipe.assemble(buildGrid(), level.registryAccess());
+        ItemStack result = recipe.assemble(grid, level.registryAccess());
         if (result.isEmpty()) {
             return false;
         }

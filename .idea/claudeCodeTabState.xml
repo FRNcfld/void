@@ -7,8 +7,6 @@
           <value>
             <TabSessionState>
               <option name="provider" value="claude" />
-              <option name="sessionId" value="f6693e34-29f9-4897-a661-9500538b0cb6" />
-              <option name="cwd" value="E:\github desktop\repository\void" />
               <option name="model" value="claude-haiku-4-5" />
               <option name="permissionMode" value="acceptEdits" />
             </TabSessionState>
