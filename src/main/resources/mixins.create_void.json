@@ -7,12 +7,5 @@
   "plugin": "com.frnc.createvoid.mixin.MixinPlugin",
   "mixins": [
     "FluidManipulationBehaviourMixin"
-  ],
-  "client": [
-    "OpenCreateMenuButtonHandlerMixin",
-    "ScreenInvoker",
-    "TitleScreenMixin",
-    "BrandingControlMixin"
-  ],
-  "server": []
+  ]
 }

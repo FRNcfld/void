@@ -284,30 +284,3 @@ tasks.withType(JavaCompile).configureEach {
 tasks.named('compileJava').configure {
     dependsOn tasks.named('generateMixinSrgMapping')
 }
-
-// Mixin AP 无法为泛型 @Invoker 解析混淆映射，生成的 refmap 会缺
-// ScreenInvoker.addRenderableWidget 条目，运行时导致 InvalidAccessorException。
-// 这里把该条目（SRG m_142416_）注入到生成的 refmap 中。
-def generatedRefmap = file("${buildDir}/resources/main/create_void.refmap.json")
-def invokerMapping = 'Lnet/minecraft/client/gui/screens/Screen;m_142416_(Lnet/minecraft/client/gui/components/events/GuiEventListener;)Lnet/minecraft/client/gui/components/events/GuiEventListener;'
-tasks.register('patchMixinRefmap') {
-    inputs.file(generatedRefmap)
-    outputs.file(generatedRefmap)
-    doLast {
-        def json = new groovy.json.JsonSlurper().parseText(generatedRefmap.text)
-        def cls = 'com/frnc/createvoid/mixin/ScreenInvoker'
-        if (json.mappings != null && json.mappings[cls] != null) {
-            json.mappings[cls]['addRenderableWidget'] = invokerMapping
-        }
-        if (json.data != null && json.data.searge != null && json.data.searge[cls] != null) {
-            json.data.searge[cls]['addRenderableWidget'] = invokerMapping
-        }
-        generatedRefmap.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(json))
-    }
-}
-tasks.named('patchMixinRefmap').configure {
-    dependsOn tasks.named('classes')
-}
-tasks.named('jar', Jar).configure {
-    dependsOn tasks.named('patchMixinRefmap')
-}
