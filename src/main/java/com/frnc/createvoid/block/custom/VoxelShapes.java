@@ -15,9 +15,6 @@ public final class VoxelShapes {
     private VoxelShapes() {
     }
 
-    // 传送方块：16x3x16 的扁平薄板，对应 void_block 模型唯一元素 [0,0,0]-[16,3,16]
-    public static final VoxelShape VOID_BLOCK = box(0, 0, 0, 16, 3, 16);
-
     // 安山机器：主外壳 + 前方齿轮箱 + 顶部凸起
     // 模型主体元素：外壳 [0,0,4]-[16,16,16]，齿轮箱 [4,4,0]-[12,12,4]，顶部 [3,14,2]-[13,18,16]（y 截断到 16）
     public static final VoxelShape ANDESITE_MACHINE = or(

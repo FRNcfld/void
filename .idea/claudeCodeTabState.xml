@@ -7,6 +7,7 @@
           <value>
             <TabSessionState>
               <option name="provider" value="claude" />
+              <option name="cwd" value="E:\GitHub Desktop\repository\create_void" />
               <option name="model" value="claude-haiku-4-5" />
               <option name="permissionMode" value="acceptEdits" />
             </TabSessionState>

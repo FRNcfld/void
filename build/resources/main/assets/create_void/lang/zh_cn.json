@@ -12,9 +12,7 @@
   "block.create_void.kelp_gel": "海带胶",
   "item.create_void.kelp_gel_bucket": "海带胶桶",
 
-
-  "block.create_void.void_block": "虚空传送符石",
-  "message.create_void.portal_cooldown": "传送冷却中，剩余 %.1f 秒",
+  "block.create_void.void_block": "虚空传送门",
   "block.create_void.crafter": "自动合成器",
   "container.create_void.crafter": "自动合成器",
   "gui.togglable_slot": "点击禁用该槽",

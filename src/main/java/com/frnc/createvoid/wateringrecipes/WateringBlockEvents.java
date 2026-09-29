@@ -2,9 +2,11 @@ package com.frnc.createvoid.wateringrecipes;
 
 import com.frnc.createvoid.CreateVoid;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.OnDatapackSyncEvent;
 import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.event.level.ChunkEvent;
 import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -49,5 +51,23 @@ public class WateringBlockEvents {
         if (event.getLevel() instanceof Level level) {
             WateringBlockTracker.clearLevel(level.dimension());
         }
+    }
+
+    /**
+     * 区块卸载时清掉该区块内的转换标记。
+     * <p>
+     * 注意 {@link LevelEvent.Unload} 只在<b>整个维度</b>卸载时触发，区块卸载不会触发它；
+     * 只靠那个事件会让被探索区域里每个转换过的方块永久占用内存，因此必须单独监听
+     * {@link ChunkEvent.Unload}。
+     * </p>
+     */
+    @SubscribeEvent
+    public static void onChunkUnload(ChunkEvent.Unload event) {
+        // ChunkEvent 继承自 LevelEvent，level 由事件本身携带
+        if (!(event.getLevel() instanceof Level level)) {
+            return;
+        }
+        ChunkPos chunkPos = event.getChunk().getPos();
+        WateringBlockTracker.clearChunk(level.dimension(), chunkPos.x, chunkPos.z);
     }
 }

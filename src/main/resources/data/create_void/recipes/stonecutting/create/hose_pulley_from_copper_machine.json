@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "create_void:copper_machine"
+  },
+  "result": "create:hose_pulley"
+}

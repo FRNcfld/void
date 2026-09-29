@@ -26,15 +26,15 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * 浇水喷淋行为：当 Create Spout 向方块输出流体时触发。
  * <p>
- * 无状态枚举单例，通过两种方式接入 Create Spout：
+ * 无状态枚举单例，通过 Create 官方注册表接入 Spout：
  * </p>
  * <ol>
- *   <li><b>官方注册表</b>（首选）：{@link #registerBlockBehaviours()} 将配方输入方块
+ *   <li><b>静态白名单</b>：{@link #registerBlockBehaviours()} 把内置配方的输入方块
  *       注册进 {@link BlockSpoutingBehaviour#BY_BLOCK}，与 Create 内置行为（泥巴→泥土、
- *       耕地湿润等）走完全相同的代码路径，不依赖 Mixin。</li>
- *   <li><b>Mixin 兜底</b>：{@code BlockSpoutingBehaviourMixin} 在
- *       {@link BlockSpoutingBehaviour#get(Level, BlockPos)} 头部动态检查配方，用于
- *       覆盖注册表之外的、运行期才出现的配方输入方块。</li>
+ *       耕地湿润等）走完全相同的代码路径。</li>
+ *   <li><b>数据包动态注册</b>：{@link #registerBlockBehavioursFromRecipes(RecipeManager)}
+ *       在数据包同步/重载后遍历全部 watering 配方，自动注册其输入方块，
+ *       因此新增配方 JSON 无需改动任何代码。</li>
  * </ol>
  *
  * <h3>执行流程</h3>
@@ -71,9 +71,9 @@ public enum WateringBehaviour implements BlockSpoutingBehaviour {
      * 命中后直接调用 {@link #fillBlock}，完全不经过 Mixin。
      * </p>
      * <p>
-     * <b>注意：</b>这里目前硬编码了当前 3 条配方的输入方块。新增浇水配方时，
-     * 需要在配方 JSON 之外同时在此处注册对应输入方块（或者依赖 {@code BlockSpoutingBehaviourMixin}
-     * 的动态兜底，但 Mixin 路径可靠性略低）。
+     * <b>注意：</b>这里硬编码了内置配方的输入方块，覆盖不到数据包新增的配方。
+     * 数据包新增的配方由 {@link #registerBlockBehavioursFromRecipes(RecipeManager)}
+     * 在 {@code OnDatapackSyncEvent} 时自动注册，二者互补。
      * </p>
      */
     public static void registerBlockBehaviours() {

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "create_void:redstone_machine"
+  },
+  "result": "create:pulse_timer"
+}

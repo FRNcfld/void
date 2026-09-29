@@ -67,9 +67,9 @@ public class CrafterMenu extends AbstractContainerMenu {
         }
         // 只读结果预览槽（右侧产物格）
         this.addSlot(new NonInteractiveResultSlot(resultContainer, 0, 134, 35));
-        // 锁定虚影槽（离屏，仅用于同步锁定物品到客户端）
+        // 锁定虚影槽（离屏且不可交互，仅用于同步锁定物品到客户端）
         for (int i = 0; i < CrafterBlockEntity.CONTAINER_SIZE; i++) {
-            this.addSlot(new Slot(ghostContainer, i, -10000, -10000));
+            this.addSlot(new GhostSlot(ghostContainer, i, -10000, -10000));
         }
 
         this.addDataSlots(data);

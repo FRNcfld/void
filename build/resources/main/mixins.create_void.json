@@ -7,5 +7,8 @@
   "plugin": "com.frnc.createvoid.mixin.MixinPlugin",
   "mixins": [
     "FluidManipulationBehaviourMixin"
+  ],
+  "client": [
+    "GuiPortalOverlayMixin"
   ]
 }

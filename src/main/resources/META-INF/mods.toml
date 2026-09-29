@@ -1,6 +1,6 @@
 modLoader="javafml"
 loaderVersion = "[47,)"
-license = "MIT"
+license = "${mod_license}"
 
 logoFile = "assets/create_void/Logo.png"
 
@@ -8,11 +8,11 @@ logoFile = "assets/create_void/Logo.png"
 
 modId="create_void"
 
-version="1.20.1-1.0.0"
+version="${mod_version}"
 
-displayName="虚空科技"
+displayName="${mod_name}"
 
-description='''体验优化向mod'''
+description='''${mod_description}'''
 
 [[dependencies.create_void]]
     modId="forge"
@@ -33,6 +33,16 @@ modId="create"
 mandatory=true
 versionRange="[6.0.8,6.1.0)"
 ordering="NONE"
+side="BOTH"
+
+# 可选依赖：加载后启用「小齿轮箱 + 铁构件 → 安山机械」的机械手装配配方，
+# 未加载时回退到「安山机壳 + 铁构件」的原配方。两条配方由 forge:mod_loaded
+# 条件互斥启用，见 data/create/recipes/deploying/andesite_machine*.json。
+[[dependencies.create_void]]
+modId="create_compressed"
+mandatory=false
+versionRange="[1.0.0,)"
+ordering="AFTER"
 side="BOTH"
 
 [[mixins]]

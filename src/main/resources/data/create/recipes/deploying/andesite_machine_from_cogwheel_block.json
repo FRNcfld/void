@@ -1,0 +1,22 @@
+{
+  "type": "create:deploying",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create_compressed"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "create_compressed:cogwheel_block"
+    },
+    {
+      "item": "create_void:iron_mechanism"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_void:andesite_machine"
+    }
+  ]
+}

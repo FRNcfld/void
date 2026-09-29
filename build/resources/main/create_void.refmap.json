@@ -1,4 +1,16 @@
 {
-  "mappings": {},
-  "data": {}
+  "mappings": {
+    "com/frnc/createvoid/mixin/GuiPortalOverlayMixin": {
+      "renderPortalOverlay": "Lnet/minecraft/client/gui/Gui;m_280379_(Lnet/minecraft/client/gui/GuiGraphics;F)V",
+      "Lnet/minecraft/client/renderer/block/BlockModelShaper;getParticleIcon(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;": "Lnet/minecraft/client/renderer/block/BlockModelShaper;m_110882_(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;"
+    }
+  },
+  "data": {
+    "searge": {
+      "com/frnc/createvoid/mixin/GuiPortalOverlayMixin": {
+        "renderPortalOverlay": "Lnet/minecraft/client/gui/Gui;m_280379_(Lnet/minecraft/client/gui/GuiGraphics;F)V",
+        "Lnet/minecraft/client/renderer/block/BlockModelShaper;getParticleIcon(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;": "Lnet/minecraft/client/renderer/block/BlockModelShaper;m_110882_(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;"
+      }
+    }
+  }
 }

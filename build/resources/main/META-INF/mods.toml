@@ -8,11 +8,11 @@ logoFile = "assets/create_void/Logo.png"
 
 modId="create_void"
 
-version="1.20.1-1.0.0"
+version="1.0.0-1.20.1"
 
-displayName="虚空科技"
+displayName="èç©ºç§æ (CreateVoid)"
 
-description='''体验优化向mod'''
+description='''Create æºæ¢°å¨åçä½éªä¼åéå±ï¼æµæ°´ç³»ç»ãèªå¨åæå¨ãèç©ºç»´åº¦ä¸ä¼ éé¨ãæµ·å¸¦è¶ã'''
 
 [[dependencies.create_void]]
     modId="forge"
@@ -33,6 +33,16 @@ modId="create"
 mandatory=true
 versionRange="[6.0.8,6.1.0)"
 ordering="NONE"
+side="BOTH"
+
+# 可选依赖：加载后启用「小齿轮箱 + 铁构件 → 安山机械」的机械手装配配方，
+# 未加载时回退到「安山机壳 + 铁构件」的原配方。两条配方由 forge:mod_loaded
+# 条件互斥启用，见 data/create/recipes/deploying/andesite_machine*.json。
+[[dependencies.create_void]]
+modId="create_compressed"
+mandatory=false
+versionRange="[1.0.0,)"
+ordering="AFTER"
 side="BOTH"
 
 [[mixins]]

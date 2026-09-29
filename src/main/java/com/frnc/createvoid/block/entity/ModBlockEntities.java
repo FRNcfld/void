@@ -2,7 +2,6 @@ package com.frnc.createvoid.block.entity;
 
 import com.frnc.createvoid.CreateVoid;
 import com.frnc.createvoid.block.ModBlocks;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

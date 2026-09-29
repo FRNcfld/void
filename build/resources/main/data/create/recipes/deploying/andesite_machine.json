@@ -1,5 +1,14 @@
 {
   "type": "create:deploying",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "create_compressed"
+      }
+    }
+  ],
   "ingredients": [
     {
       "item": "create:andesite_casing"

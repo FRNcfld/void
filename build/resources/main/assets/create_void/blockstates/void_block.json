@@ -1,5 +1,6 @@
 {
   "variants": {
-    "": { "model": "create_void:block/void_block" }
+    "axis=x": { "model": "create_void:block/void_block_x" },
+    "axis=z": { "model": "create_void:block/void_block_z" }
   }
 }

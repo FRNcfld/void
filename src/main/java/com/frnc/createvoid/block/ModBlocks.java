@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -51,12 +52,28 @@ public class ModBlocks {
                     .noOcclusion()
                     .strength(0.5f, 3.0f)));
 
+    /**
+     * 虚空传送门方块。
+     * <p>
+     * 方块属性逐项对齐原版 {@code NETHER_PORTAL}：不可破坏、无碰撞、自发光 11、
+     * 玻璃音效、活塞推不动、{@code randomTicks}（{@link VoidPortal#randomTick}
+     * 需要它才会被调用）。
+     * </p>
+     * <p>
+     * <b>不注册 BlockItem</b>（用 {@link #registerBlockOnly}）：它只能由框架围成、
+     * 用精密构件点燃生成，不该出现在创造模式物品栏里，也不该能被手动放置——否则会
+     * 留下悬空的门。与原版下界门一样，它没有物品形态。
+     * </p>
+     */
     public static final RegistryObject<Block> VOID_BLOCK =
-            registerBlock("void_block", () -> new VoidPortal(BlockBehaviour.Properties.of()
-                    .sound(SoundType.STONE)
-                    .requiresCorrectToolForDrops()
-                    .noOcclusion()
-                    .strength(1.0f, 3.0f)));
+            registerBlockOnly("void_block", () -> new VoidPortal(BlockBehaviour.Properties.of()
+                    .noCollission()
+                    .randomTicks()
+                    .strength(-1.0F)
+                    .sound(SoundType.GLASS)
+                    .lightLevel(state -> 11)
+                    .pushReaction(PushReaction.BLOCK)
+                    .noLootTable()));
 
     //自动合成器
     public static final RegistryObject<Block> CRAFTER =
@@ -86,6 +103,14 @@ public class ModBlocks {
         RegistryObject<T> blocks = BLOCKS.register(name, block);
         registerBlockItems(name, blocks);
         return blocks;
+    }
+
+    /**
+     * 只注册方块，不生成对应的 BlockItem。
+     * <p>用于不该被玩家直接持有的方块（如虚空传送门）。</p>
+     */
+    private static <T extends Block> RegistryObject<T> registerBlockOnly(String name, Supplier<T> block) {
+        return BLOCKS.register(name, block);
     }
 
     public static void register(IEventBus eventBus) {

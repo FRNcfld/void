@@ -93,9 +93,14 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
-        // 把方块当前的红石触发状态同步进容器数据（9 号位），供 GUI 红石灯显示
+        // 把方块当前的红石触发状态同步进容器数据（9 号位），供 GUI 红石灯显示。
+        // 这里必须校验方块类型：不能假定 worldPosition 上仍然是合成器
+        // （例如方块已被替换），否则 getValue 会抛 IllegalArgumentException。
         if (level != null && !level.isClientSide) {
-            setTriggered(level.getBlockState(worldPosition).getValue(CrafterBlock.TRIGGERED));
+            BlockState state = level.getBlockState(worldPosition);
+            if (state.getBlock() instanceof CrafterBlock) {
+                setTriggered(state.getValue(CrafterBlock.TRIGGERED));
+            }
         }
         return new CrafterMenu(containerId, inventory, this, containerData);
     }
@@ -104,10 +109,6 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
 
     public boolean isSlotDisabled(int slot) {
         return slot >= 0 && slot < CONTAINER_SIZE && disabledSlots[slot];
-    }
-
-    public void setSlotDisabled(int slot, boolean disabled) {
-        setSlotState(slot, disabled);
     }
 
     /** 设置槽位禁用状态（服务端权威）。 */
@@ -390,13 +391,15 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
         ItemStack remaining = stack.copy();
         for (int i = 0; i < container.getContainerSize() && !remaining.isEmpty(); i++) {
             ItemStack cur = container.getItem(i);
+            // 目标槽的容量同时受容器上限与物品自身堆叠上限约束
+            int limit = Math.min(container.getMaxStackSize(), remaining.getMaxStackSize());
             if (cur.isEmpty()) {
                 if (container.canPlaceItem(i, remaining)) {
-                    int put = Math.min(remaining.getCount(), 64);
+                    int put = Math.min(remaining.getCount(), limit);
                     container.setItem(i, remaining.split(put));
                 }
             } else if (ItemStack.isSameItemSameTags(cur, remaining)) {
-                int space = Math.min(cur.getMaxStackSize(), 64) - cur.getCount();
+                int space = Math.min(limit, cur.getMaxStackSize()) - cur.getCount();
                 if (space > 0) {
                     int put = Math.min(space, remaining.getCount());
                     cur.grow(put);
@@ -584,7 +587,9 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
                 }
                 ItemStack current = items.get(slot);
                 if (current.isEmpty()) {
-                    int put = Math.min(stack.getCount(), getSlotLimit(slot));
+                    // 必须同时受槽位上限与物品自身堆叠上限约束：
+                    // 只按 getSlotLimit(=64) 会把「堆叠上限 16」的物品塞成 64 个的非法槽位。
+                    int put = Math.min(stack.getCount(), Math.min(getSlotLimit(slot), stack.getMaxStackSize()));
                     if (!simulate) {
                         items.set(slot, stack.copy());
                         items.get(slot).setCount(put);
@@ -632,6 +637,7 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
 
             @Override
             public int getSlotLimit(int slot) {
+                // 槽位硬上限；实际能放入多少还要看物品自身的堆叠上限
                 return 64;
             }
 

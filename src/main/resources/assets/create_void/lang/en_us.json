@@ -23,7 +23,5 @@
   "subtitles.create_void.block.crafter.fail": "Crafter fails crafting",
   "block.create_void.kelp_gel": "Kelp Gel",
 
-  "message.create_void.portal_cooldown": "Teleport cooling down, %.1fs remaining",
-
   "jei.create_void.watering": "Watering"
 }
