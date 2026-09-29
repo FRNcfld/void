@@ -7,8 +7,9 @@
           <value>
             <TabSessionState>
               <option name="provider" value="claude" />
+              <option name="sessionId" value="49702097-69ee-4b36-89d8-f48cf79f1361" />
               <option name="cwd" value="E:\GitHub Desktop\repository\create_void" />
-              <option name="model" value="claude-haiku-4-5" />
+              <option name="model" value="deepseek-flash" />
               <option name="permissionMode" value="acceptEdits" />
             </TabSessionState>
           </value>
