@@ -10,9 +10,9 @@ modId="create_void"
 
 version="1.0.0-1.20.1"
 
-displayName="èç©ºç§æ (CreateVoid)"
+displayName="虚空科技 (CreateVoid)"
 
-description='''Create æºæ¢°å¨åçä½éªä¼åéå±ï¼æµæ°´ç³»ç»ãèªå¨åæå¨ãèç©ºç»´åº¦ä¸ä¼ éé¨ãæµ·å¸¦è¶ã'''
+description='''Create 机械动力的体验优化附属：浇水系统、自动合成器、虚空维度与传送门、海带胶。'''
 
 [[dependencies.create_void]]
     modId="forge"

@@ -172,15 +172,29 @@ dependencies {
 // A missing property will result in an error. Properties are expanded using ${} Groovy notation.
 // When "copyIdeResources" is enabled, this will also run before the game launches in IDE environments.
 // See https://docs.gradle.org/current/dsl/org.gradle.language.jvm.tasks.ProcessResources.html
+// gradle.properties 由 java.util.Properties 按 ISO-8859-1 解码（JDK 的规范行为，
+// 与文件本身是不是 UTF-8 无关），其中的中文在内存里就已成乱码；processResources
+// 再以 UTF-8 把它写进 mods.toml，于是 jar 内的 displayName/description 变成
+// 双重编码的乱码（"虚" 的 E8 99 9A 被写成 C3 A8 C2 99 C2 9A）。
+// 这里按 UTF-8 重新读一份，只取含中文的两个键。
+def utf8Props = new Properties()
+file('gradle.properties').withInputStream { utf8Props.load(new InputStreamReader(it, java.nio.charset.StandardCharsets.UTF_8)) }
+def modNameUtf8 = utf8Props.getProperty('mod_name', mod_name)
+def modDescriptionUtf8 = utf8Props.getProperty('mod_description', mod_description)
+
 tasks.named('processResources', ProcessResources).configure {
     var replaceProperties = [
             minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
             forge_version: forge_version, forge_version_range: forge_version_range,
             loader_version_range: loader_version_range,
-            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-            mod_authors: mod_authors, mod_description: mod_description,
+            mod_id: mod_id, mod_name: modNameUtf8, mod_license: mod_license, mod_version: mod_version,
+            mod_authors: mod_authors, mod_description: modDescriptionUtf8,
     ]
     inputs.properties replaceProperties
+
+    // ProcessResources 默认用平台字符集读写被过滤的文件：默认 GBK 的 JDK 17（其他
+    // Windows 机器、CI）会把 mods.toml 里的中文注释写成 '?'。显式钉死 UTF-8。
+    filteringCharset = 'UTF-8'
 
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
         expand replaceProperties + [project: project]
