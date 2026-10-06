@@ -27,8 +27,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.REDSTONE_MACHINE.get());
                         output.accept(ModBlocks.CRAFTER.get());
                         output.accept(ModItems.KELP_GEL_BUCKET.get());
-                        output.accept(ModItems.LA_VAGUELETTE.get());
-                        output.accept(ModItems.CRY_FOR_ME.get());
                     }).build());
 
     public static void register(IEventBus modEventBus) {

@@ -1,20 +1,4 @@
 {
-  "la_vaguette": {
-    "sounds": [
-      {
-        "name": "create_void:la_vaguette",
-        "stream": true
-      }
-    ]
-  },
-  "cry_for_me": {
-    "sounds": [
-      {
-        "name": "create_void:cry_for_me",
-        "stream": true
-      }
-    ]
-  },
   "block.crafter.craft": {
     "subtitle": "subtitles.create_void.block.crafter.craft",
     "sounds": [

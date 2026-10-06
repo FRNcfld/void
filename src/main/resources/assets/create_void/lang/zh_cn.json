@@ -17,10 +17,5 @@
   "container.create_void.crafter": "自动合成器",
   "gui.togglable_slot": "点击禁用该槽",
   "subtitles.create_void.block.crafter.craft": "自动合成器合成",
-  "subtitles.create_void.block.crafter.fail": "自动合成器合成失败",
-
-  "item.create_void.la_vaguette": "轻涟",
-  "item.create_void.la_vaguette.desc": "一个不完美的故事",
-  "item.create_void.cry_for_me": "音乐唱片-Cry For Me",
-  "item.create_void.cry_for_me.desc": "Cry For Me"
+  "subtitles.create_void.block.crafter.fail": "自动合成器合成失败"
 }

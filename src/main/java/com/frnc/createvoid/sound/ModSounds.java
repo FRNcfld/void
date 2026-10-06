@@ -12,11 +12,6 @@ public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, CreateVoid.MOD_ID);
 
-
-    public static final RegistryObject<SoundEvent> LA_VAGUELETTE = registerSoundEvent("la_vaguette");
-
-    public static final RegistryObject<SoundEvent> CRY_FOR_ME = registerSoundEvent("cry_for_me");
-
     // 自动合成器
     public static final RegistryObject<SoundEvent> CRAFTER_CRAFT = registerSoundEvent("block.crafter.craft");
     public static final RegistryObject<SoundEvent> CRAFTER_FAIL = registerSoundEvent("block.crafter.fail");
