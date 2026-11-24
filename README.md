@@ -10,7 +10,7 @@ Minecraft **1.20.1 / Forge** 模组，[Create 机械动力](https://github.com/C
 
 ### 1. 浇水系统
 让 Create 的 **Spout（注液器）** 把方块"浇"成另一种方块，复用 Create 官方
-`BlockSpoutingBehaviour` 注册表，与内置的「泥巴→泥土」走同一条代码路径。
+`BlockSpoutingBehaviour` 注册表，与内置的「泥土→泥巴」走同一条代码路径。
 
 | 输入方块 | 流体 | 产物 | 方式 |
 |---|---|---|---|

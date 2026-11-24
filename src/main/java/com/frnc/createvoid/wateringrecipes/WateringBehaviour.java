@@ -30,7 +30,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * </p>
  * <ol>
  *   <li><b>静态白名单</b>：{@link #registerBlockBehaviours()} 把内置配方的输入方块
- *       注册进 {@link BlockSpoutingBehaviour#BY_BLOCK}，与 Create 内置行为（泥巴→泥土、
+ *       注册进 {@link BlockSpoutingBehaviour#BY_BLOCK}，与 Create 内置行为（泥土→泥巴、
  *       耕地湿润等）走完全相同的代码路径。</li>
  *   <li><b>数据包动态注册</b>：{@link #registerBlockBehavioursFromRecipes(RecipeManager)}
  *       在数据包同步/重载后遍历全部 watering 配方，自动注册其输入方块，
@@ -89,7 +89,23 @@ public enum WateringBehaviour implements BlockSpoutingBehaviour {
         if (!REGISTERED_BLOCKS.add(block)) {
             return;
         }
-        BlockSpoutingBehaviour.BY_BLOCK.register(block, INSTANCE);
+        // Create 内置行为（泥土三兄弟、耕地、炼药锅）或别的附属可能已经占用了该方块。
+        // BY_BLOCK 一个方块只允许一个行为，重复注册会抛 IllegalArgumentException；
+        // 这里先查后注册，冲突时跳过并告警，而不是让数据包同步/启动直接失败。
+        BlockSpoutingBehaviour existing = BlockSpoutingBehaviour.BY_BLOCK.get(block);
+        if (existing != null) {
+            LOGGER.warn("[CreateVoid] Skip watering behaviour for {}: already registered by {}",
+                    block.getDescriptionId(), existing);
+            return;
+        }
+        try {
+            BlockSpoutingBehaviour.BY_BLOCK.register(block, INSTANCE);
+        } catch (IllegalArgumentException e) {
+            // 极端的并发注册窗口；行为上同样只需跳过
+            LOGGER.warn("[CreateVoid] Skip watering behaviour for {}: {}",
+                    block.getDescriptionId(), e.getMessage());
+            return;
+        }
         LOGGER.info("[CreateVoid]   - {} -> WateringBehaviour.INSTANCE", block.getDescriptionId());
     }
 

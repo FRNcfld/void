@@ -2,6 +2,11 @@
   "itemGroup.create_void_tab": "虚空科技",
 
   "jei.create_void.watering": "浇水",
+  "jei.create_void.spout_hidden": "注液器隐藏配方",
+  "jei.create_void.spout_hidden.farmland": "湿润度 +1（最高 7）",
+  "jei.create_void.spout_hidden.cauldron_water": "填充为水炼药锅",
+  "jei.create_void.spout_hidden.cauldron_lava": "填充为熔岩炼药锅",
+  "jei.create_void.spout_hidden.water_cauldron": "水位 +1（最高 3）",
 
   "item.create_void.iron_mechanism": "铁构件",
   "item.create_void.incomplete_brass_machine": "未完成的黄铜机械",

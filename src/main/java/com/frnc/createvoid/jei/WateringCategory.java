@@ -5,6 +5,7 @@ import com.simibubi.create.compat.jei.category.CreateRecipeCategory;
 import com.simibubi.create.content.processing.recipe.ProcessingOutput;
 import com.simibubi.create.foundation.gui.AllGuiTextures;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
+import mezz.jei.api.gui.builder.IRecipeSlotBuilder;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
@@ -44,10 +45,14 @@ public class WateringCategory extends CreateRecipeCategory<WateringRecipe> {
 
         // 输出槽 — 配方结果（位置 132, 51）
         ProcessingOutput output = recipe.getRollableResults().get(0);
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 132, 51)
+        IRecipeSlotBuilder outputSlot = builder.addSlot(RecipeIngredientRole.OUTPUT, 132, 51)
                 .setBackground(getRenderedSlot(output), -1, -1)
                 .addItemStack(output.getStack())
                 .addRichTooltipCallback(addStochasticTooltip(output));
+        // 隐藏配方（耕地湿润、炼药锅水位）输入输出是同一方块，用提示说明实际变化
+        if (recipe instanceof HiddenSpoutRecipe hidden && hidden.getNote() != null) {
+            outputSlot.addRichTooltipCallback((view, tooltip) -> tooltip.add(hidden.getNote()));
+        }
     }
 
     /**
