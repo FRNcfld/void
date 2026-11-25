@@ -1,6 +1,7 @@
 package com.frnc.createvoid.jei;
 
 import com.frnc.createvoid.CreateVoid;
+import com.frnc.createvoid.block.ModBlocks;
 import com.frnc.createvoid.wateringrecipes.RecipeTypes;
 import com.frnc.createvoid.wateringrecipes.WateringRecipe;
 import com.simibubi.create.AllBlocks;
@@ -131,6 +132,29 @@ public class CreateVoidJEI implements IModPlugin {
         if (spoutHiddenCategory != null) {
             spoutHiddenCategory.registerRecipes(registration);
         }
+
+        // JEI 的“信息”页：在 JEI 中对物品按 U 可查看详细机制说明。
+        // 全部使用完整键，便于 IDE 翻译检查与后续维护。
+        registration.addIngredientInfo(ModBlocks.ENTITY_MYRIAD.get(), info(
+                "jei.create_void.entity_myriad.info.1",
+                "jei.create_void.entity_myriad.info.2",
+                "jei.create_void.entity_myriad.info.3",
+                "jei.create_void.entity_myriad.info.4",
+                "jei.create_void.entity_myriad.info.5",
+                "jei.create_void.entity_myriad.info.6"));
+        registration.addIngredientInfo(ModBlocks.ENTITY_MYRIAD_SORTING.get(), info(
+                "jei.create_void.entity_myriad_sorting.info.1",
+                "jei.create_void.entity_myriad_sorting.info.2",
+                "jei.create_void.entity_myriad_sorting.info.3",
+                "jei.create_void.entity_myriad_sorting.info.4"));
+    }
+
+    private static Component[] info(String... keys) {
+        Component[] lines = new Component[keys.length];
+        for (int i = 0; i < keys.length; i++) {
+            lines[i] = Component.translatable(keys[i]);
+        }
+        return lines;
     }
 
     @Override

@@ -83,6 +83,36 @@ public class ModBlocks {
                     .noOcclusion()
                     .strength(0.5f, 3.0f)));
 
+    /**
+     * 实体万象：透明、无碰撞箱的 1×1 方块，可穿过、可主动吸取掉落物。
+     * <p>
+     * 属性对齐原版玻璃（{@code Blocks.GLASS}）的附加判定，
+     * 额外加了 {@code noCollission} 让玩家/实体直接穿过（参考精致玻璃的缥缈玻璃）。
+     * </p>
+     * <p>
+     * {@code forceSolidOn} 与原版告示牌同理：碰撞箱为空，但流体判定把它当作固体，
+     * 因此水/岩浆不会流进方块并把方块替换掉。
+     * </p>
+     */
+    public static final RegistryObject<Block> ENTITY_MYRIAD =
+            registerBlock("entity_myriad", ModBlocks::newEntityMyriad);
+
+    /**
+     * 实体万象-分选：与 {@link #ENTITY_MYRIAD} 完全一致（同属性、同方块实体类型、同存储网络），
+     * 预留后续分选逻辑。
+     */
+    public static final RegistryObject<Block> ENTITY_MYRIAD_SORTING =
+            registerBlock("entity_myriad_sorting", ModBlocks::newEntityMyriadSorting);
+
+    /**
+     * 未完成的实体万象-分选：序列装配的中间方块，拥有对应 BlockItem。
+     */
+    public static final RegistryObject<Block> INCOMPLETE_ENTITY_MYRIAD_SORTING =
+            registerBlock("incomplete_entity_myriad_sorting", () -> new Block(BlockBehaviour.Properties.of()
+                    .sound(SoundType.GLASS)
+                    .noOcclusion()
+                    .strength(0.3f)));
+
     // 流体方块（不需要 BlockItem，通过水桶放置）
     public static final RegistryObject<LiquidBlock> KELP_GEL_BLOCK =
             BLOCKS.register("kelp_gel", () -> new LiquidBlock(
@@ -94,6 +124,27 @@ public class ModBlocks {
                             .replaceable()
                             .sound(SoundType.EMPTY)
             ));
+
+    private static Block newEntityMyriad() {
+        return new EntityMyriadBlock(entityMyriadProperties());
+    }
+
+    private static Block newEntityMyriadSorting() {
+        return new EntityMyriadSortingBlock(entityMyriadProperties());
+    }
+
+    private static BlockBehaviour.Properties entityMyriadProperties() {
+        return BlockBehaviour.Properties.of()
+                .sound(SoundType.GLASS)
+                .noCollission()
+                .forceSolidOn()
+                .noOcclusion()
+                .strength(0.3f)
+                .isValidSpawn((state, level, pos, entityType) -> false)
+                .isRedstoneConductor((state, level, pos) -> false)
+                .isSuffocating((state, level, pos) -> false)
+                .isViewBlocking((state, level, pos) -> false);
+    }
 
     private static <T extends Block> void registerBlockItems(String name, RegistryObject<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));

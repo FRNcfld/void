@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "create_void:incomplete_entity_myriad_sorting"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

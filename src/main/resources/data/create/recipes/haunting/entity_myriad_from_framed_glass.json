@@ -1,0 +1,14 @@
+{
+  "type": "create:haunting",
+  "ingredients": [
+    {
+      "item": "create:framed_glass"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_void:entity_myriad",
+      "chance": 0.1
+    }
+  ]
+}

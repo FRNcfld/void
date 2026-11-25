@@ -16,6 +16,12 @@ public class ModBlockEntities {
             BLOCK_ENTITY_TYPES.register("crafter", () ->
                     BlockEntityType.Builder.of(CrafterBlockEntity::new, ModBlocks.CRAFTER.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<EntityMyriadBlockEntity>> ENTITY_MYRIAD =
+            BLOCK_ENTITY_TYPES.register("entity_myriad", () ->
+                    BlockEntityType.Builder.of(EntityMyriadBlockEntity::new,
+                            ModBlocks.ENTITY_MYRIAD.get(),
+                            ModBlocks.ENTITY_MYRIAD_SORTING.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITY_TYPES.register(eventBus);
     }

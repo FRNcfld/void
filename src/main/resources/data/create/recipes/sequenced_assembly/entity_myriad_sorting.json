@@ -1,0 +1,80 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create_void:entity_myriad"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "create_void:entity_myriad_sorting"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_void:incomplete_entity_myriad_sorting"
+        },
+        {
+          "item": "create:brass_sheet"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_void:incomplete_entity_myriad_sorting"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "create_void:incomplete_entity_myriad_sorting"
+        },
+        {
+          "amount": 250,
+          "fluid": "minecraft:lava",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "create_void:incomplete_entity_myriad_sorting"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_void:incomplete_entity_myriad_sorting"
+        },
+        {
+          "item": "create:sturdy_sheet"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_void:incomplete_entity_myriad_sorting"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "create_void:incomplete_entity_myriad_sorting"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_void:incomplete_entity_myriad_sorting"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "create_void:incomplete_entity_myriad_sorting"
+  }
+}

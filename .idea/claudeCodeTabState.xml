@@ -8,10 +8,10 @@
             <TabSessionState>
               <option name="projectPath" value="E:\GitHub Desktop\repository\create_void" />
               <option name="provider" value="claude" />
-              <option name="sessionId" value="64ebc42e-ea21-4332-af96-1e2de0ac3673" />
+              <option name="sessionId" value="320bdc22-aa0c-421e-8efb-abd7cfce537a" />
               <option name="cwd" value="E:\GitHub Desktop\repository\create_void" />
               <option name="model" value="deepseek-flash" />
-              <option name="permissionMode" value="acceptEdits" />
+              <option name="permissionMode" value="auto" />
             </TabSessionState>
           </value>
         </entry>
