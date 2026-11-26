@@ -24,6 +24,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.registries.ForgeRegistries;
 import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.api.registry.CreateBuiltInRegistries;
 import com.simibubi.create.content.logistics.filter.FilterItem;
@@ -48,12 +49,14 @@ import org.slf4j.Logger;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.WeakHashMap;
 import java.util.function.Function;
 
 /**
@@ -120,6 +123,12 @@ public class EntityMyriadBlockEntity extends SmartBlockEntity implements IHaveGo
     /** 网络周围风机的重新扫描间隔；风机气流本身每 30 tick 重建一次。 */
     private static final int FAN_SCAN_INTERVAL = 10;
 
+    /**
+     * 网络级风机扫描缓存：同一张网络只由 leader 扫描一次，其余方块读取结果。
+     * <p>仅服务端主线程访问；键使用 {@link WeakHashMap}，存档/维度卸载后可被回收。</p>
+     */
+    private static final Map<Level, Map<BlockPos, CachedFanScan>> FAN_SCAN_CACHE = new WeakHashMap<>();
+
     private static final String TAG_STORED = "Stored";
     private static final String TAG_ITEM = "Item";
     private static final String TAG_AMOUNT = "Amount";
@@ -174,6 +183,12 @@ public class EntityMyriadBlockEntity extends SmartBlockEntity implements IHaveGo
     /** 当前覆盖这张网络的每台风机各贡献一个类型；多台同类型就是多倍计时。 */
     private final List<FanProcessingType> affectingFanTypes = new ArrayList<>();
     private long nextFanScanTick;
+
+    /** 本方块所在网络的 canonical leader（最小且可 tick 的位置）；随扫描周期刷新。 */
+    @Nullable
+    private BlockPos networkLeaderPos;
+    /** 最近一次应用共享扫描结果的 tick，避免每 tick 重复复制列表。 */
+    private long appliedFanCacheTick = Long.MIN_VALUE;
 
     private LazyOptional<IItemHandler> itemHandler = LazyOptional.empty();
 
@@ -521,20 +536,106 @@ public class EntityMyriadBlockEntity extends SmartBlockEntity implements IHaveGo
      * 每台覆盖这张网络的鼓风机各推进一次所有并行槽位。
      * <p>规则：只要某道气流扫到网络里任意一个 A，整张网络都被这道气流视为扫到；
      * 一台风机只计一次，多台风机才是多倍速度。</p>
+     * <p>世界扫描由网络内“最小且可 tick 位置”的方块（leader）统一执行一次，
+     * 结果放入共享缓存供同网络其他方块读取，避免每个 A 都重复扫描周围的区块。</p>
      */
     private void tickFanProcessing() {
         if (level == null || level.isClientSide) {
             return;
         }
         long now = level.getGameTime();
+
+        // 非 leader 每 tick 读取 leader 的扫描结果；同一份结果只复制一次。
+        if (networkLeaderPos != null && !networkLeaderPos.equals(worldPosition)) {
+            CachedFanScan cached = getCachedFanScan(networkLeaderPos, now);
+            if (cached != null) {
+                applyCachedFanScan(cached);
+            }
+        }
+
         if (now >= nextFanScanTick) {
             nextFanScanTick = now + FAN_SCAN_INTERVAL;
-            affectingFanTypes.clear();
-            scanAffectingFans(collectNetwork(), affectingFanTypes);
+            List<EntityMyriadBlockEntity> network = collectNetwork();
+            BlockPos leader = findNetworkLeader(network);
+            if (leader == null) {
+                // 当前方块正在 tick，网络中至少应有自己；仅作防御
+                leader = worldPosition;
+            }
+            if (!leader.equals(networkLeaderPos)) {
+                networkLeaderPos = leader;
+                appliedFanCacheTick = Long.MIN_VALUE;
+            }
+            if (leader.equals(worldPosition)) {
+                // 整张网络只由 leader 执行一次世界扫描
+                affectingFanTypes.clear();
+                scanAffectingFans(network, affectingFanTypes);
+                putCachedFanScan(leader, now);
+            } else {
+                CachedFanScan cached = getCachedFanScan(leader, now);
+                if (cached != null) {
+                    applyCachedFanScan(cached);
+                }
+                // leader 尚未完成本轮扫描时保留上一轮结果，避免网络短暂停摆
+            }
         }
+
         for (FanProcessingType type : affectingFanTypes) {
             advanceFanProcessing(type);
         }
+    }
+
+    /** 选择网络 leader：位置最小、且所在区块可以 tick 的成员。 */
+    @Nullable
+    private BlockPos findNetworkLeader(List<EntityMyriadBlockEntity> network) {
+        BlockPos leader = null;
+        for (EntityMyriadBlockEntity be : network) {
+            BlockPos pos = be.getBlockPos();
+            if (!level.shouldTickBlocksAt(pos)) {
+                continue;
+            }
+            if (leader == null || pos.compareTo(leader) < 0) {
+                leader = pos;
+            }
+        }
+        return leader;
+    }
+
+    /** 读取 leader 的扫描结果；超过两个扫描周期视为过期。 */
+    @Nullable
+    private CachedFanScan getCachedFanScan(BlockPos leader, long now) {
+        if (level == null || level.isClientSide) {
+            return null;
+        }
+        Map<BlockPos, CachedFanScan> cache = FAN_SCAN_CACHE.get(level);
+        if (cache == null) {
+            return null;
+        }
+        CachedFanScan cached = cache.get(leader);
+        if (cached == null || now - cached.tick > FAN_SCAN_INTERVAL * 2L) {
+            return null;
+        }
+        return cached;
+    }
+
+    /** leader 写入本轮扫描结果，并顺手清理长期没有刷新的网络条目。 */
+    private void putCachedFanScan(BlockPos leader, long now) {
+        if (level == null || level.isClientSide) {
+            return;
+        }
+        Map<BlockPos, CachedFanScan> cache =
+                FAN_SCAN_CACHE.computeIfAbsent(level, key -> new HashMap<>());
+        cache.put(leader, new CachedFanScan(now, affectingFanTypes));
+        cache.entrySet().removeIf(entry -> now - entry.getValue().tick > FAN_SCAN_INTERVAL * 4L);
+    }
+
+    /** 非 leader 应用共享结果；扫描 tick 未变化时不重复复制。 */
+    private void applyCachedFanScan(CachedFanScan cached) {
+        if (cached.tick == appliedFanCacheTick) {
+            return;
+        }
+        appliedFanCacheTick = cached.tick;
+        affectingFanTypes.clear();
+        affectingFanTypes.addAll(cached.types);
     }
 
     private void advanceFanProcessing(FanProcessingType type) {
@@ -1161,21 +1262,34 @@ public class EntityMyriadBlockEntity extends SmartBlockEntity implements IHaveGo
      * 槽位按“物品 + NBT”跨方块合并，加工占位（{@link Bucket#reserved}）不参与抽取；
      * 插入仍遵守“一个方块一种 ID”，自动寻找同 ID 方块或网络里的空方块。
      * </p>
+     * <p>
+     * <b>槽位数必须包含空方块容量。</b>很多管道（包括 Forge 的
+     * {@code ItemHandlerHelper.insertItemStacked}）会先遍历现有槽位找同种物品，
+     * 再遍历空槽；如果槽位数只报“已存物品数”，网络里明明还有空方块，新物品也进不来。
+     * </p>
+     * <p>
+     * 槽位按“物品 ID + NBT”稳定排序；正在加工、暂时不可抽取的桶仍然占着原槽位
+     * （{@code getStackInSlot} 返回空），因此预留状态变化不会让后面的槽位整体错位。
+     * </p>
      */
     private IItemHandler createItemHandler() {
         return new IItemHandler() {
             @Override
             public int getSlots() {
-                return Math.max(1, buildNetworkSlots().size());
+                return buildNetworkView().capacity();
             }
 
             @Override
             public ItemStack getStackInSlot(int slot) {
-                List<NetworkSlot> slots = buildNetworkSlots();
-                if (slot < 0 || slot >= slots.size()) {
+                NetworkView view = buildNetworkView();
+                if (slot < 0 || slot >= view.slots.size()) {
                     return ItemStack.EMPTY;
                 }
-                NetworkSlot networkSlot = slots.get(slot);
+                NetworkSlot networkSlot = view.slots.get(slot);
+                if (networkSlot.amount <= 0) {
+                    // 该物品的桶正被加工占用；保留槽位以稳定索引，但对外表现为空
+                    return ItemStack.EMPTY;
+                }
                 return networkSlot.template.copyWithCount(
                         (int) Math.min(networkSlot.amount, Integer.MAX_VALUE));
             }
@@ -1194,11 +1308,11 @@ public class EntityMyriadBlockEntity extends SmartBlockEntity implements IHaveGo
 
             @Override
             public ItemStack extractItem(int slot, int amount, boolean simulate) {
-                List<NetworkSlot> slots = buildNetworkSlots();
-                if (slot < 0 || slot >= slots.size() || amount <= 0) {
+                NetworkView view = buildNetworkView();
+                if (slot < 0 || slot >= view.slots.size() || amount <= 0) {
                     return ItemStack.EMPTY;
                 }
-                return extractFromNetwork(slots.get(slot).template, amount, simulate);
+                return extractFromNetwork(view.slots.get(slot).template, amount, simulate);
             }
 
             @Override
@@ -1214,15 +1328,24 @@ public class EntityMyriadBlockEntity extends SmartBlockEntity implements IHaveGo
         };
     }
 
-    /** 汇总整张网络里可抽取的桶（同一物品 + NBT 跨方块合并，排除加工占位）。 */
-    private List<NetworkSlot> buildNetworkSlots() {
+    /**
+     * 汇总整张网络里的桶（同一物品 + NBT 跨方块合并），并统计还能容纳新 ID 的空方块数量。
+     * <p>
+     * 注意：这里**不跳过**加工占位中的桶——它们仍占用自己的槽位（数量报 0），
+     * 这样预留状态变化不会改变槽位顺序。排序键为“物品 ID + NBT”，
+     * 与查询的是网络里哪个方块无关，所有 handler 看到的槽位顺序一致。
+     * </p>
+     */
+    private NetworkView buildNetworkView() {
         List<NetworkSlot> slots = new ArrayList<>();
+        int emptyBlocks = 0;
         for (EntityMyriadBlockEntity owner : collectNetwork()) {
+            if (owner.buckets.isEmpty()) {
+                emptyBlocks++;
+                continue;
+            }
             for (Bucket bucket : owner.buckets) {
                 long available = availableIn(bucket);
-                if (available <= 0) {
-                    continue;
-                }
                 NetworkSlot merged = null;
                 for (NetworkSlot slot : slots) {
                     if (ItemStack.isSameItemSameTags(slot.template, bucket.template)) {
@@ -1231,13 +1354,14 @@ public class EntityMyriadBlockEntity extends SmartBlockEntity implements IHaveGo
                     }
                 }
                 if (merged == null) {
-                    slots.add(new NetworkSlot(bucket.template.copy(), available));
+                    slots.add(new NetworkSlot(bucket.template.copy(), available, bucket.sortKey));
                 } else {
                     merged.amount += available;
                 }
             }
         }
-        return slots;
+        slots.sort(null);
+        return new NetworkView(slots, emptyBlocks);
     }
 
     /** 从整张网络抽取指定物品；只动可抽取部分，加工占位不会被动到。 */
@@ -1282,32 +1406,82 @@ public class EntityMyriadBlockEntity extends SmartBlockEntity implements IHaveGo
 
     // ==================== 内部结构 ====================
 
+    /** 一次网络级风机扫描的共享结果。 */
+    private static final class CachedFanScan {
+        private final long tick;
+        private final List<FanProcessingType> types;
+
+        private CachedFanScan(long tick, List<FanProcessingType> types) {
+            this.tick = tick;
+            this.types = List.copyOf(types);
+        }
+    }
+
     /**
      * 一个 NBT 桶：同一种物品 ID、同一份 NBT。
      * {@link #template} 恒为数量 1，只用来保存物品与 NBT；真实数量在 {@link #amount}。
      */
     private static final class Bucket {
         private final ItemStack template;
+        /** 稳定排序键：物品注册 ID + NBT 文本；创建时计算一次。 */
+        private final String sortKey;
         private long amount;
         /** 被所有并行加工槽位占用的数量；不持久化，重载后自动归零。 */
         private long reserved;
-        /** 其中由机器加工产出的数量（属于 {@link #amount}），不会再被机器选中加工。 */
+        /** 其中由机器加工产出的数量（属于 {@link #amount}），不会被机器选中加工。 */
         private long protectedAmount;
 
         private Bucket(ItemStack template, long amount) {
             this.template = template;
             this.amount = amount;
+            ResourceLocation itemKey = ForgeRegistries.ITEMS.getKey(template.getItem());
+            CompoundTag tag = template.getTag();
+            this.sortKey = String.valueOf(itemKey) + "|" + (tag == null ? "" : tag.toString());
+        }
+    }
+
+    /** 一次网络视图：可抽取槽位 + 空方块数量（空方块是容纳新物品 ID 的容量）。 */
+    private static final class NetworkView {
+        private final List<NetworkSlot> slots;
+        private final int emptyBlocks;
+
+        private NetworkView(List<NetworkSlot> slots, int emptyBlocks) {
+            this.slots = slots;
+            this.emptyBlocks = emptyBlocks;
+        }
+
+        /**
+         * 真实容量：已有“物品 + NBT”槽位 + 仍可存放新 ID 的空方块。
+         * <p>网络没有空方块时再多保留一个入口槽，让
+         * {@code ItemHandlerHelper.insertItemStacked} 仍会调用 insertItem——
+         * 这样它能尝试并回同 ID 的桶（包括正在加工、暂时不可抽取的桶），
+         * 或者在确实装满时干净地拒绝，而不是直接跳过整个 handler。</p>
+         */
+        private int capacity() {
+            int capacity = slots.size() + emptyBlocks;
+            if (emptyBlocks == 0) {
+                capacity++;
+            }
+            return Math.max(1, capacity);
         }
     }
 
     /** IItemHandler 对外暴露的合并槽位：同一物品 + NBT 跨方块累加。 */
-    private static final class NetworkSlot {
+    private static final class NetworkSlot implements Comparable<NetworkSlot> {
         private final ItemStack template;
         private long amount;
+        /** 与 {@link Bucket#sortKey} 一致；相同时即同一物品 + NBT。 */
+        private final String sortKey;
 
-        private NetworkSlot(ItemStack template, long amount) {
+        private NetworkSlot(ItemStack template, long amount, String sortKey) {
             this.template = template;
             this.amount = amount;
+            this.sortKey = sortKey;
+        }
+
+        @Override
+        public int compareTo(NetworkSlot other) {
+            return sortKey.compareTo(other.sortKey);
         }
     }
 
