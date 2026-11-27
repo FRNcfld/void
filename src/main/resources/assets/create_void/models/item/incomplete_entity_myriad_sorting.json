@@ -1,3 +1,6 @@
 {
-  "parent": "create_void:block/incomplete_entity_myriad_sorting"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "create_void:item/incomplete_entity_myriad_sorting"
+  }
 }

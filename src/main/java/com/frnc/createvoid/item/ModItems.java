@@ -20,6 +20,9 @@ public class ModItems {
     public static final RegistryObject<Item> INCOMPLETE_BRASS_MACHINE =
             ITEMS.register("incomplete_brass_machine", ()->new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> INCOMPLETE_ENTITY_MYRIAD_SORTING =
+            ITEMS.register("incomplete_entity_myriad_sorting", ()->new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> KELP_GEL_BUCKET =
             ITEMS.register("kelp_gel_bucket", () -> new BucketItem(
                     ModFluids.KELP_GEL,

@@ -10,7 +10,7 @@
 
   "item.create_void.iron_mechanism": "铁构件",
   "item.create_void.incomplete_brass_machine": "未完成的黄铜机械",
-  "block.create_void.incomplete_entity_myriad_sorting": "未完成的实体万象-分选",
+  "item.create_void.incomplete_entity_myriad_sorting": "未完成的实体万象-分选",
   "block.create_void.andesite_machine": "安山机械",
   "block.create_void.copper_machine": "铜机械",
   "block.create_void.brass_machine": "黄铜机械",

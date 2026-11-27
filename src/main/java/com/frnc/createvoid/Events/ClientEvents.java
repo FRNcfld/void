@@ -64,7 +64,6 @@ public class ClientEvents {
             // 实体万象（含分选变体）使用自己的 cutout 连接玻璃
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.ENTITY_MYRIAD.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.ENTITY_MYRIAD_SORTING.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.INCOMPLETE_ENTITY_MYRIAD_SORTING.get(), RenderType.cutout());
             // 注册 Crafter 界面
             MenuScreens.register(ModMenuTypes.CRAFTER_3X3.get(), CrafterScreen::new);
 

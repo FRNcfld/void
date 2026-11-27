@@ -21,7 +21,7 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.IRON_MECHANISM.get());
                         output.accept(ModItems.INCOMPLETE_BRASS_MACHINE.get());
-                        output.accept(ModBlocks.INCOMPLETE_ENTITY_MYRIAD_SORTING.get());
+                        output.accept(ModItems.INCOMPLETE_ENTITY_MYRIAD_SORTING.get());
                         output.accept(ModBlocks.ANDESITE_MACHINE.get());
                         output.accept(ModBlocks.COPPER_MACHINE.get());
                         output.accept(ModBlocks.BRASS_MACHINE.get());

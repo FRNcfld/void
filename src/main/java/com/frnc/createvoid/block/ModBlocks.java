@@ -104,15 +104,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> ENTITY_MYRIAD_SORTING =
             registerBlock("entity_myriad_sorting", ModBlocks::newEntityMyriadSorting);
 
-    /**
-     * 未完成的实体万象-分选：序列装配的中间方块，拥有对应 BlockItem。
-     */
-    public static final RegistryObject<Block> INCOMPLETE_ENTITY_MYRIAD_SORTING =
-            registerBlock("incomplete_entity_myriad_sorting", () -> new Block(BlockBehaviour.Properties.of()
-                    .sound(SoundType.GLASS)
-                    .noOcclusion()
-                    .strength(0.3f)));
-
     // 流体方块（不需要 BlockItem，通过水桶放置）
     public static final RegistryObject<LiquidBlock> KELP_GEL_BLOCK =
             BLOCKS.register("kelp_gel", () -> new LiquidBlock(

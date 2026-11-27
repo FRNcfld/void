@@ -373,7 +373,8 @@ public class CrafterBlockEntity extends BlockEntity implements Container, MenuPr
                         remaining = handler.insertItem(s, remaining, false);
                     }
                 }
-                cap.invalidate();
+                // 注意：cap 是目标方块自己的能力，不能在这里 invalidate()；
+                // 否则会让目标容器的能力缓存失效，直到区块重载前其他自动化都读不到它。
             }
             // 2) 其次原版 Container
             if (!remaining.isEmpty() && neighbor instanceof Container container) {
